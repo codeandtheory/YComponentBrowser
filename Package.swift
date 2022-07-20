@@ -6,14 +6,15 @@ import PackageDescription
 let package = Package(
     name: "YCatalogViewer",
     platforms: [
-        //The minimum version for platforms supported by the package.
+        // The minimum version for platforms supported by the package.
         .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "YCatalogViewer",
-            targets: ["YCatalogViewer"]),
+            targets: ["YCatalogViewer"]
+        )
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -24,9 +25,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "YCatalogViewer",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "YCatalogViewerTests",
-            dependencies: ["YCatalogViewer"]),
+            dependencies: ["YCatalogViewer"]
+        )
     ]
 )
