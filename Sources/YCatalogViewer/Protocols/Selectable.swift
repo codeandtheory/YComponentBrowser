@@ -6,6 +6,9 @@
 
 import Foundation
 
-@objc public protocol Selectable {
-    @objc optional func setSelected(_ isSelected: Bool)
+/// protocol for selectable view
+public protocol Selectable {
+    ///  method to set isSelected for the given view
+    /// - Parameter isSelected: Bool indicating if view is selected
+    func setSelected(_ isSelected: Bool)
 }
