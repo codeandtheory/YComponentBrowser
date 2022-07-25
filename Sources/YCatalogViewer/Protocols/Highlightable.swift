@@ -6,6 +6,9 @@
 
 import Foundation
 
-@objc public protocol Highlightable {
-     @objc optional func setHighlighted(_ isHighlighted: Bool)
+/// protocol for highlightable view
+public protocol Highlightable {
+    ///  method to set highlighted for the given view
+    /// - Parameter isHighlighted: bool indicating if view is highlighted
+    func setHighlighted(_ isHighlighted: Bool)
 }

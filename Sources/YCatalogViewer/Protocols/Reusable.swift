@@ -6,6 +6,8 @@
 
 import Foundation
 
+/// protocol for reusable view
 public protocol Reusable {
+    /// method to perform clean up for reuse
     func prepareForReuse()
 }
