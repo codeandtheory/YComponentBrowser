@@ -6,12 +6,12 @@
 
 import Foundation
 
-/// protocol to set default id for the given view
+/// protocol to set default id for the given UI component
 public protocol Identifiable {
     static var identifier: String { get }
 }
 
-/// protocol to set default id for the given view
+/// protocol to set default id for the given UI component
 public extension Identifiable {
     static var identifier: String { return "\(self)"}
 }

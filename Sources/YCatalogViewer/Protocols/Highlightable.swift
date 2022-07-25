@@ -6,9 +6,9 @@
 
 import Foundation
 
-/// protocol for highlightable view
+/// Represents anything that can be highlighted
 public protocol Highlightable {
-    ///  method to set highlighted for the given view
-    /// - Parameter isHighlighted: bool indicating if view is highlighted
+    ///  method to set highlighted for the given UI component
+    /// - Parameter isHighlighted: bool indicating if UI component is highlighted
     func setHighlighted(_ isHighlighted: Bool)
 }
