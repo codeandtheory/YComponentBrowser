@@ -6,11 +6,11 @@
 
 import Foundation
 
-///  protocol for populating view with data
+/// Represents anything that can be populated 
 public protocol Populatable {
     associatedtype Model
     
-/// method to populate view data passed in the Model
+/// used to populate UI component data passed in the Model
 /// - Parameter model: Model
     func populate(with model: Model)
 }

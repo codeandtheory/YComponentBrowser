@@ -6,9 +6,9 @@
 
 import Foundation
 
-/// protocol for selectable view
+/// Represents anything that can be selected
 public protocol Selectable {
-    ///  method to set isSelected for the given view
-    /// - Parameter isSelected: Bool indicating if view is selected
+    ///  used to set isSelected for the given UI component
+    /// - Parameter isSelected: Bool indicating if UI component is selected
     func setSelected(_ isSelected: Bool)
 }
