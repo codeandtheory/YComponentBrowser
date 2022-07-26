@@ -6,7 +6,7 @@
 
 import Foundation
 
-/// Represents anything that can be populated 
+/// Represents anything that can be populated
 public protocol Populatable {
     associatedtype Model
     

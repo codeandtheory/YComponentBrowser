@@ -6,12 +6,12 @@
 
 import Foundation
 
-/// protocol to set default id for the given UI component
+/// represents a way to identify an object
 public protocol Identifiable {
     static var identifier: String { get }
 }
 
-/// protocol to set default id for the given UI component
+/// represents a way to identify an object
 public extension Identifiable {
     static var identifier: String { return "\(self)"}
 }
