@@ -7,7 +7,7 @@
 import XCTest
 @testable import YCatalogViewer
 
-class IdentifiableProtocolTest: XCTestCase {
+final class IdentifiableProtocolTest: XCTestCase {
     func testForIdentifiableValues() throws {
         XCTAssertEqual(MockTestClass.identifier, "MockTestClass")
     }
