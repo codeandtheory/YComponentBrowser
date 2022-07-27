@@ -11,7 +11,7 @@ public protocol Identifiable {
     static var identifier: String { get }
 }
 
-/// represents a way to identify an object
+/// default implementation that returns the object type as the identifier
 public extension Identifiable {
     static var identifier: String { return "\(self)"}
 }
