@@ -5,13 +5,17 @@
 //
 
 import UIKit
-    typealias ImageView = UIImageView & Populatable & Reusable
-class IconographyView<View: ImageView>: UIView {
-    var imageView: View = View()
+class IconographyView: UIImageView, Populatable, Reusable {
+    typealias Model = IconographyDataModel
+    var uiConstants = IconographyViewConstants()
     func prepareForReuse() {
+        self.image = nil
     }
     
-    func populate(with model: View.Model) {
+    ///  not able to populate the data since data model is not available
+    func populate(with model: Model) {
+        // self.image = model.image
+        
     }
     
     override init(frame: CGRect) {
@@ -20,19 +24,22 @@ class IconographyView<View: ImageView>: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
     
     func setUpIconographyView() {
-        self.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        self.heightAnchor.constraint(equalToConstant: 60).isActive = true
-        self.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            imageView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            self.widthAnchor.constraint(equalToConstant: uiConstants.width),
+            self.heightAnchor.constraint(equalToConstant: uiConstants.height)
         ])
     }
+}
+
+struct IconographyDataModel {
+    var image: UIImage?
+}
+
+struct IconographyViewConstants {
+    var width: CGFloat = 60
+    var height: CGFloat = 60
 }
