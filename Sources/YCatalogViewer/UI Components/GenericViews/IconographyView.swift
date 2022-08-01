@@ -6,16 +6,14 @@
 
 import UIKit
 class IconographyView: UIImageView, Populatable, Reusable {
-    typealias Model = IconographyDataModel
+    typealias Model = UIImage
     var uiConstants = IconographyViewConstants()
     func prepareForReuse() {
         self.image = nil
     }
     
-    ///  not able to populate the data since data model is not available
     func populate(with model: Model) {
-        // self.image = model.image
-        
+        self.image = model
     }
     
     override init(frame: CGRect) {
@@ -33,10 +31,6 @@ class IconographyView: UIImageView, Populatable, Reusable {
             self.heightAnchor.constraint(equalToConstant: uiConstants.height)
         ])
     }
-}
-
-struct IconographyDataModel {
-    var image: UIImage?
 }
 
 struct IconographyViewConstants {
