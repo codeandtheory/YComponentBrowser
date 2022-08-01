@@ -5,12 +5,13 @@
 //
 
 import UIKit
-/// represents  view that conforms to Reusable and Populatable
+
+/// A `Reusable` and `Populatable` view
 public typealias ContentView = UIView & Reusable & Populatable
 
-///  Represents UITableViewCell which will contain View that conforms UIView, Populatable, Reusable
+/// A table view cell that can display any `Populatable` and `Reusable` view
 public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifiable {
-    /// alias for View.Model
+    /// The type of data that can be populated
     public typealias Model = View.Model
     /// represents view of type ContentView
     public var displayedView: View = View()
@@ -24,26 +25,20 @@ public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifia
         initialDisplayView()
     }
     
-    /// used to  Deserialize the cell
+    /// :nodoc:
     public required init?(coder: NSCoder) {
         return nil
     }
     
-    /// used to set highlighted state of the cell
-    /// - Parameters:
-    ///   - highlighted: Bool indicating if highlighted or not
-    ///   - animated: Bool indicating if animation is needed
+    /// :nodoc:
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
-        if let higlightable = displayedView as? Highlightable {
-            higlightable.setHighlighted(highlighted)
+        if let highlightable = displayedView as? Highlightable {
+            highlightable.setHighlighted(highlighted)
         }
     }
     
-    /// used to set state of cell as selected
-    /// - Parameters:
-    ///   - selected: Bool indicating if selected or not
-    ///   - animated: Bool indicating if animation is needed
+    /// :nodoc:
     public override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if let selectable = displayedView as? Selectable {
@@ -51,14 +46,14 @@ public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifia
         }
     }
     
-    /// used to perform clean up before reuse
+    /// :nodoc:
     public override func prepareForReuse() {
         super.prepareForReuse()
         displayedView.prepareForReuse()
     }
     
-    ///  used to populate cell with data
-    /// - Parameter model: cellModel
+    /// used to populate UI component data passed in the Model
+    /// - Parameter model: Model
     public func populate(with model: Model) {
          displayedView.populate(with: model)
     }
