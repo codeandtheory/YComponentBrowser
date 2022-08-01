@@ -6,9 +6,6 @@
 
 import UIKit
 
-/// A `Reusable` and `Populatable` view
-public typealias ContentView = UIView & Reusable & Populatable
-
 /// A table view cell that can display any `Populatable` and `Reusable` view
 public final class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifiable {
     /// The type of data that can be populated
