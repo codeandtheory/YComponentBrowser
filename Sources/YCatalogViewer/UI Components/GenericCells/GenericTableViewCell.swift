@@ -8,7 +8,7 @@ import UIKit
 /// represents  view that conforms to Reusable and Populatable
 public typealias ContentView = UIView & Reusable & Populatable
 
-///  Represents UITableViewCell which will contain View that conforms UIView, Populatble, Reusable
+///  Represents UITableViewCell which will contain View that conforms UIView, Populatable, Reusable
 public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifiable {
     /// alias for View.Model
     public typealias Model = View.Model
@@ -26,7 +26,7 @@ public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifia
     
     /// used to  Deserialize the cell
     public required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        return nil
     }
     
     /// used to set highlighted state of the cell

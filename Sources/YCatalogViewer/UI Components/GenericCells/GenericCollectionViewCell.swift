@@ -12,7 +12,7 @@ public class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell,
     /// represents view of type ContentView
     public var displayedView: View = View()
     
-    /// property indicating if cell is selcted
+    /// property indicating if cell is selected
     public override var isSelected: Bool {
         didSet {
             if let selectable = displayedView as? Selectable {
@@ -23,12 +23,9 @@ public class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell,
     
     /// property indicating if cell is highlighted
     public override var isHighlighted: Bool {
-        get {
-            return self.isHighlighted
-        }
-        set {
-            if let selectable = displayedView as? Highlightable {
-                selectable.setHighlighted(newValue)
+        didSet {
+            if let highlightable = displayedView as? Highlightable {
+                highlightable.setHighlighted(isHighlighted)
             }
         }
     }
@@ -42,7 +39,7 @@ public class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell,
     
     /// used to  Deserialize the cell
     public required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        return nil
     }
     
     /// method used to perform clean up before reuse
