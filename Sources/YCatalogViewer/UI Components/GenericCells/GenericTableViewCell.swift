@@ -10,16 +10,16 @@ import UIKit
 public typealias ContentView = UIView & Reusable & Populatable
 
 /// A table view cell that can display any `Populatable` and `Reusable` view
-public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifiable {
+public final class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifiable {
     /// The type of data that can be populated
     public typealias Model = View.Model
-    /// represents view of type ContentView
+    /// Represents view of type ContentView
     public var displayedView: View = View()
     
-    ///  used to initialize the cell
+    ///  Used to initialize the cell
     /// - Parameters:
-    ///   - style: constant indicating cell style
-    ///   - reuseIdentifier: identifier to specify which cell
+    ///   - style: Constant indicating cell style
+    ///   - reuseIdentifier: Identifier to specify which cell
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialDisplayView()
@@ -52,7 +52,7 @@ public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifia
         displayedView.prepareForReuse()
     }
     
-    /// used to populate UI component data passed in the Model
+    /// Used to populate UI component data passed in the Model
     /// - Parameter model: Model
     public func populate(with model: Model) {
          displayedView.populate(with: model)
@@ -60,7 +60,7 @@ public class GenericTableViewCell<View: ContentView>: UITableViewCell, Identifia
 }
 
 private extension GenericTableViewCell {
-    /// to set up displayview
+    /// To set up displayview
     func initialDisplayView() {
         contentView.addSubview(displayedView)
         displayedView.translatesAutoresizingMaskIntoConstraints = false
