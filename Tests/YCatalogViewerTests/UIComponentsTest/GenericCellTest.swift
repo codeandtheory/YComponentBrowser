@@ -8,8 +8,11 @@ import XCTest
 @testable import YCatalogViewer
 
 final class GenericCellTest: XCTestCase {
-    var cell = GenericTableViewCell<DemoView>()
+     func setUp() ->GenericTableViewCell<DemoView> {
+        return GenericTableViewCell<DemoView>()
+    }
     func testGenericTableViewCellForPopulatble() throws {
+        let cell: GenericTableViewCell<DemoView> = setUp()
         XCTAssertEqual(cell.displayedView.isPopulated, false)
         let model = DemoModel()
         cell.populate(with: model)
@@ -17,6 +20,7 @@ final class GenericCellTest: XCTestCase {
     }
     
     func testGenericTableViewCellForReusable() throws {
+        let cell: GenericTableViewCell<DemoView> = setUp()
         XCTAssertEqual(cell.displayedView.isPrepared, false)
         cell.prepareForReuse()
         XCTAssertEqual(cell.displayedView.isPrepared, true)

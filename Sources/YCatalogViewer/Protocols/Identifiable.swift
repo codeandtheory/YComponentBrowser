@@ -6,13 +6,13 @@
 
 import Foundation
 
-/// represents a way to identify an object
+/// Represents a way to identify an object
 public protocol Identifiable {
     /// Unique identifier for the type of object
     static var identifier: String { get }
 }
 
-/// default implementation that returns the object type as the identifier
+/// Default implementation that returns the object type as the identifier
 public extension Identifiable {
     /// Unique identifier for the type of object
     static var identifier: String { return "\(self)"}

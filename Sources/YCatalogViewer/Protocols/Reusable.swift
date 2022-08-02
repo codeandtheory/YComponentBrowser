@@ -8,6 +8,6 @@ import Foundation
 
 /// Represents anything that can be Reused
 public protocol Reusable {
-    /// used to perform clean up for reuse
+    /// Used to perform clean up for reuse
     func prepareForReuse()
 }

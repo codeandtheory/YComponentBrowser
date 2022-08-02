@@ -7,13 +7,13 @@
 import UIKit
 
 /// A collection view cell that can display any `Populatable` and `Reusable` view
-public class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell, Identifiable {
+public final class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell, Identifiable {
     /// The type of data that can be populated
     public typealias Model = View.Model
-    /// represents view of type ContentView
+    /// Represents view of type ContentView
     public var displayedView: View = View()
     
-    /// property indicating if cell is selected
+    /// Property indicating if cell is selected
     public override var isSelected: Bool {
         didSet {
             if let selectable = displayedView as? Selectable {
@@ -22,7 +22,7 @@ public class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell,
         }
     }
     
-    /// property indicating if cell is highlighted
+    /// Property indicating if cell is highlighted
     public override var isHighlighted: Bool {
         didSet {
             if let highlightable = displayedView as? Highlightable {
@@ -47,7 +47,7 @@ public class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell,
         displayedView.prepareForReuse()
     }
     
-    /// used to populate UI component data passed in the Model
+    /// Used to populate UI component data passed in the Model
     /// - Parameter model: Model
     public func populate(with model: Model) {
          displayedView.populate(with: model)

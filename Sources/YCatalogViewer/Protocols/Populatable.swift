@@ -11,7 +11,7 @@ public protocol Populatable {
     /// The type of data that can be populated
     associatedtype Model
     
-/// used to populate UI component data passed in the Model
+/// Used to populate UI component data passed in the Model
 /// - Parameter model: Model
     func populate(with model: Model)
 }
