@@ -5,7 +5,7 @@
 //
 
 import UIKit
-class IconographyView: UIImageView, Populatable, Reusable {
+final class IconographyView: UIImageView, Populatable, Reusable {
     typealias Model = UIImage
     var uiConstants = IconographyViewConstants()
     func prepareForReuse() {
