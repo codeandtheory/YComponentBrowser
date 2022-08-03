@@ -8,22 +8,28 @@ import XCTest
 @testable import YCatalogViewer
 
 final class GenericCellTest: XCTestCase {
-     func setUp() ->GenericTableViewCell<DemoView> {
-        return GenericTableViewCell<DemoView>()
+    var cell: GenericTableViewCell<DemoView>?
+    override func setUp()  {
+        super.setUp()
+        
+        cell = GenericTableViewCell<DemoView>()
+    }
+    override func tearDown()  {
+        cell = nil
+        
+        super.tearDown()
     }
     func testGenericTableViewCellForPopulatble() throws {
-        let cell: GenericTableViewCell<DemoView> = setUp()
-        XCTAssertEqual(cell.displayedView.isPopulated, false)
+        XCTAssertEqual(cell?.displayedView.isPopulated, false)
         let model = DemoModel()
-        cell.populate(with: model)
-        XCTAssertEqual(cell.displayedView.isPopulated, true)
+        cell?.populate(with: model)
+        XCTAssertEqual(cell?.displayedView.isPopulated, true)
     }
     
     func testGenericTableViewCellForReusable() throws {
-        let cell: GenericTableViewCell<DemoView> = setUp()
-        XCTAssertEqual(cell.displayedView.isPrepared, false)
-        cell.prepareForReuse()
-        XCTAssertEqual(cell.displayedView.isPrepared, true)
+        XCTAssertEqual(cell?.displayedView.isPrepared, false)
+        cell?.prepareForReuse()
+        XCTAssertEqual(cell?.displayedView.isPrepared, true)
     }
     
     func testGenericTableViewCellForNSCoder() throws {
@@ -34,16 +40,16 @@ final class GenericCellTest: XCTestCase {
 
 final class DemoView: UIView, Reusable, Identifiable, Populatable {
     typealias Model = DemoModel
-
+    
     var isPrepared = false
     var isPopulated = false
-
+    
     func prepareForReuse() {
-         isPrepared = true
-     }
-
+        isPrepared = true
+    }
+    
     func populate(with model: Model) {
-         isPopulated = true
+        isPopulated = true
     }
 }
 
