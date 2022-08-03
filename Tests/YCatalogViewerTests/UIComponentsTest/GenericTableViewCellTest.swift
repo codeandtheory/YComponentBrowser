@@ -7,42 +7,58 @@
 import XCTest
 @testable import YCatalogViewer
 
-final class GenericCellTest: XCTestCase {
+final class GenericTableViewCellTest: XCTestCase {
     var cell: GenericTableViewCell<DemoView>?
     override func setUp() {
         super.setUp()
         
         cell = GenericTableViewCell<DemoView>()
     }
+    
     override func tearDown() {
         cell = nil
         
         super.tearDown()
     }
-    func testGenericTableViewCellForPopulatble() throws {
+    
+    func testPopulatble() throws {
         XCTAssertEqual(cell?.displayedView.isPopulated, false)
         let model = DemoModel()
         cell?.populate(with: model)
         XCTAssertEqual(cell?.displayedView.isPopulated, true)
     }
     
-    func testGenericTableViewCellForReusable() throws {
+    func testReusable() throws {
         XCTAssertEqual(cell?.displayedView.isPrepared, false)
         cell?.prepareForReuse()
         XCTAssertEqual(cell?.displayedView.isPrepared, true)
     }
     
-    func testGenericTableViewCellForNSCoder() throws {
+    func testNSCoder() throws {
         let secondcell = GenericTableViewCell<DemoView>(coder: NSCoder())
         XCTAssertNil(secondcell)
     }
+    
+    func testHighlightable() throws {
+        XCTAssertNil(cell?.displayedView.isHighlighted)
+        cell?.setHighlighted(true, animated: false)
+        XCTAssertEqual(true, cell?.displayedView.isHighlighted)
+    }
+    
+    func testSelectable() throws {
+        XCTAssertNil(cell?.displayedView.isSelected)
+        cell?.setSelected(true, animated: false)
+        XCTAssertEqual(true, cell?.displayedView.isSelected)
+    }
 }
 
-final class DemoView: UIView, Reusable, Identifiable, Populatable {
+final class DemoView: UIView, Reusable, Populatable, Highlightable, Selectable {
     typealias Model = DemoModel
     
     var isPrepared = false
     var isPopulated = false
+    var isHighlighted: Bool?
+    var isSelected: Bool?
     
     func prepareForReuse() {
         isPrepared = true
@@ -50,6 +66,14 @@ final class DemoView: UIView, Reusable, Identifiable, Populatable {
     
     func populate(with model: Model) {
         isPopulated = true
+    }
+    
+    func setHighlighted(_ isHighlighted: Bool) {
+        self.isHighlighted = isHighlighted
+    }
+    
+    func setSelected(_ isSelected: Bool) {
+        self.isSelected = isSelected
     }
 }
 
