@@ -5,6 +5,7 @@
 //
 
 import UIKit
+
 final class IconographyView: UIImageView, Populatable, Reusable {
     typealias Model = UIImage
     var uiConstants = IconographyViewConstants()
@@ -21,9 +22,7 @@ final class IconographyView: UIImageView, Populatable, Reusable {
         setUpIconographyView()
     }
     
-    required init?(coder: NSCoder) {
-        return nil
-    }
+    required init?(coder: NSCoder) { nil }
     
     func setUpIconographyView() {
         NSLayoutConstraint.activate([
