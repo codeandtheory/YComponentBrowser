@@ -9,12 +9,12 @@ import XCTest
 
 final class GenericCellTest: XCTestCase {
     var cell: GenericTableViewCell<DemoView>?
-    override func setUp()  {
+    override func setUp() {
         super.setUp()
         
         cell = GenericTableViewCell<DemoView>()
     }
-    override func tearDown()  {
+    override func tearDown() {
         cell = nil
         
         super.tearDown()
