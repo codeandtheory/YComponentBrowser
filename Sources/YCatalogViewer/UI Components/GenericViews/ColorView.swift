@@ -9,6 +9,15 @@ import UIKit
 final class ColorView: UIView {
     typealias Model = UIColor
     
+    struct Style {
+        static let width: CGFloat = 60
+        static let height: CGFloat = 60
+
+        static let cornerRadius: CGFloat = 10
+        static let borderWidth: CGFloat = 1
+        var borderColor: UIColor?
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpColorView()
@@ -17,31 +26,22 @@ final class ColorView: UIView {
     required init?(coder: NSCoder) { nil }
     
     func setUpColorView() {
-        self.layer.cornerRadius = Style.cornerRadius
+        layer.cornerRadius = Style.cornerRadius
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: Style.width),
-            self.heightAnchor.constraint(equalToConstant: Style.height)
+            widthAnchor.constraint(equalToConstant: Style.width),
+            heightAnchor.constraint(equalToConstant: Style.height)
         ])
     }
 }
 
 extension ColorView: Populatable {
     func populate(with model: Model) {
-        self.backgroundColor = model
+        backgroundColor = model
     }
 }
 
 extension ColorView: Reusable {
     func prepareForReuse() {
-        self.backgroundColor = nil
+        backgroundColor = nil
     }
-}
-
-struct Style {
-    static let width: CGFloat = 60
-    static let height: CGFloat = 60
-
-    static let cornerRadius: CGFloat = 10
-    static let borderWidth: CGFloat = 1
-    var borderColor: UIColor?
 }

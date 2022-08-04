@@ -10,11 +10,6 @@ import XCTest
 class ColorViewTest: XCTestCase {
     var colorView: ColorView?
     
-    func testorNSCoder() {
-        let colorView = ColorView(coder: NSCoder())
-        XCTAssertNil(colorView)
-    }
-    
     override func setUp() {
         super.setUp()
         colorView = ColorView(frame: .init())
@@ -26,13 +21,18 @@ class ColorViewTest: XCTestCase {
         super.tearDown()
     }
     
-    func testForPopulatable() {
-        XCTAssertNil(colorView?.backgroundColor)
-        colorView?.populate(with: UIColor.red)
-        XCTAssertNotNil(colorView?.backgroundColor)
+    func testInitWithCoder() {
+        let colorView = ColorView(coder: NSCoder())
+        XCTAssertNil(colorView)
     }
     
-    func testForReusable() {
+    func testPopulatable() {
+        XCTAssertNil(colorView?.backgroundColor)
+        colorView?.populate(with: UIColor.red)
+        XCTAssertEqual(colorView?.backgroundColor, .red)
+    }
+    
+    func testReusable() {
         colorView?.populate(with: .red)
         XCTAssertNotNil(colorView?.backgroundColor)
         colorView?.prepareForReuse()
