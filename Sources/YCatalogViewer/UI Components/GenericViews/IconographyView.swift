@@ -8,7 +8,11 @@ import UIKit
 
 final class IconographyView: UIImageView {
     typealias Model = UIImage
-    var uiConstants = IconographyViewConstants()
+    
+    struct Style {
+            static let width: CGFloat = 60
+            static let height: CGFloat = 60
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -19,8 +23,8 @@ final class IconographyView: UIImageView {
     
     func setUpIconographyView() {
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: uiConstants.width),
-            self.heightAnchor.constraint(equalToConstant: uiConstants.height)
+            self.widthAnchor.constraint(equalToConstant: Style.width),
+            self.heightAnchor.constraint(equalToConstant: Style.height)
         ])
     }
 }
@@ -35,9 +39,4 @@ extension IconographyView: Reusable {
     func prepareForReuse() {
         self.image = nil
     }
-}
-
-struct IconographyViewConstants {
-    var width: CGFloat = 60
-    var height: CGFloat = 60
 }
