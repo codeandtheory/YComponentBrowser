@@ -8,36 +8,42 @@ import XCTest
 @testable import YCatalogViewer
 
 final class GenericCellTest: XCTestCase {
-    let button = DemoButton()
+    var cell = GenericTableViewCell<DemoView>()
     func testGenericTableViewCellForPopulatble() throws {
-        button.populate(with: ModelForButton(title: "Button2"))
-        XCTAssertEqual(button.titleLabel?.text, "Button2")
+        let model = ModelForDemoView()
+        cell.populate(with: model)
+        XCTAssertEqual(cell.displayedView.backgroundColor, .red)
     }
     
     func testGenericTableViewCellForReusable() throws {
-        button.prepareForReuse()
-        XCTAssertEqual(button.titleLabel?.text, nil)
+        cell.prepareForReuse()
+        XCTAssertEqual(cell.displayedView.backgroundColor, .clear)
+    }
+    
+    func testGenericTableViewCellForNSCoder() throws {
+        let secondcell = GenericTableViewCell<DemoView>(coder: NSCoder())
+        XCTAssertNil(secondcell)
     }
 }
 
-class DemoButton: UIButton, Reusable, Identifiable, Populatable {
-    typealias Model = ModelForButton
+class DemoView: UIView, Reusable, Identifiable, Populatable {
+    typealias Model = ModelForDemoView
     
     func prepareForReuse() {
-        self.setTitle(nil, for: .normal)
+        self.backgroundColor = .clear
     }
     func populate(with model: Model) {
-        self.setTitle(model.title, for: .normal)
+        self.backgroundColor = model.backgroundColor
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        return nil
     }
 }
 
-struct ModelForButton {
-    var title = "Button1"
+struct ModelForDemoView {
+    var backgroundColor: UIColor = .red
 }
