@@ -52,26 +52,34 @@ final class GenericTableViewCellTest: XCTestCase {
     }
 }
 
-final class DemoView: UIView, Reusable, Populatable, Highlightable, Selectable {
+final class DemoView: UIView {
     typealias Model = DemoModel
     
     var isPrepared = false
     var isPopulated = false
     var isHighlighted: Bool?
     var isSelected: Bool?
-    
+}
+
+extension DemoView: Reusable {
     func prepareForReuse() {
         isPrepared = true
     }
-    
+}
+
+extension DemoView: Populatable {
     func populate(with model: Model) {
         isPopulated = true
     }
-    
+}
+
+extension DemoView: Highlightable {
     func setHighlighted(_ isHighlighted: Bool) {
         self.isHighlighted = isHighlighted
     }
-    
+}
+
+extension DemoView: Selectable {
     func setSelected(_ isSelected: Bool) {
         self.isSelected = isSelected
     }
