@@ -10,14 +10,16 @@ import XCTest
 final class GenericCellTest: XCTestCase {
     var cell = GenericTableViewCell<DemoView>()
     func testGenericTableViewCellForPopulatble() throws {
-        let model = ModelForDemoView()
+        XCTAssertEqual(cell.displayedView.isPopulated, false)
+        let model = DemoModel()
         cell.populate(with: model)
-        XCTAssertEqual(cell.displayedView.backgroundColor, .red)
+        XCTAssertEqual(cell.displayedView.isPopulated, true)
     }
     
     func testGenericTableViewCellForReusable() throws {
+        XCTAssertEqual(cell.displayedView.isPrepared, false)
         cell.prepareForReuse()
-        XCTAssertEqual(cell.displayedView.backgroundColor, .clear)
+        XCTAssertEqual(cell.displayedView.isPrepared, true)
     }
     
     func testGenericTableViewCellForNSCoder() throws {
@@ -26,24 +28,19 @@ final class GenericCellTest: XCTestCase {
     }
 }
 
-class DemoView: UIView, Reusable, Identifiable, Populatable {
-    typealias Model = ModelForDemoView
-    
+final class DemoView: UIView, Reusable, Identifiable, Populatable {
+    typealias Model = DemoModel
+
+    var isPrepared = false
+    var isPopulated = false
+
     func prepareForReuse() {
-        self.backgroundColor = .clear
-    }
+         isPrepared = true
+     }
+
     func populate(with model: Model) {
-        self.backgroundColor = model.backgroundColor
-    }
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    required init?(coder: NSCoder) {
-        return nil
+         isPopulated = true
     }
 }
 
-struct ModelForDemoView {
-    var backgroundColor: UIColor = .red
-}
+struct DemoModel { }
