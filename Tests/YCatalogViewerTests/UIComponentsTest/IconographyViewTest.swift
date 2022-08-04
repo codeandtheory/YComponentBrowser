@@ -22,18 +22,18 @@ final class IconographyViewTest: XCTestCase {
         super.tearDown()
     }
     
-    func testForNSCoder() throws {
+    func testForNSCoder() {
         let iconView = IconographyView(coder: NSCoder())
         XCTAssertNil(iconView)
     }
     
-    func testPopulatable() throws {
+    func testPopulatable() {
         XCTAssertNil(view?.image)
         view?.populate(with: UIImage(systemName: "person.fill") ?? UIImage())
         XCTAssertNotNil(view?.image)
     }
     
-    func testPrepareForReusable() throws {
+    func testPrepareForReusable() {
         view?.populate(with: UIImage(systemName: "person.fill") ?? UIImage())
         XCTAssertNotNil(view?.image)
         view?.prepareForReuse()

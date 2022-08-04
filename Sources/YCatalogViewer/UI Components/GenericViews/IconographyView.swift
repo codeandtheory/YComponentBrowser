@@ -6,17 +6,10 @@
 
 import UIKit
 
-final class IconographyView: UIImageView, Populatable, Reusable {
+final class IconographyView: UIImageView {
     typealias Model = UIImage
     var uiConstants = IconographyViewConstants()
-    func prepareForReuse() {
-        self.image = nil
-    }
-    
-    func populate(with model: Model) {
-        self.image = model
-    }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpIconographyView()
@@ -29,6 +22,18 @@ final class IconographyView: UIImageView, Populatable, Reusable {
             self.widthAnchor.constraint(equalToConstant: uiConstants.width),
             self.heightAnchor.constraint(equalToConstant: uiConstants.height)
         ])
+    }
+}
+
+extension IconographyView: Populatable {
+    func populate(with model: Model) {
+        self.image = model
+    }
+}
+
+extension IconographyView: Reusable {
+    func prepareForReuse() {
+        self.image = nil
     }
 }
 
