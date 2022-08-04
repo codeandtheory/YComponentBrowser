@@ -21,31 +21,31 @@ final class GenericCollectionCellTest: XCTestCase {
         super.tearDown()
     }
     
-    func testPopulatble() throws {
+    func testPopulatble() {
         XCTAssertEqual(cell?.displayedView.isPopulated, false)
         let model = DemoModel()
         cell?.populate(with: model)
         XCTAssertEqual(cell?.displayedView.isPopulated, true)
     }
     
-    func testReusable() throws {
+    func testReusable() {
         XCTAssertEqual(cell?.displayedView.isPrepared, false)
         cell?.prepareForReuse()
         XCTAssertEqual(cell?.displayedView.isPrepared, true)
     }
     
-    func testNSCoder() throws {
+    func testNSCoder() {
         let secondcell = GenericCollectionViewCell<DemoView>(coder: NSCoder())
         XCTAssertNil(secondcell)
     }
     
-    func testHighlightable() throws {
+    func testHighlightable() {
         XCTAssertNil(cell?.displayedView.isHighlighted)
         cell?.isHighlighted = true
         XCTAssertEqual(true, cell?.displayedView.isHighlighted)
     }
     
-    func testSelectable() throws {
+    func testSelectable() {
         XCTAssertNil(cell?.displayedView.isSelected)
         cell?.isSelected = true
         XCTAssertEqual(true, cell?.displayedView.isSelected)
