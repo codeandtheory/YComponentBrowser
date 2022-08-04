@@ -6,23 +6,28 @@
 
 import UIKit
 
-final class TypographyView: UILabel, Populatable, Reusable {
+final class TypographyView: UILabel {
     typealias Model = TypographyModel
-    
-    func prepareForReuse() {
-        self.font = UIFont()
-    }
-    
-    func populate(with model: Model) {
-        self.font = model.font
-        self.text = TypographyModel.defaultText
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) { nil }
+}
+
+extension TypographyView: Populatable {
+    func populate(with model: Model) {
+        font = model.font
+        text = TypographyModel.defaultText
+    }
+}
+
+extension TypographyView: Reusable {
+    func prepareForReuse() {
+        text = nil
+        font = UIFont.systemFont(ofSize: 17)
+    }
 }
 
 ///  Model to initialize the the typographyView
