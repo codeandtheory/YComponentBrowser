@@ -74,6 +74,12 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
         }
     }
     
+    func setHighlighted(_ isHighlighted: Bool) {
+    }
+    
+    func setSelected(_ isSelected: Bool) {
+    }
+    
     func setUpView() {
         backgroundColor = .systemBackground
         displayView.translatesAutoresizingMaskIntoConstraints = false
