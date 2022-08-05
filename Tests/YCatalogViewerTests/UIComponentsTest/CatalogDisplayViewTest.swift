@@ -9,21 +9,23 @@ import XCTest
 
 final class CatalogDisplayViewTest: XCTestCase {
     var view: CatalogDisplayView<CatalogDemoView>!
+    
     override func setUp() {
         super.setUp()
         
         view = CatalogDisplayView<CatalogDemoView>()
     }
+    
     override func tearDown() {
         view = nil
         
         super.tearDown()
     }
     
-    func testCatalogDisplayViewForPopulatble() {
-        XCTAssertEqual(view.displayView.isPopulated, false)
+    func testPopulatble() {
+        XCTAssertNil(view.displayView.isPopulated)
         let catalogDemoModel = CatalogDemoModel()
-        let model = CatalogDisplayView<CatalogDemoView>.CatalogDisplayModel(
+        let model = CatalogDisplayView<CatalogDemoView>.Model(
             title: nil,
             detail: nil,
             displayViewAxis: .vertical,
@@ -33,25 +35,25 @@ final class CatalogDisplayViewTest: XCTestCase {
         XCTAssertEqual(view.displayView.isPopulated, true)
     }
     
-    func testCatalogDisplayViewForReusable() {
-        XCTAssertEqual(view.displayView.isPrepared, false)
+    func testReusable() {
+        XCTAssertNil(view.displayView.isPrepared)
         view.prepareForReuse()
         XCTAssertEqual(view.displayView.isPrepared, true)
     }
     
-    func testCatalogDisplayViewForHighlightable() {
-        XCTAssertEqual(view.displayView.highlighted, false)
+    func testHighlightable() {
+        XCTAssertNil(view.displayView.isHighlighted)
         view.setHighlighted(true)
-        XCTAssertEqual(view.displayView.highlighted, true)
+        XCTAssertEqual(view.displayView.isHighlighted, true)
     }
     
-    func testCatalogDisplayViewForSelectable() {
-        XCTAssertEqual(view.displayView.selected, false)
+    func testSelectable() {
+        XCTAssertNil(view.displayView.isSelected)
         view.setSelected(true)
-        XCTAssertEqual(view.displayView.selected, true)
+        XCTAssertEqual(view.displayView.isSelected, true)
     }
     
-    func testCatalogDisplayViewForNSCoder() {
+    func testInitWithCoder() {
         let catalogView = CatalogDisplayView<CatalogDemoView>(coder: NSCoder())
         XCTAssertNil(catalogView)
     }
@@ -60,21 +62,21 @@ final class CatalogDisplayViewTest: XCTestCase {
 final class CatalogDemoView: UIView {
     typealias Model = CatalogDemoModel
     
-    var isPrepared = false
-    var isPopulated = false
-    var highlighted = false
-    var selected = false
+    var isPrepared: Bool?
+    var isPopulated: Bool?
+    var isHighlighted: Bool?
+    var isSelected: Bool?
 }
 
 extension CatalogDemoView: Selectable {
     func setSelected(_ isSelected: Bool) {
-        selected = true
+        self.isSelected = isSelected
     }
 }
 
 extension CatalogDemoView: Highlightable {
     func setHighlighted(_ isHighlighted: Bool) {
-        highlighted = true
+        self.isHighlighted = isHighlighted
     }
 }
 

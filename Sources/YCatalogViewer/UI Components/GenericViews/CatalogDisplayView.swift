@@ -6,18 +6,28 @@
 
 import UIKit
 
-typealias DisplayView = UIView & Populatable & Highlightable & Selectable & Reusable
-
-final class CatalogDisplayView<View: DisplayView>: UIView {
-    public struct CatalogDisplayModel {
+final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highlightable, Reusable, Selectable {
+    public struct Model {
         let title: String?
         let detail: String?
         let displayViewAxis: NSLayoutConstraint.Axis
         let displayViewModel: View.Model
     }
     
-    let titleLabel = UILabel()
-    let detailLabel = UILabel()
+    let titleLabel: UILabel = {
+           let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .black
+           return label
+    }()
+    
+    let detailLabel: UILabel = {
+           let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .lightGray
+           return label
+    }()
+    
     let displayView: View = View()
     let innerStackView = UIStackView()
     let outerStackView = UIStackView()
@@ -34,17 +44,21 @@ final class CatalogDisplayView<View: DisplayView>: UIView {
         outerStackView.removeFromSuperview()
     }
     
-    func populate(with model: CatalogDisplayModel) {
+    func populate(with model: Model) {
         outerStackView.axis = model.displayViewAxis
         displayView.populate(with: model.displayViewModel)
     }
     
     func setHighlighted(_ isHighlighted: Bool) {
-        displayView.setHighlighted(isHighlighted)
+        if let highlightable = displayView as? Highlightable {
+            highlightable.setHighlighted(isHighlighted)
+        }
     }
     
     func setSelected(_ isSelected: Bool) {
-        displayView.setSelected(isSelected)
+        if let selectable = displayView as? Selectable {
+            selectable.setSelected(isSelected)
+        }
     }
     
     func setUpView() {
