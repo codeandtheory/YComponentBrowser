@@ -30,7 +30,6 @@ final class TypographyView: UILabel {
 extension TypographyView: Populatable {
     func populate(with model: Model) {
         font = model.font
-        text = TypographyModel.defaultText
     }
 }
 
