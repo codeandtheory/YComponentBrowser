@@ -39,3 +39,28 @@ extension TypographyView: Reusable {
         font = UIFont.systemFont(ofSize: 17)
     }
 }
+
+import SwiftUI
+
+struct TypographyViewContainer: UIViewRepresentable {
+    let font: UIFont
+
+    init(font: UIFont) {
+        self.font = font
+    }
+
+    func makeUIView(context: Context) -> UIViewType {
+        let view = TypographyView(frame: .zero)
+        let model = TypographyView.Model(font: font)
+        view.populate(with: model)
+        return view
+    }
+
+    func updateUIView(_ uiView: TypographyView, context: Context) {}
+}
+
+struct TypographyViewPreviews: PreviewProvider {
+    static var previews: some View {
+        TypographyViewContainer(font: UIFont.preferredFont(forTextStyle: .title1))
+    }
+}
