@@ -15,22 +15,33 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
     }
     
     let titleLabel: UILabel = {
-           let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .black
-           return label
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.textColor = UIColor.label
+        return label
     }()
     
     let detailLabel: UILabel = {
-           let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
+        let label = UILabel()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = .lightGray
-           return label
+        return label
     }()
     
     let displayView: View = View()
-    let innerStackView = UIStackView()
-    let outerStackView = UIStackView()
+    let innerStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+    let outerStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.distribution = .equalSpacing
+        return stackView
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -47,6 +58,8 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
     func populate(with model: Model) {
         outerStackView.axis = model.displayViewAxis
         displayView.populate(with: model.displayViewModel)
+        titleLabel.text = model.title
+        detailLabel.text = model.detail
     }
     
     func setHighlighted(_ isHighlighted: Bool) {
@@ -62,19 +75,19 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
     }
     
     func setUpView() {
+        backgroundColor = .systemBackground
         displayView.translatesAutoresizingMaskIntoConstraints = false
         outerStackView.translatesAutoresizingMaskIntoConstraints = false
         innerStackView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        innerStackView.addSubview(titleLabel)
-        innerStackView.addSubview(detailLabel)
-        innerStackView.axis = .vertical
+        innerStackView.addArrangedSubview(titleLabel)
+        innerStackView.addArrangedSubview(detailLabel)
         
         self.addSubview(outerStackView)
-        outerStackView.addSubview(innerStackView)
-        outerStackView.addSubview(displayView)
+        outerStackView.addArrangedSubview(innerStackView)
+        outerStackView.addArrangedSubview(displayView)
         
         NSLayoutConstraint.activate([
             outerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -89,9 +102,9 @@ import SwiftUI
 
 struct CatalogDisplayViewContainer: UIViewRepresentable {
     typealias UIViewType = CatalogDisplayView<ColorView>
-
+    
     let model: CatalogDisplayView<ColorView>.Model
-
+    
     init(title: String, detail: String = "", color: UIColor) {
         self.model = CatalogDisplayView<ColorView>.Model(
             title: title,
@@ -100,20 +113,20 @@ struct CatalogDisplayViewContainer: UIViewRepresentable {
             displayViewModel: color
         )
     }
-
+    
     func makeUIView(context: Context) -> UIViewType {
         let view = CatalogDisplayView<ColorView>()
         view.populate(with: model)
         return view
     }
-
+    
     func updateUIView(_ uiView: CatalogDisplayView<ColorView>, context: Context) {}
 }
 
 struct CatalogDisplayViewPreviews: PreviewProvider {
     static var previews: some View {
         Group {
-            CatalogDisplayViewContainer(title: "Red", detail: "System", color: .systemRed)
+            CatalogDisplayViewContainer(title: "Red", detail: "System", color: .blue)
                 .colorScheme(.light)
             CatalogDisplayViewContainer(title: "Red", detail: "System", color: .systemRed)
                 .colorScheme(.dark)
