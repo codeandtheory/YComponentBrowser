@@ -75,9 +75,11 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
     }
     
     func setHighlighted(_ isHighlighted: Bool) {
+        displayView.setHighlighted(isHighlighted)
     }
     
     func setSelected(_ isSelected: Bool) {
+        displayView.setSelected(isSelected)
     }
     
     func setUpView() {
