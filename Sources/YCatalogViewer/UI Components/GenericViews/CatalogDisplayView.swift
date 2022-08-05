@@ -16,15 +16,15 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = UIColor.label
         return label
     }()
     
     let detailLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        label.textColor = .lightGray
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        label.textColor = .secondaryLabel
         return label
     }()
     
@@ -32,7 +32,7 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
     let innerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.alignment = .center
+        stackView.alignment = .leading
         stackView.distribution = .fill
         return stackView
     }()
