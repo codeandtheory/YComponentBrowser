@@ -20,7 +20,7 @@ final class TypographyViewTest: XCTestCase {
         super.tearDown()
     }
     
-    func testTypographyViewForNSCoder() throws {
+    func testInitWithCoder() throws {
         let typographyView = TypographyView(coder: NSCoder())
         XCTAssertNil(typographyView)
     }
