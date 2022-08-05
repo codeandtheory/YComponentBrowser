@@ -27,7 +27,7 @@ final class TypographyViewTest: XCTestCase {
     
     func testPopulate() throws {
         XCTAssertNotEqual(typographyView.font, .boldSystemFont(ofSize: 20))
-        typographyView.populate(with: TypographyModel(font: .boldSystemFont(ofSize: 20)))
+        typographyView.populate(with: TypographyView.Model(font: .boldSystemFont(ofSize: 20)))
         XCTAssertEqual(typographyView.font, .boldSystemFont(ofSize: 20))
     }
     

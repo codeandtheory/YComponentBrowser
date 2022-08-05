@@ -74,14 +74,6 @@ final class CatalogDisplayView<View: ContentView>: UIView, Populatable, Highligh
         }
     }
     
-    func setHighlighted(_ isHighlighted: Bool) {
-        displayView.setHighlighted(isHighlighted)
-    }
-    
-    func setSelected(_ isSelected: Bool) {
-        displayView.setSelected(isSelected)
-    }
-    
     func setUpView() {
         backgroundColor = .systemBackground
         displayView.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +126,7 @@ struct CatalogDisplayViewContainer: UIViewRepresentable {
 struct CatalogDisplayViewPreviews: PreviewProvider {
     static var previews: some View {
         Group {
-            CatalogDisplayViewContainer(title: "Red", detail: "System", color: .blue)
+            CatalogDisplayViewContainer(title: "Red", detail: "System", color: .systemRed)
                 .colorScheme(.light)
             CatalogDisplayViewContainer(title: "Red", detail: "System", color: .systemRed)
                 .colorScheme(.dark)
