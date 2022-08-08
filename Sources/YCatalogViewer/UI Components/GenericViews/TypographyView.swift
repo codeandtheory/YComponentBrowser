@@ -9,19 +9,26 @@ import UIKit
 final class TypographyView: UILabel {
     ///  Model to initialize the the typographyView
     public struct Model {
-        /// font for typographyView  label
+        /// font for the  label
         public let font: UIFont
+        /// text for the label
+        public let text: String
+        /// Default display text for Typography View Model
+        public static let defaultText = "The quick brown fox jumped over the lazy dog."
         
-        /// initializer
-        /// - Parameter font: UIFont
-        public init(font: UIFont) {
+        /// Initializes Typography View Model
+        /// - Parameters:
+        ///   - font: the font to use
+        ///   - text: the text to display
+        public init(font: UIFont, text: String = defaultText) {
             self.font = font
+            self.text = text
         }
     }
-    var defaultText = "The quick brown fox jumped over the lazy dog."
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setUpView()
     }
     
     required init?(coder: NSCoder) { nil }
@@ -30,6 +37,7 @@ final class TypographyView: UILabel {
 extension TypographyView: Populatable {
     func populate(with model: Model) {
         font = model.font
+        text = model.text
     }
 }
 
@@ -37,6 +45,14 @@ extension TypographyView: Reusable {
     func prepareForReuse() {
         text = nil
         font = UIFont.systemFont(ofSize: 17)
+    }
+}
+
+private extension TypographyView {
+    func setUpView() {
+        textAlignment = .center
+        lineBreakMode = .byWordWrapping
+        numberOfLines = 0
     }
 }
 
