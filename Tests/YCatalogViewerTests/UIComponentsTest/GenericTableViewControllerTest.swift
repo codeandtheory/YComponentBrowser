@@ -57,6 +57,7 @@ final class GenericTableViewControllerTest: XCTestCase {
     
     func testDidSelect() {
         let indexPath = IndexPath(row: 0, section: 0)
+        tableViewVC.tableView(tableViewVC.tableView, didSelectRowAt: indexPath)
         tableViewVC.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
         let isSelected = tableViewVC.tableView.cellForRow(at: indexPath)?.isSelected
         XCTAssertEqual(isSelected, true)
