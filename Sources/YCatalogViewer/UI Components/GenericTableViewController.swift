@@ -6,14 +6,13 @@
 
 import UIKit
 
-/// generic tableViewController that can display `Populatable` and `Reusable` view
+/// genericTableViewController that can display `Populatable` and `Reusable` view
 final public class GenericTableViewController<View: ContentView>: UITableViewController {
     private typealias GenericCell = GenericTableViewCell<View>
     
-    var displayView: View = View()
-    var models: [View.Model]
+    private var models: [View.Model]
     
-    init(navigationTitle: String? = nil, models: [View.Model]) {
+    public init(navigationTitle: String? = nil, models: [View.Model]) {
         self.models = models
         super.init(nibName: nil, bundle: nil)
         self.tableView.register(GenericCell.self, forCellReuseIdentifier: GenericCell.identifier)
@@ -29,10 +28,10 @@ final public class GenericTableViewController<View: ContentView>: UITableViewCon
     
     /// :nodoc:
     public override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = GenericCell(style: .default, reuseIdentifier: GenericCell.identifier)
-        cell.selectionStyle = displayView is Selectable ? .default : .none
-        cell.populate(with: models[indexPath.row])
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: GenericCell.identifier, for: indexPath) as? GenericCell
+        cell?.selectionStyle = View.self is Selectable ? .default : .none
+        cell?.populate(with: models[indexPath.row])
+        return cell ?? GenericCell()
     }
     
     /// :nodoc:
