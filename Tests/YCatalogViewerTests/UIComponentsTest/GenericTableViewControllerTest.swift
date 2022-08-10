@@ -9,6 +9,7 @@ import XCTest
 
 final class GenericTableViewControllerTest: XCTestCase {
     var model: [CatalogDisplayView<CatalogDemoView>.Model]!
+    var navBarTitle: String!
     override func setUp() {
         super.setUp()
         
@@ -25,16 +26,18 @@ final class GenericTableViewControllerTest: XCTestCase {
                 displayViewModel: CatalogDemoModel()
             )
         ]
+        navBarTitle = "DemoTable"
     }
     
     override func tearDown() {
         model = nil
+        navBarTitle = nil
         
         super.tearDown()
     }
     
     lazy var tableViewVC = GenericTableViewController<CatalogDisplayView>(
-        navigationTitle: "DemoTable",
+        navigationTitle: navBarTitle,
         models: model
     )
     
