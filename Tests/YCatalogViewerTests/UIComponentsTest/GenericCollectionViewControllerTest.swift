@@ -8,14 +8,12 @@ import XCTest
 @testable import YCatalogViewer
 
 final class GenericCollectionViewControllerTest: XCTestCase {
-    override func setUp() {
-        super.setUp()
-    }
+    var model: [CatalogDisplayView<CatalogDemoView>.Model] = []
+    var navBarTitle: String!
+    var collectionViewLayout: UICollectionViewLayout!
     
-     var collectionViewViewController = GenericCollectionViewController<CatalogDisplayView>(
-        navigationTitle: "DemoTable",
-        collectionViewLayout: UICollectionViewFlowLayout(),
-        models: [
+    override func setUp() {
+        model = [
             CatalogDisplayView<CatalogDemoView>.Model(
                 title: "title1",
                 detail: "detail1",
@@ -28,6 +26,23 @@ final class GenericCollectionViewControllerTest: XCTestCase {
                 displayViewModel: CatalogDemoModel()
             )
         ]
+        navBarTitle = "DemoTable"
+        collectionViewLayout = UICollectionViewFlowLayout()
+        super.setUp()
+    }
+    
+    override func tearDown() {
+        model = []
+        navBarTitle = nil
+        collectionViewLayout = nil
+        
+        super.tearDown()
+    }
+    
+    lazy var collectionViewViewController = GenericCollectionViewController<CatalogDisplayView>(
+        navigationTitle: navBarTitle,
+        collectionViewLayout: collectionViewLayout,
+        models: model
     )
     
     func testInitWithCoder() {
@@ -39,9 +54,9 @@ final class GenericCollectionViewControllerTest: XCTestCase {
         XCTAssertEqual(
             2,
             collectionViewViewController.collectionView(
-            collectionViewViewController.collectionView,
-            numberOfItemsInSection: collectionViewViewController.models.count
-        )
+                collectionViewViewController.collectionView,
+                numberOfItemsInSection: model.count
+            )
         )
     }
     
@@ -54,10 +69,12 @@ final class GenericCollectionViewControllerTest: XCTestCase {
     }
     
     func testDidSelect() {
+        let  indexPath = IndexPath(row: 0, section: 0)
         collectionViewViewController.collectionView(
             collectionViewViewController.collectionView,
             didSelectItemAt: [0, 0]
         )
+        collectionViewViewController.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
         let isSelected = collectionViewViewController.collectionView(
             collectionViewViewController.collectionView,
             cellForItemAt: [0, 0]

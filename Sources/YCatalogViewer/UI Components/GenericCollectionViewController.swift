@@ -7,23 +7,32 @@
 import Foundation
 import UIKit
 
+/// GenericCollectionViewController that can display `Populatable` and `Reusable` view
 final public class GenericCollectionViewController<View: ContentView>: UICollectionViewController {
     private typealias GenericCell = GenericCollectionViewCell<View>
     
-    var models: [View.Model]
+    private var models: [View.Model]
     
-    init(navigationTitle: String? = nil, collectionViewLayout: UICollectionViewLayout? = nil, models: [View.Model]) {
+    ///  Used to initialize the GenericCollectionViewController
+    /// - Parameters:
+    ///   - navigationTitle: title text
+    ///   - collectionViewLayout: UICollectionViewLayout
+    ///   - models:  array of viewModel of subViews
+    public init(
+        navigationTitle: String? = nil,
+        collectionViewLayout: UICollectionViewLayout? = nil,
+        models: [View.Model]
+    ) {
         self.models = models
-        super.init(nibName: nil, bundle: nil)
+        super.init(collectionViewLayout: collectionViewLayout ?? UICollectionViewFlowLayout())
         self.collectionView.register(GenericCell.self, forCellWithReuseIdentifier: GenericCell.identifier)
-        if let collectionViewLayout = collectionViewLayout {
-            self.collectionView.collectionViewLayout = collectionViewLayout
-        }
         self.navigationItem.title = navigationTitle
     }
     
+    /// :nodoc:
     required init?(coder: NSCoder) { nil }
     
+    /// :nodoc:
     public override func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -31,14 +40,20 @@ final public class GenericCollectionViewController<View: ContentView>: UICollect
         return models.count
     }
     
+    /// :nodoc:
     public override func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = GenericCollectionViewCell<View>(frame: .init())
-        cell.populate(with: models[indexPath.item])
-        return cell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: GenericCell.identifier,
+            for: indexPath
+        ) as? GenericCell
+        cell?.populate(with: models[indexPath.item])
+        return cell ?? GenericCell()
     }
+    
+    /// :nodoc:
     public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
     }
