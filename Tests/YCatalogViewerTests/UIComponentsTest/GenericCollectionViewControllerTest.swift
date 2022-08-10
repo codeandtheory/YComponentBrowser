@@ -77,7 +77,7 @@ final class GenericCollectionViewControllerTest: XCTestCase {
         collectionViewViewController.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
         let isSelected = collectionViewViewController.collectionView(
             collectionViewViewController.collectionView,
-            cellForItemAt: [0, 0]
+            cellForItemAt: indexPath
         ).isSelected
         XCTAssertEqual(isSelected, true)
     }
