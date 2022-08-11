@@ -7,7 +7,7 @@
 import XCTest
 @testable import YCatalogViewer
 
-class ColorViewTest: XCTestCase {
+final class ColorViewTest: XCTestCase {
     var colorView: ColorView?
     
     override func setUp() {

@@ -10,10 +10,11 @@ import UIKit
 public final class GenericCollectionViewCell<View: ContentView>: UICollectionViewCell, Identifiable {
     /// The type of data that can be populated
     public typealias Model = View.Model
+
     /// Represents view of type ContentView
-    public var displayedView: View = View()
+    public let displayedView: View = View(frame: .zero)
     
-    /// Property indicating if cell is selected
+    /// :nodoc:
     public override var isSelected: Bool {
         didSet {
             if let selectable = displayedView as? Selectable {
@@ -22,7 +23,7 @@ public final class GenericCollectionViewCell<View: ContentView>: UICollectionVie
         }
     }
     
-    /// Property indicating if cell is highlighted
+    /// :nodoc:
     public override var isHighlighted: Bool {
         didSet {
             if let highlightable = displayedView as? Highlightable {
@@ -31,8 +32,7 @@ public final class GenericCollectionViewCell<View: ContentView>: UICollectionVie
         }
     }
     
-    /// Initializes the generic cell
-    /// - Parameter frame: initial frame (defaults to `.zero`)
+    /// :nodoc:
     public override init(frame: CGRect) {
         super.init(frame: frame)
         initialDisplayView()
@@ -52,12 +52,11 @@ public final class GenericCollectionViewCell<View: ContentView>: UICollectionVie
     public func populate(with model: Model) {
          displayedView.populate(with: model)
     }
-}
 
-private extension GenericCollectionViewCell {
-    func initialDisplayView() {
+    private func initialDisplayView() {
         contentView.addSubview(displayedView)
         displayedView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
             displayedView.topAnchor.constraint(equalTo: contentView.topAnchor),
             displayedView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),

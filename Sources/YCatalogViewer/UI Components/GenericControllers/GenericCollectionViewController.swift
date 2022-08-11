@@ -7,30 +7,30 @@
 import Foundation
 import UIKit
 
-/// GenericCollectionViewController that can display `Populatable` and `Reusable` view
+/// A Generic CollectionViewController that can display `Populatable` and `Reusable` view
 final public class GenericCollectionViewController<View: ContentView>: UICollectionViewController {
     private typealias GenericCell = GenericCollectionViewCell<View>
     
     private var models: [View.Model]
     
-    ///  Used to initialize the GenericCollectionViewController
+    ///  Used to initialize the `GenericCollectionViewController`
     /// - Parameters:
-    ///   - navigationTitle: title text
+    ///   - navigationTitle:  the text to be displayed in the navigation bar if a value is given
     ///   - collectionViewLayout: UICollectionViewLayout
-    ///   - models:  array of viewModel of subViews
+    ///   - models: the data to populate  the given containing  view to be displayed within  the collection view
     public init(
         navigationTitle: String? = nil,
-        collectionViewLayout: UICollectionViewLayout? = nil,
+        collectionViewLayout: UICollectionViewLayout = UICollectionViewFlowLayout(),
         models: [View.Model]
     ) {
         self.models = models
-        super.init(collectionViewLayout: collectionViewLayout ?? UICollectionViewFlowLayout())
+        super.init(collectionViewLayout: collectionViewLayout)
         self.collectionView.register(GenericCell.self, forCellWithReuseIdentifier: GenericCell.identifier)
         self.navigationItem.title = navigationTitle
     }
     
     /// :nodoc:
-    required init?(coder: NSCoder) { nil }
+    public required init?(coder: NSCoder) { nil }
     
     /// :nodoc:
     public override func collectionView(
@@ -45,12 +45,16 @@ final public class GenericCollectionViewController<View: ContentView>: UICollect
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
+        guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: GenericCell.identifier,
             for: indexPath
-        ) as? GenericCell
-        cell?.populate(with: models[indexPath.item])
-        return cell ?? GenericCell()
+        ) as? GenericCell else {
+            fatalError("Unable to dequeue cell of type: \(GenericCell.self)")
+        }
+
+        cell.populate(with: models[indexPath.item])
+
+        return cell
     }
     
     /// :nodoc:
