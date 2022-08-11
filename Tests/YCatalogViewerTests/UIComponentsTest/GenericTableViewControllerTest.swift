@@ -9,7 +9,8 @@ import XCTest
 
 final class GenericTableViewControllerTest: XCTestCase {
     var model: [CatalogDisplayView<CatalogDemoView>.Model]!
-    var navBarTitle: String!
+    var tableVC: GenericTableViewController<CatalogDisplayView<CatalogDemoView>>!
+
     override func setUp() {
         super.setUp()
         
@@ -26,20 +27,19 @@ final class GenericTableViewControllerTest: XCTestCase {
                 displayViewModel: CatalogDemoModel()
             )
         ]
-        navBarTitle = "DemoTable"
+
+        tableVC = GenericTableViewController<CatalogDisplayView<CatalogDemoView>>(
+            navigationTitle: "DemoTable",
+            models: model
+        )
     }
     
     override func tearDown() {
         model = nil
-        navBarTitle = nil
+        tableVC = nil
         
         super.tearDown()
     }
-    
-    lazy var tableViewVC = GenericTableViewController<CatalogDisplayView>(
-        navigationTitle: navBarTitle,
-        models: model
-    )
     
     func testInitWithCoder() {
         let tableviewVCC = GenericTableViewController<CatalogDemoView>(coder: NSCoder())
@@ -47,19 +47,19 @@ final class GenericTableViewControllerTest: XCTestCase {
     }
     
     func testNumberOfRowsInSection() {
-        XCTAssertEqual(2, tableViewVC.tableView(tableViewVC.tableView, numberOfRowsInSection: model.count))
+        XCTAssertEqual(2, tableVC.tableView(tableVC.tableView, numberOfRowsInSection: model.count))
     }
     
     func testCellForRowAt() {
-        let tablecell = tableViewVC.tableView(tableViewVC.tableView, cellForRowAt: [0, 0])
-        XCTAssertNotNil(tablecell)
+        let tableCell = tableVC.tableView(tableVC.tableView, cellForRowAt: [0, 0])
+        XCTAssertNotNil(tableCell)
     }
     
     func testDidSelect() {
         let indexPath = IndexPath(row: 0, section: 0)
-        tableViewVC.tableView(tableViewVC.tableView, didSelectRowAt: indexPath)
-        tableViewVC.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        let isSelected = tableViewVC.tableView.cellForRow(at: indexPath)?.isSelected
+        tableVC.tableView(tableVC.tableView, didSelectRowAt: indexPath)
+        tableVC.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        let isSelected = tableVC.tableView.cellForRow(at: indexPath)?.isSelected
         XCTAssertEqual(isSelected, true)
     }
 }

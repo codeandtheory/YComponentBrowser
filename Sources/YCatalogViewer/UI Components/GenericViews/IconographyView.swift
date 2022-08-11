@@ -6,37 +6,46 @@
 
 import UIKit
 
-final class IconographyView: UIImageView {
-    typealias Model = UIImage
+/// A view to display a given image at a fixed size and ratio
+final public class IconographyView: UIImageView {
+    /// The type of data required to populate the `IconographyView`
+    public typealias Model = UIImage
     
-    struct Style {
-            static let width: CGFloat = 60
-            static let height: CGFloat = 60
+    private enum Style {
+        static let size = CGSize(width: 60, height: 60)
     }
 
-    override init(frame: CGRect) {
+    /// :nodoc:
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setUpIconographyView()
     }
+
+    /// :nodoc:
+    public required init?(coder: NSCoder) { nil }
     
-    required init?(coder: NSCoder) { nil }
-    
-    func setUpIconographyView() {
+    private func setUpIconographyView() {
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: Style.width),
-            self.heightAnchor.constraint(equalToConstant: Style.height)
+            self.widthAnchor.constraint(equalToConstant: Style.size.width),
+            self.heightAnchor.constraint(equalToConstant: Style.size.height)
         ])
     }
 }
 
+// MARK: - Populatable
+
 extension IconographyView: Populatable {
-    func populate(with model: Model) {
+    /// :nodoc:
+    public func populate(with model: Model) {
         self.image = model
     }
 }
 
+// MARK: - Reusable
+
 extension IconographyView: Reusable {
-    func prepareForReuse() {
+    /// :nodoc:
+    public func prepareForReuse() {
         self.image = nil
     }
 }

@@ -6,16 +6,17 @@
 
 import UIKit
 
-final class TypographyView: UILabel {
-    ///  Model to initialize the the typographyView
+/// A view to display a given font and text
+final public class TypographyView: UILabel {
+    ///  Model to initialize the the `TypographyView`
     public struct Model {
-        /// font for the  label
-        public let font: UIFont
-        /// text for the label
-        public let text: String
         /// Default display text for Typography View Model
         public static let defaultText = "The quick brown fox jumped over the lazy dog."
-        
+        /// Font for the  label
+        public let font: UIFont
+        /// Text for the label
+        public let text: String
+
         /// Initializes Typography View Model
         /// - Parameters:
         ///   - font: the font to use
@@ -25,58 +26,39 @@ final class TypographyView: UILabel {
             self.text = text
         }
     }
-    
-    override init(frame: CGRect) {
+
+    /// :nodoc:
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
     }
-    
-    required init?(coder: NSCoder) { nil }
-}
 
-extension TypographyView: Populatable {
-    func populate(with model: Model) {
-        font = model.font
-        text = model.text
-    }
-}
+    /// :nodoc:
+    public required init?(coder: NSCoder) { nil }
 
-extension TypographyView: Reusable {
-    func prepareForReuse() {
-        text = nil
-        font = UIFont.systemFont(ofSize: 17)
-    }
-}
-
-private extension TypographyView {
-    func setUpView() {
+    private func setUpView() {
         textAlignment = .center
         lineBreakMode = .byWordWrapping
         numberOfLines = 0
     }
 }
 
-import SwiftUI
+// MARK: - Populatable
 
-struct TypographyViewContainer: UIViewRepresentable {
-    let font: UIFont
-
-    init(font: UIFont) {
-        self.font = font
+extension TypographyView: Populatable {
+    /// :nodoc:
+    public func populate(with model: Model) {
+        font = model.font
+        text = model.text
     }
-
-    func makeUIView(context: Context) -> UIViewType {
-        let view = TypographyView(frame: .zero)
-        let model = TypographyView.Model(font: font)
-        view.populate(with: model)
-        return view
-    }
-
-    func updateUIView(_ uiView: TypographyView, context: Context) {}
 }
 
-struct TypographyViewPreviews: PreviewProvider {
-    static var previews: some View {
-        TypographyViewContainer(font: UIFont.preferredFont(forTextStyle: .title1))
+// MARK: - Reusable
+
+extension TypographyView: Reusable {
+    /// :nodoc:
+    public func prepareForReuse() {
+        text = nil
+        font = UIFont.systemFont(ofSize: 17)
     }
 }

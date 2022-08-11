@@ -8,11 +8,12 @@ import XCTest
 @testable import YCatalogViewer
 
 final class GenericCollectionViewControllerTest: XCTestCase {
-    var model: [CatalogDisplayView<CatalogDemoView>.Model] = []
-    var navBarTitle: String!
-    var collectionViewLayout: UICollectionViewLayout!
+    var collectionViewController: GenericCollectionViewController<CatalogDisplayView<CatalogDemoView>>!
+    var model: [CatalogDisplayView<CatalogDemoView>.Model]!
     
     override func setUp() {
+        super.setUp()
+
         model = [
             CatalogDisplayView<CatalogDemoView>.Model(
                 title: "title1",
@@ -26,25 +27,21 @@ final class GenericCollectionViewControllerTest: XCTestCase {
                 displayViewModel: CatalogDemoModel()
             )
         ]
-        navBarTitle = "DemoTable"
-        collectionViewLayout = UICollectionViewFlowLayout()
-        super.setUp()
+
+        collectionViewController = GenericCollectionViewController<CatalogDisplayView<CatalogDemoView>>(
+            navigationTitle: "Demo Collection",
+            collectionViewLayout: UICollectionViewFlowLayout(),
+            models: model
+        )
     }
     
     override func tearDown() {
-        model = []
-        navBarTitle = nil
-        collectionViewLayout = nil
+        model = nil
+        collectionViewController = nil
         
         super.tearDown()
     }
-    
-    lazy var collectionViewViewController = GenericCollectionViewController<CatalogDisplayView>(
-        navigationTitle: navBarTitle,
-        collectionViewLayout: collectionViewLayout,
-        models: model
-    )
-    
+
     func testInitWithCoder() {
         let collectionViewVC = GenericCollectionViewController<CatalogDemoView>(coder: NSCoder())
         XCTAssertNil(collectionViewVC)
@@ -53,16 +50,16 @@ final class GenericCollectionViewControllerTest: XCTestCase {
     func testNumberOfItemsInSection() {
         XCTAssertEqual(
             2,
-            collectionViewViewController.collectionView(
-                collectionViewViewController.collectionView,
+            collectionViewController.collectionView(
+                collectionViewController.collectionView,
                 numberOfItemsInSection: model.count
             )
         )
     }
     
     func testCellForItemAt() {
-        let collectionViewCell = collectionViewViewController.collectionView(
-            collectionViewViewController.collectionView,
+        let collectionViewCell = collectionViewController.collectionView(
+            collectionViewController.collectionView,
             cellForItemAt: [0, 0]
         )
         XCTAssertNotNil(collectionViewCell)
@@ -70,13 +67,13 @@ final class GenericCollectionViewControllerTest: XCTestCase {
     
     func testDidSelect() {
         let  indexPath = IndexPath(row: 0, section: 0)
-        collectionViewViewController.collectionView(
-            collectionViewViewController.collectionView,
-            didSelectItemAt: [0, 0]
+        collectionViewController.collectionView(
+            collectionViewController.collectionView,
+            didSelectItemAt: indexPath
         )
-        collectionViewViewController.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
-        let isSelected = collectionViewViewController.collectionView(
-            collectionViewViewController.collectionView,
+        collectionViewController.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .bottom)
+        let isSelected = collectionViewController.collectionView(
+            collectionViewController.collectionView,
             cellForItemAt: indexPath
         ).isSelected
         XCTAssertEqual(isSelected, true)

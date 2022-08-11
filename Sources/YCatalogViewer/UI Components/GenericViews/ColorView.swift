@@ -6,42 +6,51 @@
 
 import UIKit
 
-final class ColorView: UIView {
-    typealias Model = UIColor
+/// A view used to display a given `UIColor` at a fixed size
+final public class ColorView: UIView {
+    /// The type of data required to populate the `ColorView`
+    public typealias Model = UIColor
     
-    struct Style {
-        static let width: CGFloat = 60
-        static let height: CGFloat = 60
-
+    private enum Style {
+        static let size = CGSize(width: 60, height: 60)
         static let cornerRadius: CGFloat = 10
         static let borderWidth: CGFloat = 1
-        var borderColor: UIColor?
     }
-    
-    override init(frame: CGRect) {
+
+    /// :nodoc:
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         setUpColorView()
     }
+
+    /// :nodoc:
+    public required init?(coder: NSCoder) { nil }
     
-    required init?(coder: NSCoder) { nil }
-    
-    func setUpColorView() {
+    private func setUpColorView() {
+        clipsToBounds = true
         layer.cornerRadius = Style.cornerRadius
+
         NSLayoutConstraint.activate([
-            widthAnchor.constraint(equalToConstant: Style.width),
-            heightAnchor.constraint(equalToConstant: Style.height)
+            widthAnchor.constraint(equalToConstant: Style.size.width),
+            heightAnchor.constraint(equalToConstant: Style.size.height)
         ])
     }
 }
 
+// MARK: - Populatable
+
 extension ColorView: Populatable {
-    func populate(with model: Model) {
+    /// :nodoc:
+    public func populate(with model: Model) {
         backgroundColor = model
     }
 }
 
+// MARK: - Reusable
+
 extension ColorView: Reusable {
-    func prepareForReuse() {
+    /// :nodoc:
+    public func prepareForReuse() {
         backgroundColor = nil
     }
 }

@@ -21,7 +21,7 @@ final class GenericTableViewCellTest: XCTestCase {
         super.tearDown()
     }
     
-    func testPopulatble() {
+    func testPopulatable() {
         XCTAssertEqual(cell?.displayedView.isPopulated, false)
         let model = DemoModel()
         cell?.populate(with: model)
@@ -35,8 +35,8 @@ final class GenericTableViewCellTest: XCTestCase {
     }
     
     func testNSCoder() {
-        let secondcell = GenericTableViewCell<DemoView>(coder: NSCoder())
-        XCTAssertNil(secondcell)
+        let secondCell = GenericTableViewCell<DemoView>(coder: NSCoder())
+        XCTAssertNil(secondCell)
     }
     
     func testHighlightable() {
