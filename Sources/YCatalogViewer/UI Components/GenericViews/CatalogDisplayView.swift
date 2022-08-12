@@ -23,10 +23,10 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 
         /// Used to initialize the `CatalogDisplayView`
         /// - Parameters:
-        ///   - title: the title to describe the given `ContentView`
-        ///   - detail: to give more context about the given `ContentView`
-        ///   - displayViewAxis: the axis to display the title and detail information in relation to the `ContentView`
-        ///   - displayViewModel: the model that is used to populate the given `ContentView`
+        /// - title:the title to describe the given `ContentView`
+        /// - detail: to give more context about the given `ContentView`
+        /// - displayViewAxis: the axis to display the title and detail information in relation to the `ContentView`
+        /// - displayViewModel: the model that is used to populate the given `ContentView`
         public init(
             title: String?,
             detail: String?,

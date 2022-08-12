@@ -19,8 +19,8 @@ final public class TypographyView: UILabel {
 
         /// Initializes Typography View Model
         /// - Parameters:
-        ///   - font: the font to use
-        ///   - text: the text to display
+        /// - font:the font to use
+        /// - text: the text to display
         public init(font: UIFont, text: String = defaultText) {
             self.font = font
             self.text = text

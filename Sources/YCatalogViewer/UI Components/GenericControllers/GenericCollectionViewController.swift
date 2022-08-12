@@ -15,9 +15,9 @@ final public class GenericCollectionViewController<View: ContentView>: UICollect
     
     ///  Used to initialize the `GenericCollectionViewController`
     /// - Parameters:
-    ///   - navigationTitle:  the text to be displayed in the navigation bar if a value is given
-    ///   - collectionViewLayout: UICollectionViewLayout
-    ///   - models: the data to populate  the given containing  view to be displayed within  the collection view
+    /// - navigationTitle:the text to be displayed in the navigation bar if a value is given
+    /// - collectionViewLayout: the layout to use within the collection view, defaults to a flow layout
+    /// - models: the data to populate  the given containing  view to be displayed within  the collection view
     public init(
         navigationTitle: String? = nil,
         collectionViewLayout: UICollectionViewLayout = UICollectionViewFlowLayout(),

@@ -14,10 +14,7 @@ public final class GenericTableViewCell<View: ContentView>: UITableViewCell, Ide
     /// Represents view of type ContentView
     public let displayedView: View = View(frame: .zero)
     
-    ///  Used to initialize the cell
-    /// - Parameters:
-    ///   - style: Constant indicating cell style
-    ///   - reuseIdentifier: Identifier to specify which cell
+    /// :nodoc:
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         initialDisplayView()
