@@ -8,31 +8,31 @@ import XCTest
 @testable import YCatalogViewer
 
 final class TypographyViewTest: XCTestCase {
-    var typographyView: TypographyView!
-    
-    override func setUp() {
-        super.setUp()
-        typographyView = TypographyView(frame: .init())
-    }
-    
-    override func tearDown() {
-        typographyView = nil
-        super.tearDown()
-    }
-    
     func testInitWithCoder() throws {
-        let typographyView = TypographyView(coder: NSCoder())
-        XCTAssertNil(typographyView)
+        let sut = TypographyView(coder: try makeCoder(for: makeSUT()))
+        XCTAssertNil(sut)
     }
     
     func testPopulate() throws {
-        XCTAssertNotEqual(typographyView.font, .boldSystemFont(ofSize: 20))
-        typographyView.populate(with: TypographyView.Model(font: .boldSystemFont(ofSize: 20)))
-        XCTAssertEqual(typographyView.font, .boldSystemFont(ofSize: 20))
+        let sut = makeSUT()
+
+        XCTAssertNotEqual(sut.font, .boldSystemFont(ofSize: 20))
+        sut.populate(with: TypographyView.Model(font: .boldSystemFont(ofSize: 20)))
+        XCTAssertEqual(sut.font, .boldSystemFont(ofSize: 20))
     }
     
     func testReuable() throws {
-        typographyView.prepareForReuse()
-        XCTAssertEqual(typographyView.font, UIFont.systemFont(ofSize: 17))
+        let sut = makeSUT()
+
+        sut.prepareForReuse()
+        XCTAssertEqual(sut.font, UIFont.systemFont(ofSize: 17))
+    }
+}
+
+private extension TypographyViewTest {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> TypographyView {
+        let sut = TypographyView(frame: .zero)
+        trackForMemoryLeak(sut, file: file, line: line)
+        return sut
     }
 }

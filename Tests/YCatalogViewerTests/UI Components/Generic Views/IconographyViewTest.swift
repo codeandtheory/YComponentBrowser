@@ -8,35 +8,33 @@ import XCTest
 @testable import YCatalogViewer
 
 final class IconographyViewTest: XCTestCase {
-    var view: IconographyView?
-    
-    override func setUp() {
-        super.setUp()
-        
-        view = IconographyView(frame: .init())
-    }
-    
-    override func tearDown() {
-        view = nil
-        
-        super.tearDown()
-    }
-    
-    func testInitWithCoder() {
-        let iconView = IconographyView(coder: NSCoder())
-        XCTAssertNil(iconView)
+    func testInitWithCoder() throws {
+        let sut = IconographyView(coder: try makeCoder(for: makeSUT()))
+        XCTAssertNil(sut)
     }
     
     func testPopulatable() {
-        XCTAssertNil(view?.image)
-        view?.populate(with: UIImage(systemName: "person.fill") ?? UIImage())
-        XCTAssertNotNil(view?.image)
+        let sut = makeSUT()
+
+        XCTAssertNil(sut.image)
+        sut.populate(with: UIImage(systemName: "person.fill") ?? UIImage())
+        XCTAssertNotNil(sut.image)
     }
     
     func testReusable() {
-        view?.populate(with: UIImage(systemName: "person.fill") ?? UIImage())
-        XCTAssertNotNil(view?.image)
-        view?.prepareForReuse()
-        XCTAssertNil(view?.image)
+        let sut = makeSUT()
+
+        sut.populate(with: UIImage(systemName: "person.fill") ?? UIImage())
+        XCTAssertNotNil(sut.image)
+        sut.prepareForReuse()
+        XCTAssertNil(sut.image)
+    }
+}
+
+private extension IconographyViewTest {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> IconographyView {
+        let sut = IconographyView(frame: .zero)
+        trackForMemoryLeak(sut, file: file, line: line)
+        return sut
     }
 }
