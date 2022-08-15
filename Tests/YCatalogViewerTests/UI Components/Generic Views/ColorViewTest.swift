@@ -8,34 +8,33 @@ import XCTest
 @testable import YCatalogViewer
 
 final class ColorViewTest: XCTestCase {
-    var colorView: ColorView?
-    
-    override func setUp() {
-        super.setUp()
-        colorView = ColorView(frame: .init())
-    }
-    
-    override func tearDown() {
-        colorView = nil
-        
-        super.tearDown()
-    }
-    
-    func testInitWithCoder() {
-        let colorView = ColorView(coder: NSCoder())
-        XCTAssertNil(colorView)
+    func testInitWithCoder() throws {
+        let sut = ColorView(coder: try makeCoder(for: makeSUT()))
+        XCTAssertNil(sut)
     }
     
     func testPopulatable() {
-        XCTAssertNil(colorView?.backgroundColor)
-        colorView?.populate(with: UIColor.red)
-        XCTAssertEqual(colorView?.backgroundColor, .red)
+        let sut = makeSUT()
+
+        XCTAssertNil(sut.backgroundColor)
+        sut.populate(with: UIColor.red)
+        XCTAssertEqual(sut.backgroundColor, .red)
     }
     
     func testReusable() {
-        colorView?.populate(with: .red)
-        XCTAssertNotNil(colorView?.backgroundColor)
-        colorView?.prepareForReuse()
-        XCTAssertNil(colorView?.backgroundColor)
+        let sut = makeSUT()
+
+        sut.populate(with: .red)
+        XCTAssertNotNil(sut.backgroundColor)
+        sut.prepareForReuse()
+        XCTAssertNil(sut.backgroundColor)
+    }
+}
+
+private extension ColorViewTest {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> ColorView {
+        let sut = ColorView(frame: .zero)
+        trackForMemoryLeak(sut, file: file, line: line)
+        return sut
     }
 }

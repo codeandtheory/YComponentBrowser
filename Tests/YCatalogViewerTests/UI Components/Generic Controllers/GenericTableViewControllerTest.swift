@@ -8,13 +8,37 @@ import XCTest
 @testable import YCatalogViewer
 
 final class GenericTableViewControllerTest: XCTestCase {
-    var model: [CatalogDisplayView<CatalogDemoView>.Model]!
-    var tableVC: GenericTableViewController<CatalogDisplayView<CatalogDemoView>>!
+    func testInitWithCoder() throws {
+        let sut = GenericTableViewController<CatalogDemoView>(coder: try makeCoder(for: makeSUT()))
+        XCTAssertNil(sut)
+    }
+    
+    func testNumberOfRowsInSection() {
+        let sut = makeSUT()
+        XCTAssertEqual(sut.tableView(sut.tableView, numberOfRowsInSection: 0), 2)
+    }
+    
+    func testCellForRowAt() {
+        let sut = makeSUT()
+        let cell = sut.tableView(sut.tableView, cellForRowAt: [0, 0])
+        XCTAssertNotNil(cell)
+    }
+    
+    func testDidSelect() {
+        let sut = makeSUT()
+        let indexPath = IndexPath(row: 0, section: 0)
+        sut.tableView(sut.tableView, didSelectRowAt: indexPath)
+        sut.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        let isSelected = sut.tableView.cellForRow(at: indexPath)?.isSelected
+        XCTAssertEqual(isSelected, true)
+    }
+}
 
-    override func setUp() {
-        super.setUp()
-        
-        model = [
+private extension GenericTableViewControllerTest {
+    func makeSUT(
+        file: StaticString = #filePath, line: UInt = #line
+    ) -> GenericTableViewController<CatalogDisplayView<CatalogDemoView>> {
+        let model = [
             CatalogDisplayView<CatalogDemoView>.Model(
                 title: "title1",
                 detail: "detail1",
@@ -28,38 +52,12 @@ final class GenericTableViewControllerTest: XCTestCase {
             )
         ]
 
-        tableVC = GenericTableViewController<CatalogDisplayView<CatalogDemoView>>(
+        let sut = GenericTableViewController<CatalogDisplayView<CatalogDemoView>>(
             navigationTitle: "DemoTable",
             models: model
         )
-    }
-    
-    override func tearDown() {
-        model = nil
-        tableVC = nil
-        
-        super.tearDown()
-    }
-    
-    func testInitWithCoder() {
-        let tableviewVCC = GenericTableViewController<CatalogDemoView>(coder: NSCoder())
-        XCTAssertNil(tableviewVCC)
-    }
-    
-    func testNumberOfRowsInSection() {
-        XCTAssertEqual(2, tableVC.tableView(tableVC.tableView, numberOfRowsInSection: model.count))
-    }
-    
-    func testCellForRowAt() {
-        let tableCell = tableVC.tableView(tableVC.tableView, cellForRowAt: [0, 0])
-        XCTAssertNotNil(tableCell)
-    }
-    
-    func testDidSelect() {
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableVC.tableView(tableVC.tableView, didSelectRowAt: indexPath)
-        tableVC.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        let isSelected = tableVC.tableView.cellForRow(at: indexPath)?.isSelected
-        XCTAssertEqual(isSelected, true)
+
+        trackForMemoryLeak(sut, file: file, line: line)
+        return sut
     }
 }

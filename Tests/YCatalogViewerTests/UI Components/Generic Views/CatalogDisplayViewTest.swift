@@ -1,29 +1,15 @@
 //
 //  CatalogDisplayViewTest.swift
 //
-//  Created by Y Media Labd on 03/08/22.
+//  Created by Y Media Labs on 03/08/22.
 //
 
 import XCTest
 @testable import YCatalogViewer
 
 final class CatalogDisplayViewTest: XCTestCase {
-    var view: CatalogDisplayView<CatalogDemoView>!
-    
-    override func setUp() {
-        super.setUp()
-        
-        view = CatalogDisplayView<CatalogDemoView>()
-    }
-    
-    override func tearDown() {
-        view = nil
-        
-        super.tearDown()
-    }
-    
-    func testPopulatble() {
-        XCTAssertNil(view.displayView.isPopulated)
+    func testPopulatable() {
+        let sut = makeSUT()
         let catalogDemoModel = CatalogDemoModel()
         let model = CatalogDisplayView<CatalogDemoView>.Model(
             title: nil,
@@ -31,39 +17,61 @@ final class CatalogDisplayViewTest: XCTestCase {
             displayViewAxis: .vertical,
             displayViewModel: catalogDemoModel
         )
-        view.populate(with: model)
-        XCTAssertEqual(view.displayView.isPopulated, true)
+
+        XCTAssertFalse(sut.displayView.isPopulated)
+        sut.populate(with: model)
+        XCTAssertTrue(sut.displayView.isPopulated)
     }
     
     func testReusable() {
-        XCTAssertNil(view.displayView.isPrepared)
-        view.prepareForReuse()
-        XCTAssertEqual(view.displayView.isPrepared, true)
+        let sut = makeSUT()
+
+        XCTAssertFalse(sut.displayView.isPrepared)
+        sut.prepareForReuse()
+        XCTAssertTrue(sut.displayView.isPrepared)
     }
     
     func testHighlightable() {
-        XCTAssertNil(view.displayView.isHighlighted)
-        view.setHighlighted(true)
-        XCTAssertEqual(view.displayView.isHighlighted, true)
+        let sut = makeSUT()
+
+        XCTAssertNil(sut.displayView.isHighlighted)
+        sut.setHighlighted(true)
+        XCTAssertEqual(sut.displayView.isHighlighted, true)
+        sut.setHighlighted(false)
+        XCTAssertEqual(sut.displayView.isHighlighted, false)
     }
     
     func testSelectable() {
-        XCTAssertNil(view.displayView.isSelected)
-        view.setSelected(true)
-        XCTAssertEqual(view.displayView.isSelected, true)
+        let sut = makeSUT()
+
+        XCTAssertNil(sut.displayView.isSelected)
+        sut.setSelected(true)
+        XCTAssertEqual(sut.displayView.isSelected, true)
+        sut.setSelected(false)
+        XCTAssertEqual(sut.displayView.isSelected, false)
     }
     
-    func testInitWithCoder() {
-        let catalogView = CatalogDisplayView<CatalogDemoView>(coder: NSCoder())
-        XCTAssertNil(catalogView)
+    func testInitWithCoder() throws {
+        let sut = CatalogDisplayView<CatalogDemoView>(coder: try makeCoder(for: makeSUT()))
+        XCTAssertNil(sut)
     }
 }
+
+private extension CatalogDisplayViewTest {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CatalogDisplayView<CatalogDemoView> {
+        let sut = CatalogDisplayView<CatalogDemoView>()
+        trackForMemoryLeak(sut, file: file, line: line)
+        return sut
+    }
+}
+
+// MARK: - CatalogDemoView
 
 final class CatalogDemoView: UIView {
     typealias Model = CatalogDemoModel
     
-    var isPrepared: Bool?
-    var isPopulated: Bool?
+    var isPrepared = false
+    var isPopulated = false
     var isHighlighted: Bool?
     var isSelected: Bool?
 }
@@ -91,5 +99,7 @@ extension CatalogDemoView: Reusable {
         isPrepared = true
     }
 }
+
+// MARK: - CatalogDemoModel
 
 struct CatalogDemoModel { }

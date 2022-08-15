@@ -8,49 +8,58 @@ import XCTest
 @testable import YCatalogViewer
 
 final class GenericTableViewCellTest: XCTestCase {
-    var cell: GenericTableViewCell<DemoView>?
-    override func setUp() {
-        super.setUp()
-        
-        cell = GenericTableViewCell<DemoView>()
-    }
-    
-    override func tearDown() {
-        cell = nil
-        
-        super.tearDown()
-    }
-    
     func testPopulatable() {
-        XCTAssertEqual(cell?.displayedView.isPopulated, false)
+        let sut = makeSUT()
         let model = DemoModel()
-        cell?.populate(with: model)
-        XCTAssertEqual(cell?.displayedView.isPopulated, true)
+
+        XCTAssertFalse(sut.displayedView.isPopulated)
+        sut.populate(with: model)
+        XCTAssertTrue(sut.displayedView.isPopulated)
     }
     
     func testReusable() {
-        XCTAssertEqual(cell?.displayedView.isPrepared, false)
-        cell?.prepareForReuse()
-        XCTAssertEqual(cell?.displayedView.isPrepared, true)
+        let sut = makeSUT()
+
+        XCTAssertFalse(sut.displayedView.isPrepared)
+        sut.prepareForReuse()
+        XCTAssertTrue(sut.displayedView.isPrepared)
     }
     
-    func testNSCoder() {
-        let secondCell = GenericTableViewCell<DemoView>(coder: NSCoder())
-        XCTAssertNil(secondCell)
+    func testInitWithCoder() throws {
+        let sut = GenericTableViewCell<DemoView>(coder: try makeCoder(for: makeSUT()))
+        XCTAssertNil(sut)
     }
     
     func testHighlightable() {
-        XCTAssertNil(cell?.displayedView.isHighlighted)
-        cell?.setHighlighted(true, animated: false)
-        XCTAssertEqual(true, cell?.displayedView.isHighlighted)
+        let sut = makeSUT()
+
+        XCTAssertNil(sut.displayedView.isHighlighted)
+        sut.isHighlighted = true
+        XCTAssertEqual(sut.displayedView.isHighlighted, true)
+        sut.isHighlighted = false
+        XCTAssertEqual(sut.displayedView.isHighlighted, false)
     }
     
     func testSelectable() {
-        XCTAssertNil(cell?.displayedView.isSelected)
-        cell?.setSelected(true, animated: false)
-        XCTAssertEqual(true, cell?.displayedView.isSelected)
+        let sut = makeSUT()
+
+        XCTAssertNil(sut.displayedView.isSelected)
+        sut.isSelected = false
+        XCTAssertEqual(sut.displayedView.isSelected, false)
+        sut.isSelected = true
+        XCTAssertEqual(sut.displayedView.isSelected, true)
     }
 }
+
+private extension GenericTableViewCellTest {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> GenericTableViewCell<DemoView> {
+        let sut = GenericTableViewCell<DemoView>()
+        trackForMemoryLeak(sut, file: file, line: line)
+        return sut
+    }
+}
+
+// MARK: - DemoView
 
 final class DemoView: UIView {
     typealias Model = DemoModel
@@ -84,5 +93,7 @@ extension DemoView: Selectable {
         self.isSelected = isSelected
     }
 }
+
+// MARK: - DemoModel
 
 struct DemoModel { }
