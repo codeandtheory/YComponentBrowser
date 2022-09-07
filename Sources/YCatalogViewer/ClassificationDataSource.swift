@@ -1,0 +1,52 @@
+//
+//  ClassificationDataSource.swift
+//
+//  Created by Y Media Labs on 10/08/22.
+//
+
+import UIKit
+
+/// Represents the Classification Datasource
+public final class ClassificationDataSource: NSObject, CatalogDataSource {
+    /// Represents the cell type
+    public static var cell: Cell.Type { UITableViewCell.self }
+    
+    /// The type of cell catalogDataSource supports
+    public typealias Cell = UITableViewCell
+    /// Identifier to identify the cell
+    public static var cellIdentifier: String { "classificationCell" }
+    /// Represents the title of catalog
+    public var navigationTitle: String?
+    /// Represents categories in the catalog
+    public var categories: [Classification]
+    
+    ///  Used to initialize the  `ClassificationDataSource`
+    /// - Parameters:
+    /// - navigationTitle:the text to be displayed in the navigation bar
+    /// - classification: array of categories
+    init(navigationTitle: String, classification: [Classification]) {
+        self.navigationTitle = navigationTitle
+        categories = classification
+    }
+    
+    /// :nodoc:
+    public func category(for indexPath: IndexPath) -> Classification {
+        return categories[indexPath.row]
+    }
+    
+    /// :nodoc:
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    /// :nodoc:
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ClassificationDataSource.cellIdentifier,
+            for: indexPath
+        )
+        cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .default
+        return cell
+    }
+}
