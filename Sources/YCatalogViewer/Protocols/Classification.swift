@@ -14,7 +14,7 @@ public protocol Classification {
     var destination: Destination { get }
 }
 
-extension Classification {
+public extension Classification {
     /// Represents the presentation style of the classification
     var presentationStyle: Presentation {
         destination.presentationStyle

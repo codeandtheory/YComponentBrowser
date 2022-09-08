@@ -9,9 +9,15 @@ import Foundation
 /// Represents catalog category
 public struct CatalogCategory: Classification {
     /// Represents destination of the catalog category
-    public var destination: Destination
+    public var destination: Destination {
+        SubcategoryDetailDestination(
+            navigationTitle: name,
+            subcategories: subcategories
+        )
+    }
     /// Name of the catalog category
     public var name: String
     /// Represents the subcategories of the given category
-    var subcategories: [Classification]
+    public var subcategories: [Classification]
+    
 }

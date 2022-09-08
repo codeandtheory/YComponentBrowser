@@ -7,12 +7,12 @@
 import UIKit
 
 ///  Represents the sub category destination
-public struct SubcategoryDestination: Destination {
+public struct SubcategoryDetailDestination: Destination {
     /// NavigationTitle for subcategory VC
     public var navigationTitle: String?
     
     ///  Represents subcateogries of the category
-    var subcategories: [Classification]
+    public var subcategories: [Classification]
     /// Represents the presentation style of subcategory
     public var presentationStyle: Presentation = .detail
     /// Represents the sub category view controller
