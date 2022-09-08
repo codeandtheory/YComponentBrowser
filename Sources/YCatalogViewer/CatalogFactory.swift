@@ -5,13 +5,22 @@
 //
 
 import UIKit
-
-enum CatalogFactory {
-    enum DisplayType {
+/// CatalogFactoty to hide creation logic of catalog and controllers
+public enum CatalogFactory {
+    ///  Types of generic display ViewController
+    public enum DisplayType {
+        /// TableViewController
         case table
+        /// CollectionViewController
         case collection(UICollectionViewLayout)
     }
     
+    ///  Used to create catalogViewer
+    /// - Parameters:
+    ///   - categories: array of categories in catalog
+    ///   - navigationTitle:  title of the catalog
+    ///   - embedInNavigationController: bool indicating whether vc should be embeded in navigationController or not
+    /// - Returns: UIViewController
     public static func createCatalogViewer<T: Classification>(
         with categories: [T],
         navigationTitle: String? = nil,
@@ -25,6 +34,11 @@ enum CatalogFactory {
         return viewcontroller
     }
     
+    /// Used to create classificationController
+    /// - Parameters:
+    ///   - categories: array of categories
+    ///   - navigationTitle: title for the VC
+    /// - Returns: UIViewController
     public static func createClassificationViewController(
         with categories: [Classification],
         navigationTitle: String? = nil
@@ -37,6 +51,13 @@ enum CatalogFactory {
         )
     }
     
+    ///  Used to create generic VC
+    /// - Parameters:
+    ///   - viewType: the type of view displayed inside GenericVC
+    ///   - models:  data model needed for the View
+    ///   - display:  display type indicating whether table or collectionView
+    ///   - navigationTitle:  title for the VC
+    /// - Returns: UIViewController
     public static func createGenericDisplayViewController<T: ContentView>(
         viewType: T.Type,
         models: [T.Model],
