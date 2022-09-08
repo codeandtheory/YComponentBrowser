@@ -6,7 +6,7 @@
 
 import UIKit
 /// ClassificationViewController to display catalog
-final class ClassificationViewController<DataSource: CatalogDataSource>: UITableViewController {
+public final class ClassificationViewController<DataSource: CatalogDataSource>: UITableViewController {
     /// Datasource for that catalogView
     var datasource: DataSource
     
@@ -27,9 +27,10 @@ final class ClassificationViewController<DataSource: CatalogDataSource>: UITable
     /// :nodoc:
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = datasource.category(for: indexPath)
-        if category.presentationStyle == .detail {
+        switch category.presentationStyle {
+        case .detail:
             navigationController?.pushViewController(category.destinationController, animated: true)
-        } else {
+        case .modal:
             present(category.destinationController, animated: true)
         }
         tableView.deselectRow(at: indexPath, animated: true)
