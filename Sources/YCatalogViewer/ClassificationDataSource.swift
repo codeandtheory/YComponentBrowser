@@ -8,13 +8,13 @@ import UIKit
 
 /// Represents the Classification Datasource
 public final class ClassificationDataSource: NSObject, CatalogDataSource {
-    /// Represents the cell type
-    public static var cell: Cell.Type { UITableViewCell.self }
-    
     /// The type of cell catalogDataSource supports
     public typealias Cell = UITableViewCell
+    
+    /// Represents the cell type
+    public static var cell: Cell.Type { UITableViewCell.self }
     /// Identifier to identify the cell
-    public static var cellIdentifier: String { "classificationCell" }
+    public static var cellIdentifier: String { "ClassificationTableCell" }
     /// Represents the title of catalog
     public var navigationTitle: String?
     /// Represents categories in the catalog
@@ -24,7 +24,7 @@ public final class ClassificationDataSource: NSObject, CatalogDataSource {
     /// - Parameters:
     /// - navigationTitle:the text to be displayed in the navigation bar
     /// - classification: array of categories
-    init(navigationTitle: String, classification: [Classification]) {
+    public init(navigationTitle: String, classification: [Classification]) {
         self.navigationTitle = navigationTitle
         categories = classification
     }
@@ -45,6 +45,9 @@ public final class ClassificationDataSource: NSObject, CatalogDataSource {
             withIdentifier: ClassificationDataSource.cellIdentifier,
             for: indexPath
         )
+        let category = categories[indexPath.row]
+
+        cell.textLabel?.text = category.name
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .default
         return cell

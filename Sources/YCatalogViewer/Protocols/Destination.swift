@@ -8,9 +8,9 @@ import UIKit
 
 /// Represents the way to present next ViewController
 public enum Presentation {
-    /// present the VC modally
+    /// Present the VC modally
     case modal
-    /// push the VC
+    /// Push the VC onto the stack
     case detail
 }
 

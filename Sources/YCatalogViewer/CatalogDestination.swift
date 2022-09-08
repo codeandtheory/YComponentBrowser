@@ -6,12 +6,12 @@
 
 import UIKit
 
-/// Represents the catalogDestination
-public struct CatalogDestination<View: ContentView>: Destination {
+/// Represents the CatalogDetailDestination
+public struct CatalogDetailDestination<View: ContentView>: Destination {
     ///  NavigationTitle of the destination screen
     public var navigationTitle: String?
     /// Represents the model of catalog destination VC
-    var models: [View.Model]
+    public var models: [View.Model]
     /// Represents the presentation style of catalog destination VC
     public var presentationStyle: Presentation = .detail
     // TODO: Update after catalogFactory Ticket
