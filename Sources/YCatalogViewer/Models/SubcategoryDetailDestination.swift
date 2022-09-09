@@ -15,6 +15,7 @@ public struct SubcategoryDetailDestination: Destination {
     ///  Represents subcategories of the category
     public let subcategories: [Classification]
     /// Represents the sub category view controller
-    public var controller: UIViewController { CatalogFactory.createClassificationViewController(with: subcategories)
+    public var controller: UIViewController {
+        CatalogFactory.createClassificationViewController(with: subcategories, navigationTitle: navigationTitle)
     }
 }

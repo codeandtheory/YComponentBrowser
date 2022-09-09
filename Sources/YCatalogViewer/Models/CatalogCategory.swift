@@ -19,4 +19,10 @@ public struct CatalogCategory: Classification {
             subcategories: subcategories
         )
     }
+
+    // TODO: Add Documentation
+    public init(name: String, subcategories: [Classification]) {
+        self.name = name
+        self.subcategories = subcategories
+    }
 }

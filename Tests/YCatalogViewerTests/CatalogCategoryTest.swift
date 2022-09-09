@@ -23,7 +23,6 @@ final class CatalogCategoryTest: XCTestCase {
         )
         XCTAssertEqual("category", category.destination.navigationTitle)
         XCTAssertEqual(.detail, category.destination.presentationStyle)
-        XCTAssert(type(of: controller) == type(of: category.destinationController))
     }
     
     func testSubcategoryDestination() {
@@ -39,9 +38,7 @@ final class CatalogCategoryTest: XCTestCase {
                             controller: controller
                         )
                     )
-                ],
-            controller:
-                controller
+                ]
         )
         XCTAssertEqual("title", subcategory.navigationTitle)
         XCTAssertEqual(.detail, subcategory.subcategories[0].presentationStyle)
@@ -51,10 +48,8 @@ final class CatalogCategoryTest: XCTestCase {
         let catalogDestination = CatalogDetailDestination<DemoView>(
             presentationStyle: .detail,
             navigationTitle: "title",
-            models: [DemoModel()],
-            controller: controller
+            models: [DemoModel()]
         )
-        XCTAssertEqual(controller, catalogDestination.controller)
         XCTAssertEqual(.detail, catalogDestination.presentationStyle)
     }
     
