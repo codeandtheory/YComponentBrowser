@@ -8,12 +8,12 @@ import UIKit
 /// ClassificationViewController to display catalog
 public final class ClassificationViewController<DataSource: CatalogDataSource>: UITableViewController {
     /// Datasource for that catalogView
-    var datasource: DataSource
+    public let datasource: DataSource
     
     ///  Used to initialize the  `ClassificationViewController`
     /// - Parameters:
     /// - datasource:Datasource for the catalogview
-    init(datasource: DataSource) {
+    public init(datasource: DataSource) {
         self.datasource = datasource
         super.init(nibName: nil, bundle: nil)
         self.tableView.register(DataSource.cell, forCellReuseIdentifier: DataSource.cellIdentifier)
@@ -22,7 +22,7 @@ public final class ClassificationViewController<DataSource: CatalogDataSource>: 
     }
     
     /// :nodoc:
-    required init?(coder: NSCoder) { return nil }
+    public required init?(coder: NSCoder) { return nil }
     
     /// :nodoc:
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
