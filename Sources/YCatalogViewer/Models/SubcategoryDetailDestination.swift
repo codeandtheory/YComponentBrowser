@@ -15,6 +15,6 @@ public struct SubcategoryDetailDestination: Destination {
     ///  Represents subcategories of the category
     public let subcategories: [Classification]
     /// Represents the sub category view controller
-    // TODO: Update after catalogFactory Ticket
-    public var controller = UIViewController()
+    public var controller: UIViewController { CatalogFactory.createClassificationViewController(with: subcategories)
+    }
 }
