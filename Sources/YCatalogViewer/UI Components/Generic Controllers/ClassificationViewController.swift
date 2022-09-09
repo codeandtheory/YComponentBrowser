@@ -25,7 +25,7 @@ public final class ClassificationViewController<DataSource: CatalogDataSource>: 
     required init?(coder: NSCoder) { return nil }
     
     /// :nodoc:
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = datasource.category(for: indexPath)
         switch category.presentationStyle {
         case .detail:
