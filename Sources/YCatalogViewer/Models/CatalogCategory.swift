@@ -8,6 +8,10 @@ import Foundation
 
 /// Represents catalog category
 public struct CatalogCategory: Classification {
+    /// Name of the catalog category
+    public let name: String
+    /// Represents the subcategories of the given category
+    public let subcategories: [Classification]
     /// Represents destination of the catalog category
     public var destination: Destination {
         SubcategoryDetailDestination(
@@ -15,9 +19,4 @@ public struct CatalogCategory: Classification {
             subcategories: subcategories
         )
     }
-    /// Name of the catalog category
-    public var name: String
-    /// Represents the subcategories of the given category
-    public var subcategories: [Classification]
-    
 }

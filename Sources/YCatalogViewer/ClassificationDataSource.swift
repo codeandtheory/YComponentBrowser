@@ -10,15 +10,14 @@ import UIKit
 public final class ClassificationDataSource: NSObject, CatalogDataSource {
     /// The type of cell catalogDataSource supports
     public typealias Cell = UITableViewCell
-    
     /// Represents the cell type
     public static var cell: Cell.Type { UITableViewCell.self }
     /// Identifier to identify the cell
     public static var cellIdentifier: String { "ClassificationTableCell" }
     /// Represents the title of catalog
-    public var navigationTitle: String?
+    public let navigationTitle: String?
     /// Represents categories in the catalog
-    public var categories: [Classification]
+    public let categories: [Classification]
     
     ///  Used to initialize the  `ClassificationDataSource`
     /// - Parameters:
@@ -45,7 +44,7 @@ public final class ClassificationDataSource: NSObject, CatalogDataSource {
             withIdentifier: ClassificationDataSource.cellIdentifier,
             for: indexPath
         )
-        let category = categories[indexPath.row]
+        let category = category(for: indexPath)
 
         cell.textLabel?.text = category.name
         cell.accessoryType = .disclosureIndicator

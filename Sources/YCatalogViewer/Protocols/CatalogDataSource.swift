@@ -10,10 +10,10 @@ import UIKit
 public protocol CatalogDataSource: UITableViewDataSource {
     /// The type of cell catalogDataSource supports
     associatedtype Cell: UITableViewCell
-    /// Identifier to identify the cell
-    static var cellIdentifier: String { get }
     /// Represents the cell type
     static var cell: Cell.Type { get }
+    /// Identifier to identify the cell
+    static var cellIdentifier: String { get }
     /// Represents the title of catalog
     var navigationTitle: String? { get }
     /// Represents categories in the catalog
