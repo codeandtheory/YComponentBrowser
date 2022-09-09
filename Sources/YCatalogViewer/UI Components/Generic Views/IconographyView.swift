@@ -25,6 +25,7 @@ final public class IconographyView: UIImageView {
     public required init?(coder: NSCoder) { nil }
     
     private func setUpIconographyView() {
+        contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             self.widthAnchor.constraint(equalToConstant: Style.size.width),
             self.heightAnchor.constraint(equalToConstant: Style.size.height)

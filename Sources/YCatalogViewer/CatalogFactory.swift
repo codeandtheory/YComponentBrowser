@@ -5,7 +5,7 @@
 //
 
 import UIKit
-/// CatalogFactoty to hide creation logic of catalog and controllers
+/// CatalogFactory to hide creation logic of catalog and controllers
 public enum CatalogFactory {
     ///  Types of generic display ViewController
     public enum DisplayType {
@@ -19,19 +19,19 @@ public enum CatalogFactory {
     /// - Parameters:
     ///   - categories: array of categories in catalog
     ///   - navigationTitle:  title of the catalog
-    ///   - embedInNavigationController: bool indicating whether vc should be embeded in navigationController or not
+    ///   - embedInNavigationController: bool indicating whether vc should be embedded in navigationController or not
     /// - Returns: UIViewController
     public static func createCatalogViewer<T: Classification>(
         with categories: [T],
         navigationTitle: String? = nil,
         embedInNavigationController: Bool
     ) -> UIViewController {
-        let viewcontroller = createClassificationViewController(with: categories, navigationTitle: navigationTitle)
+        let controller = createClassificationViewController(with: categories, navigationTitle: navigationTitle)
         if embedInNavigationController == true {
-            let navigationController = UINavigationController(rootViewController: viewcontroller)
+            let navigationController = UINavigationController(rootViewController: controller)
             return navigationController
         }
-        return viewcontroller
+        return controller
     }
     
     /// Used to create classificationController
@@ -45,7 +45,7 @@ public enum CatalogFactory {
     ) -> UIViewController {
         return ClassificationViewController(
             datasource: ClassificationDataSource(
-                navigationTitle: navigationTitle ?? "",
+                navigationTitle: navigationTitle,
                 classification: categories
             )
         )

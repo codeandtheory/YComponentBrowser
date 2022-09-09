@@ -14,6 +14,19 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
     public let navigationTitle: String?
     /// Represents the model of catalog destination VC
     public let models: [View.Model]
-    // TODO: Update after catalogFactory Ticket
-    public var controller = UIViewController()
+    // Creates a tableview controller that displays the model data within the specified view
+    public var controller: UIViewController {
+        CatalogFactory.createGenericDisplayViewController(
+            viewType: View.self,
+            models: models,
+            navigationTitle: navigationTitle
+        )
+    }
+
+    // TODO: Add Documentation
+    public init(presentationStyle: Presentation = .detail, navigationTitle: String?, models: [View.Model]) {
+        self.presentationStyle = presentationStyle
+        self.navigationTitle = navigationTitle
+        self.models = models
+    }
 }

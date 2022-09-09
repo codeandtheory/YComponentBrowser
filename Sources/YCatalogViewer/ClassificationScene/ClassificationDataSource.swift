@@ -23,7 +23,7 @@ public final class ClassificationDataSource: NSObject, CatalogDataSource {
     /// - Parameters:
     /// - navigationTitle:the text to be displayed in the navigation bar
     /// - classification: array of categories
-    public init(navigationTitle: String, classification: [Classification]) {
+    public init(navigationTitle: String?, classification: [Classification]) {
         self.navigationTitle = navigationTitle
         categories = classification
     }
