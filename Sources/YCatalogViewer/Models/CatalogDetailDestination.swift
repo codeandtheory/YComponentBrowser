@@ -22,8 +22,12 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
             navigationTitle: navigationTitle
         )
     }
-
-    // TODO: Add Documentation
+    
+    ///  Used to initialize the CatalogDetailDestination
+    /// - Parameters:
+    ///   - presentationStyle: Reprents presentation style whether modal or on stack
+    ///   - navigationTitle:  Title for the VC
+    ///   - models:  Model for the view to be displayed in CatalogDetailDestination
     public init(presentationStyle: Presentation = .detail, navigationTitle: String?, models: [View.Model]) {
         self.presentationStyle = presentationStyle
         self.navigationTitle = navigationTitle
