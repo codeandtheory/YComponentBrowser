@@ -20,4 +20,17 @@ final class CategoriesTest: XCTestCase {
         let category = IconographyCategory(name: "Icons", models: model)
         XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
+    
+    func testColorCategory() {
+        let model = [
+            CatalogDisplayView<ColorView>.Model(
+                title: "title1",
+                detail: "detail1",
+                displayViewAxis: .horizontal,
+                displayViewModel: UIColor.blue
+            )
+        ]
+        let category = ColorCategory(name: "Colors", models: model)
+        XCTAssertEqual("ColorCategory", category.destination.navigationTitle)
+    }
 }
