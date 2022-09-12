@@ -9,11 +9,14 @@ import Foundation
 /// Category for colors
 public struct ColorCategory: Classification {
   typealias View = CatalogDisplayView<ColorView>
+    
   /// Name of the category
   public let name: String
+    
   /// Represents destination of the ColorCategory
   public var destination: Destination {
       CatalogDetailDestination<View>(navigationTitle: "ColorCategory", models: models)
   }
+    
   let models: [View.Model]
 }
