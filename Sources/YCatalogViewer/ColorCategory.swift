@@ -13,7 +13,7 @@ public struct ColorCategory: Classification {
   /// Name of the category
   public let name: String
     
-  /// Represents destination of the ColorCategory
+  /// Destination of the category
   public var destination: Destination {
       CatalogDetailDestination<View>(navigationTitle: "ColorCategory", models: models)
   }
