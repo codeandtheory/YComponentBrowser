@@ -15,12 +15,12 @@ public enum CatalogFactory {
         case collection(UICollectionViewLayout)
     }
     
-    ///  Used to create catalogViewer
+    /// Creates a catalog viewer view controller
     /// - Parameters:
     ///   - categories: array of categories in catalog
     ///   - navigationTitle:  title of the catalog
     ///   - embedInNavigationController: bool indicating whether vc should be embedded in navigationController or not
-    /// - Returns: UIViewController
+    /// - Returns: A catalog viewer view controller
     public static func createCatalogViewer<T: Classification>(
         with categories: [T],
         navigationTitle: String? = nil,
@@ -34,11 +34,11 @@ public enum CatalogFactory {
         return controller
     }
     
-    /// Used to create classificationController
+    /// Creates a classification view controller
     /// - Parameters:
     ///   - categories: array of categories
     ///   - navigationTitle: title for the VC
-    /// - Returns: UIViewController
+    /// - Returns: A classification view controller
     public static func createClassificationViewController(
         with categories: [Classification],
         navigationTitle: String? = nil
@@ -51,13 +51,13 @@ public enum CatalogFactory {
         )
     }
     
-    ///  Used to create generic VC
+    /// Creates generic view controller
     /// - Parameters:
     ///   - viewType: the type of view displayed inside GenericVC
     ///   - models:  data model needed for the View
     ///   - display:  display type indicating whether table or collectionView
     ///   - navigationTitle:  title for the VC
-    /// - Returns: UIViewController
+    /// - Returns: a TableView view controller or CollectionView view controller
     public static func createGenericDisplayViewController<T: ContentView>(
         viewType: T.Type,
         models: [T.Model],

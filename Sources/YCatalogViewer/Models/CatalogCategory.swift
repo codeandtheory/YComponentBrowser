@@ -20,7 +20,7 @@ public struct CatalogCategory: Classification {
         )
     }
     
-    /// Used to initialize the CatalogCategory
+    /// Initializes a catalog category
     /// - Parameters:
     ///   - name: Name of the category
     ///   - subcategories: Array of sub categories
