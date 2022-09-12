@@ -9,11 +9,14 @@ import Foundation
 /// Category for images
 public struct IconographyCategory: Classification {
   typealias View = CatalogDisplayView<IconographyView>
+    
   /// Name of the category
   public let name: String
+    
   /// Represents destination of the IconographyCategory
   public var destination: Destination {
       CatalogDetailDestination<View>(navigationTitle: "IconCategory", models: models)
   }
+    
   let models: [View.Model]
 }
