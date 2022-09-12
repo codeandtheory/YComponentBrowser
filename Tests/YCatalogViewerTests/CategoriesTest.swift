@@ -46,4 +46,17 @@ final class CategoriesTest: XCTestCase {
         let category = TypographyCategory(name: "Texts", models: model)
         XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
+    
+    func testComponentCategory() {
+        let model = [
+            CatalogDisplayView<CatalogDemoView>.Model(
+                title: "title1",
+                detail: "detail1",
+                displayViewAxis: .horizontal,
+                displayViewModel: CatalogDemoModel()
+            )
+        ]
+        let category = ComponentCategory<CatalogDemoView>(name: "Catalog Component", models: model)
+        XCTAssertEqual("Component Category", category.destination.navigationTitle)
+    }
 }
