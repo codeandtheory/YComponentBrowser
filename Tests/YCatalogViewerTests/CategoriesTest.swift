@@ -33,4 +33,17 @@ final class CategoriesTest: XCTestCase {
         let category = ColorCategory(name: "Colors", models: model)
         XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
+    
+    func testTypographyCategory() {
+        let model = [
+            CatalogDisplayView<TypographyView>.Model(
+                title: "title1",
+                detail: "detail1",
+                displayViewAxis: .horizontal,
+                displayViewModel: TypographyView.Model(font: .boldSystemFont(ofSize: 25))
+            )
+        ]
+        let category = TypographyCategory(name: "Texts", models: model)
+        XCTAssertEqual("TypographyCategory", category.destination.navigationTitle)
+    }
 }
