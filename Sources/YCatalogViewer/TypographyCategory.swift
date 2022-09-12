@@ -13,7 +13,7 @@ public struct TypographyCategory: Classification {
   /// Name of the category
   public let name: String
     
-  /// Represents destination of the TypographyCategory
+  /// Destination of the category
   public var destination: Destination {
       CatalogDetailDestination<View>(navigationTitle: "TypographyCategory", models: models)
   }
