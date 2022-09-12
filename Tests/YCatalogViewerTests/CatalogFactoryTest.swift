@@ -6,6 +6,7 @@
 
 import XCTest
 @testable import YCatalogViewer
+
 final class CatalogFactoryTest: XCTestCase {
     func testCreateCatalogViewer() {
         let catalogViewer = CatalogFactory.createCatalogViewer(

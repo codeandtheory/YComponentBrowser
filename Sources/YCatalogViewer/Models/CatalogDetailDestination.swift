@@ -23,7 +23,7 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
         )
     }
     
-    ///  Used to initialize the CatalogDetailDestination
+    /// Initializes a catalog detail destination
     /// - Parameters:
     ///   - presentationStyle: Reprents presentation style whether modal or on stack
     ///   - navigationTitle:  Title for the VC
