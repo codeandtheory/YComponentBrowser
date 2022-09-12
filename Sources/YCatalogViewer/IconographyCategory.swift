@@ -13,7 +13,7 @@ public struct IconographyCategory: Classification {
   /// Name of the category
   public let name: String
     
-  /// Represents destination of the IconographyCategory
+  /// Destination of the category
   public var destination: Destination {
       CatalogDetailDestination<View>(navigationTitle: "IconCategory", models: models)
   }
