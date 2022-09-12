@@ -19,8 +19,11 @@ public struct CatalogCategory: Classification {
             subcategories: subcategories
         )
     }
-
-    // TODO: Add Documentation
+    
+    /// Used to initialize the CatalogCategory
+    /// - Parameters:
+    ///   - name: Name of the category
+    ///   - subcategories: Array of sub categories
     public init(name: String, subcategories: [Classification]) {
         self.name = name
         self.subcategories = subcategories
