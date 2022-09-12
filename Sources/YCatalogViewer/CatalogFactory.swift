@@ -5,6 +5,7 @@
 //
 
 import UIKit
+
 /// CatalogFactory to hide creation logic of catalog and controllers
 public enum CatalogFactory {
     ///  Types of generic display ViewController
@@ -37,7 +38,7 @@ public enum CatalogFactory {
     /// Creates a classification view controller
     /// - Parameters:
     ///   - categories: array of categories
-    ///   - navigationTitle: title for the VC
+    ///   - navigationTitle: title for the view controller
     /// - Returns: A classification view controller
     public static func createClassificationViewController(
         with categories: [Classification],
@@ -53,11 +54,11 @@ public enum CatalogFactory {
     
     /// Creates generic view controller
     /// - Parameters:
-    ///   - viewType: the type of view displayed inside GenericVC
+    ///   - viewType: the type of view displayed inside the generic view controller
     ///   - models:  data model needed for the View
     ///   - display:  display type indicating whether table or collectionView
-    ///   - navigationTitle:  title for the VC
-    /// - Returns: a TableView view controller or CollectionView view controller
+    ///   - navigationTitle: title for the view controller
+    /// - Returns: a view controller of the specified type
     public static func createGenericDisplayViewController<T: ContentView>(
         viewType: T.Type,
         models: [T.Model],
