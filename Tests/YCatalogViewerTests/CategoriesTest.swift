@@ -57,6 +57,6 @@ final class CategoriesTest: XCTestCase {
             )
         ]
         let category = ComponentCategory<CatalogDemoView>(name: "Catalog Component", models: model)
-        XCTAssertEqual("Component Category", category.destination.navigationTitle)
+        XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
 }
