@@ -44,6 +44,6 @@ final class CategoriesTest: XCTestCase {
             )
         ]
         let category = TypographyCategory(name: "Texts", models: model)
-        XCTAssertEqual("TypographyCategory", category.destination.navigationTitle)
+        XCTAssertEqual(name, category.destination.navigationTitle)
     }
 }

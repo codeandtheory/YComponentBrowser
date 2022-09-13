@@ -15,7 +15,7 @@ public struct TypographyCategory: Classification {
     
   /// Destination of the category
   public var destination: Destination {
-      CatalogDetailDestination<View>(navigationTitle: "TypographyCategory", models: models)
+      CatalogDetailDestination<View>(navigationTitle: name, models: models)
   }
     
   let models: [View.Model]
