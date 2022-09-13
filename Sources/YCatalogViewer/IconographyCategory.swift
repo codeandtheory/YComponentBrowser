@@ -17,6 +17,5 @@ public struct IconographyCategory: Classification {
   public var destination: Destination {
       CatalogDetailDestination<View>(navigationTitle: name, models: models)
   }
-    
   let models: [View.Model]
 }
