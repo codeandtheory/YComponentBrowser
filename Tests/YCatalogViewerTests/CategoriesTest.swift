@@ -64,6 +64,6 @@ final class CategoriesTest: XCTestCase {
         let model = CatalogDemoModel()
         
         let category = CustomCategory<CatalogDemoView>(name: "custom category", models: [model])
-        XCTAssertEqual("Custom Category", category.destination.navigationTitle)
+        XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
 }
