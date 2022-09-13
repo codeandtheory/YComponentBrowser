@@ -20,6 +20,6 @@ public protocol Destination {
     var presentationStyle: Presentation { get }
     /// Represents the navigation title of destination VC
     var navigationTitle: String? { get }
-    /// Represents the destination VC
-    var controller: UIViewController { get }
+    /// Represents the destination view controller
+    func getDestinationController() -> UIViewController
 }

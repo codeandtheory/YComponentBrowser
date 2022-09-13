@@ -10,6 +10,7 @@ import UIKit
 public protocol Classification {
     /// Name of the classification
     var name: String { get }
+    
     /// Represents destination of the classification
     var destination: Destination { get }
 }
@@ -19,8 +20,9 @@ public extension Classification {
     var presentationStyle: Presentation {
         destination.presentationStyle
     }
+    
     /// Represents the destination ViewController of the classification
     var destinationController: UIViewController {
-        destination.controller
+        destination.getDestinationController()
     }
 }
