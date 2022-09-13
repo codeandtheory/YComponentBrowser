@@ -31,6 +31,6 @@ final class CategoriesTest: XCTestCase {
             )
         ]
         let category = ColorCategory(name: "Colors", models: model)
-        XCTAssertEqual("ColorCategory", category.destination.navigationTitle)
+        XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
 }
