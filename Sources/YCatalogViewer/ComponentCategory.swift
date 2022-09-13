@@ -15,7 +15,7 @@ public struct ComponentCategory<View: ContentView>: Classification {
     
     /// Destination of the category
     public var destination: Destination {
-        CatalogDetailDestination<DisplayView>(navigationTitle: "Component Category", models: models)
+        CatalogDetailDestination<DisplayView>(navigationTitle: name, models: models)
     }
     
     let models: [DisplayView.Model]
