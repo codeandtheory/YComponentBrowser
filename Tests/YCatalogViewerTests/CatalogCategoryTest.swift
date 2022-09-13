@@ -51,6 +51,7 @@ final class CatalogCategoryTest: XCTestCase {
             models: [DemoModel()]
         )
         XCTAssertEqual(.detail, catalogDestination.presentationStyle)
+        XCTAssertNotNil(catalogDestination.getDestinationController())
     }
     
     func testClassificationDataSource() {
@@ -91,6 +92,10 @@ class Demo: Classification {
 }
 
 class Demodestination: Destination {
+    func getDestinationController() -> UIViewController {
+        return controller
+    }
+    
     var presentationStyle: Presentation
     var navigationTitle: String?
     var controller: UIViewController

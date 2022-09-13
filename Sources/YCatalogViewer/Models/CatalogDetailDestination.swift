@@ -10,13 +10,16 @@ import UIKit
 public struct CatalogDetailDestination<View: ContentView>: Destination {
     /// Represents the presentation style of catalog destination view controller
     public var presentationStyle: Presentation = .detail
+    
     ///  NavigationTitle of the destination screen
     public let navigationTitle: String?
+    
     /// Represents the model of catalog destination view controller
     public let models: [View.Model]
-    // Creates a tableview controller that displays the model data within the specified view
-    public var controller: UIViewController {
-        CatalogFactory.createGenericDisplayViewController(
+    
+    /// Creates a tableview controller that displays the model data within the specified view
+    public func getDestinationController() -> UIViewController {
+        return CatalogFactory.createGenericDisplayViewController(
             viewType: View.self,
             models: models,
             navigationTitle: navigationTitle

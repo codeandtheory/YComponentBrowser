@@ -18,6 +18,6 @@ final class CategoriesTest: XCTestCase {
             )
         ]
         let category = IconographyCategory(name: "Icons", models: model)
-        XCTAssertEqual("IconCategory", category.destination.navigationTitle)
+        XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
 }
