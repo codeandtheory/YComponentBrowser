@@ -6,7 +6,7 @@
 
 import Foundation
 
-/// Custom category for View that satisfies protcols
+/// Custom category for View that satisfies protocols
 public struct CustomCategory<View: ContentView>: Classification {
     /// Name of the category
     public let name: String
@@ -19,7 +19,7 @@ public struct CustomCategory<View: ContentView>: Classification {
         CatalogDetailDestination<View>(navigationTitle: name, models: models)
     }
     
-    ///  Initialises the category
+    ///  Initializes a category
     /// - Parameters:
     ///   - name: name of the category
     ///   - models:  model for the components to be displayed

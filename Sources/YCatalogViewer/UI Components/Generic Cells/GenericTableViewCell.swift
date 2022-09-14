@@ -11,7 +11,7 @@ public final class GenericTableViewCell<View: ContentView>: UITableViewCell, Ide
     /// The type of data that can be populated
     public typealias Model = View.Model
     
-    /// Represents view of type ContentView
+    /// View of type ContentView
     public let displayedView: View = View(frame: .zero)
     
     /// :nodoc:
@@ -47,7 +47,7 @@ public final class GenericTableViewCell<View: ContentView>: UITableViewCell, Ide
         displayedView.prepareForReuse()
     }
     
-    /// Used to populate UI component data passed in the Model
+    /// Populate UI component data passed in the Model
     /// - Parameter model: Model
     public func populate(with model: Model) {
          displayedView.populate(with: model)

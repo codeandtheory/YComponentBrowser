@@ -8,7 +8,7 @@ import UIKit
 
 /// A view to display a given font and text
 final public class TypographyView: UILabel {
-    ///  Model to initialise the the `TypographyView`
+    ///  Model to initialize the the `TypographyView`
     public struct Model {
         /// Default display text for Typography View Model
         public static let defaultText = "The quick brown fox jumped over the lazy dog."
@@ -19,10 +19,10 @@ final public class TypographyView: UILabel {
         /// Text for the label
         public let text: String
 
-        /// Initialises Typography View Model
+        /// Initializes a typography View Model
         /// - Parameters:
-        /// - font:the font to use
-        /// - text: the text to display
+        /// - font: font to use
+        /// - text: text to display
         public init(font: UIFont, text: String = defaultText) {
             self.font = font
             self.text = text

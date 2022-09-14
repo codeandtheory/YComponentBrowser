@@ -22,7 +22,7 @@ public struct ComponentCategory<View: ContentView>: Classification {
         CatalogDetailDestination<DisplayView>(navigationTitle: name, models: models)
     }
     
-    ///  Initialises the category
+    ///  Initializes a category
     /// - Parameters:
     ///   - name: name of the category
     ///   - models:  model for the components to be displayed

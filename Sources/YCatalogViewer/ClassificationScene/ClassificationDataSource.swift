@@ -23,7 +23,7 @@ public final class ClassificationDataSource: NSObject, CatalogDataSource {
     /// Represents categories in the catalog
     public let categories: [Classification]
     
-    ///  Used to initialise the  `ClassificationDataSource`
+    /// Initializes a  classification data source
     /// - Parameters:
     /// - navigationTitle:the text to be displayed in the navigation bar
     /// - classification: array of categories

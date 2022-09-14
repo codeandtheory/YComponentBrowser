@@ -22,7 +22,7 @@ public struct IconographyCategory: Classification {
         CatalogDetailDestination<View>(navigationTitle: name, models: models)
     }
     
-    ///  Initialises the category
+    ///  Initializes a category
     /// - Parameters:
     ///   - name: name of the category
     ///   - models:  model for the components to be displayed
