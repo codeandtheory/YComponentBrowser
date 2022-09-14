@@ -6,7 +6,7 @@
 
 import UIKit
 
-/// The way to present next ViewController
+/// How to present a view controller
 public enum Presentation {
     /// Present the VC modally
     case modal
@@ -16,12 +16,12 @@ public enum Presentation {
 
 /// Destination ViewController
 public protocol Destination {
-    /// Presentation style of destination VC
+    /// Presentation style of destination view controller
     var presentationStyle: Presentation { get }
     
-    /// Navigation title of destination VC
+    /// Navigation title of destination view controller
     var navigationTitle: String? { get }
     
-    /// To get destination view controller
+    /// Creates destination view controller
     func getDestinationController() -> UIViewController
 }

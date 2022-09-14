@@ -21,7 +21,7 @@ public extension Classification {
         destination.presentationStyle
     }
     
-    /// Destination ViewController of the classification
+    /// Destination view controller of the classification
     var destinationController: UIViewController {
         destination.getDestinationController()
     }

@@ -19,7 +19,7 @@ final public class TypographyView: UILabel {
         /// Text for the label
         public let text: String
 
-        /// Initializes a typography View Model
+        /// Initializes a typography view model
         /// - Parameters:
         /// - font: font to use
         /// - text: text to display

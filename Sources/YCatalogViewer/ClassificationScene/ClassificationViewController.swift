@@ -12,7 +12,7 @@ public final class ClassificationViewController<DataSource: CatalogDataSource>: 
     
     ///  Initializes a classification View controller
     /// - Parameters:
-    /// - datasource: Datasource for the catalog view
+    /// - datasource: datasource for the catalog view
     public init(datasource: DataSource) {
         self.datasource = datasource
         super.init(nibName: nil, bundle: nil)

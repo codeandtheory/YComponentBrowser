@@ -15,7 +15,7 @@ final public class GenericTableViewController<View: ContentView>: UITableViewCon
     /// Initializes a generic table view controller
     /// - Parameters:
     /// - navigationTitle: text to be displayed in the navigation bar if a value is given
-    /// - models: data to populate the given containing  view to be displayed within  the table view
+    /// - models: data to populate the cells
     public init(navigationTitle: String? = nil, models: [View.Model]) {
         self.models = models
         super.init(nibName: nil, bundle: nil)
