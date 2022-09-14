@@ -42,6 +42,12 @@ final class CatalogCategoryTest: XCTestCase {
         )
         XCTAssertEqual("title", subcategory.navigationTitle)
         XCTAssertEqual(.detail, subcategory.subcategories[0].presentationStyle)
+        XCTAssertEqual(
+            type(
+                of: subcategory.getDestinationController()
+            ) == ClassificationViewController<ClassificationDataSource>.self,
+            true
+        )
     }
     
     func testCatalogDestination() {

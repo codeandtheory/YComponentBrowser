@@ -10,16 +10,20 @@ import UIKit
 public final class ClassificationDataSource: NSObject, CatalogDataSource {
     /// The type of cell catalogDataSource supports
     public typealias Cell = UITableViewCell
+    
     /// Represents the cell type
     public static var cell: Cell.Type { UITableViewCell.self }
+    
     /// Identifier to identify the cell
     public static var cellIdentifier: String { "ClassificationTableCell" }
+    
     /// Represents the title of catalog
     public let navigationTitle: String?
+    
     /// Represents categories in the catalog
     public let categories: [Classification]
     
-    ///  Used to initialize the  `ClassificationDataSource`
+    ///  Used to initialise the  `ClassificationDataSource`
     /// - Parameters:
     /// - navigationTitle:the text to be displayed in the navigation bar
     /// - classification: array of categories

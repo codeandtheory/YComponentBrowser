@@ -6,15 +6,25 @@
 
 import Foundation
 
-/// Custom category for View that satifies protcols
+/// Custom category for View that satisfies protcols
 public struct CustomCategory<View: ContentView>: Classification {
     /// Name of the category
     public let name: String
+    
+    /// Model for the View
+    let models: [View.Model]
     
     /// Destination of the category
     public var destination: Destination {
         CatalogDetailDestination<View>(navigationTitle: name, models: models)
     }
     
-    let models: [View.Model]
+    ///  Initialises the category
+    /// - Parameters:
+    ///   - name: name of the category
+    ///   - models:  model for the components to be displayed
+    public init(name: String, models: [View.Model]) {
+        self.name = name
+        self.models = models
+    }
 }

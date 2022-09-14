@@ -10,18 +10,21 @@ import UIKit
 final public class CatalogDisplayView<View: ContentView>: UIView {
     // MARK: Helper Types
 
-    /// Model to initialize the the `CatalogDisplayView`
+    /// Model to initialise the the `CatalogDisplayView`
     public struct Model {
         /// A title that gives information on the given `ContentView`
         public let title: String?
+        
         /// A detail that given more content or description of the given `ContentView`
         public let detail: String?
+        
         /// The axis on how you want the title and detail information to display in relation to the `ContentView`
         public let displayViewAxis: NSLayoutConstraint.Axis
+        
         /// The model that is needed to populate the given `ContentView`
         public let displayViewModel: View.Model
 
-        /// Used to initialize the `CatalogDisplayView`
+        /// Used to initialise the `CatalogDisplayView`
         /// - Parameters:
         /// - title:the title to describe the given `ContentView`
         /// - detail: to give more context about the given `ContentView`

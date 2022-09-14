@@ -13,7 +13,7 @@ final public class GenericCollectionViewController<View: ContentView>: UICollect
     
     private var models: [View.Model]
     
-    ///  Used to initialize the `GenericCollectionViewController`
+    ///  Used to initialise the `GenericCollectionViewController`
     /// - Parameters:
     /// - navigationTitle:the text to be displayed in the navigation bar if a value is given
     /// - collectionViewLayout: the layout to use within the collection view, defaults to a flow layout

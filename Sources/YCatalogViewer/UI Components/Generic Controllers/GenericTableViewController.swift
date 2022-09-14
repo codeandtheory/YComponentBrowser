@@ -12,7 +12,7 @@ final public class GenericTableViewController<View: ContentView>: UITableViewCon
     
     private var models: [View.Model]
 
-    /// Used to initialize the `GenericTableViewController`
+    /// Used to initialise the `GenericTableViewController`
     /// - Parameters:
     /// - navigationTitle:the text to be displayed in the navigation bar if a value is given
     /// - models: the data to populate  the given containing  view to be displayed within  the table view
