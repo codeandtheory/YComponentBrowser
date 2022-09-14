@@ -8,7 +8,7 @@ import UIKit
 
 /// A view to display a given image at a fixed size and ratio
 final public class IconographyView: UIImageView {
-    /// The type of data required to populate the `IconographyView`
+    /// The type of data required to populate the iconography view
     public typealias Model = UIImage
     
     private enum Style {

@@ -6,15 +6,15 @@
 
 import UIKit
 
-/// Represents the CatalogDetailDestination
+/// Catalog detail destination
 public struct CatalogDetailDestination<View: ContentView>: Destination {
-    /// Represents the presentation style of catalog destination view controller
+    /// Presentation style of catalog destination view controller
     public var presentationStyle: Presentation = .detail
     
     ///  NavigationTitle of the destination screen
     public let navigationTitle: String?
     
-    /// Represents the model of catalog destination view controller
+    /// The model of catalog destination view controller
     public let models: [View.Model]
     
     /// Creates a tableview controller that displays the model data within the specified view
@@ -26,11 +26,11 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
         )
     }
     
-    /// Initialises a catalog detail destination
+    /// Initializes a catalog detail destination
     /// - Parameters:
-    ///   - presentationStyle: Represents presentation style whether modal or on stack
+    ///   - presentationStyle: presentation style (modal or on stack)
     ///   - navigationTitle:  Title for the view controller
-    ///   - models:  Model for the view to be displayed in CatalogDetailDestination
+    ///   - models:  Model for the view to be displayed in Catalog detail destination
     public init(presentationStyle: Presentation = .detail, navigationTitle: String?, models: [View.Model]) {
         self.presentationStyle = presentationStyle
         self.navigationTitle = navigationTitle

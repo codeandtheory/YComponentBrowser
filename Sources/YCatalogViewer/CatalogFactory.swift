@@ -20,9 +20,8 @@ public enum CatalogFactory {
     /// Creates a catalog viewer view controller
     /// - Parameters:
     ///   - categories: array of categories in catalog
-    ///   - navigationTitle:  title of the catalog
-    ///   - embedInNavigationController:
-    ///   bool indicating whether view controller should be embedded in navigationController or not
+    ///   - navigationTitle: title of the catalog
+    ///   - embedInNavigationController: whether view controller should be embedded in navigationController or not
     /// - Returns: A catalog viewer view controller
     public static func createCatalogViewer<T: Classification>(
         with categories: [T],

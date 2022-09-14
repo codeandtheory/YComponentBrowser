@@ -6,22 +6,22 @@
 
 import UIKit
 
-/// Represents a category in catalog
+/// A category in catalog
 public protocol Classification {
     /// Name of the classification
     var name: String { get }
     
-    /// Represents destination of the classification
+    /// Destination of the classification
     var destination: Destination { get }
 }
 
 public extension Classification {
-    /// Represents the presentation style of the classification
+    /// Presentation style of the classification
     var presentationStyle: Presentation {
         destination.presentationStyle
     }
     
-    /// Represents the destination ViewController of the classification
+    /// Destination ViewController of the classification
     var destinationController: UIViewController {
         destination.getDestinationController()
     }

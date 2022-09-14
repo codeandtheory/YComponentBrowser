@@ -6,18 +6,18 @@
 
 import UIKit
 
-///  Represents the sub category destination
+/// sub category destination
 public struct SubcategoryDetailDestination: Destination {
-    /// Represents the presentation style of subcategory
+    /// Presentation style of subcategory
     public var presentationStyle: Presentation = .detail
     
     /// NavigationTitle for subcategory VC
     public let navigationTitle: String?
     
-    ///  Represents subcategories of the category
+    /// Subcategories of the category
     public let subcategories: [Classification]
     
-    /// Represents the sub category view controller
+    /// The sub category view controller
     public func getDestinationController() -> UIViewController {
         return CatalogFactory.createClassificationViewController(with: subcategories, navigationTitle: navigationTitle)
     }

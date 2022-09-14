@@ -8,7 +8,7 @@ import UIKit
 
 /// A view used to display a given `UIColor` at a fixed size
 final public class ColorView: UIView {
-    /// The type of data required to populate the `ColorView`
+    /// The type of data required to populate the color view
     public typealias Model = UIColor
     
     private enum Style {

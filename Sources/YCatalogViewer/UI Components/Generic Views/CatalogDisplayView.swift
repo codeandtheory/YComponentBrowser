@@ -10,26 +10,26 @@ import UIKit
 final public class CatalogDisplayView<View: ContentView>: UIView {
     // MARK: Helper Types
 
-    /// Model to initialise the the `CatalogDisplayView`
+    /// Model to initialize the the catalog display view
     public struct Model {
-        /// A title that gives information on the given `ContentView`
+        /// A title that gives information on the given content view
         public let title: String?
         
-        /// A detail that given more content or description of the given `ContentView`
+        /// A detail that given more content or description of the given content view
         public let detail: String?
         
-        /// The axis on how you want the title and detail information to display in relation to the `ContentView`
+        /// A axis on how you want the title and detail information to display in relation to the content view
         public let displayViewAxis: NSLayoutConstraint.Axis
         
-        /// The model that is needed to populate the given `ContentView`
+        /// A model that is needed to populate the given content view
         public let displayViewModel: View.Model
 
-        /// Used to initialise the `CatalogDisplayView`
+        /// Initializes a catalog display view
         /// - Parameters:
-        /// - title:the title to describe the given `ContentView`
-        /// - detail: to give more context about the given `ContentView`
-        /// - displayViewAxis: the axis to display the title and detail information in relation to the `ContentView`
-        /// - displayViewModel: the model that is used to populate the given `ContentView`
+        /// - title: the title to describe the given content view
+        /// - detail: to give more context about the given content view
+        /// - displayViewAxis: the axis to display the title and detail information in relation to the content view
+        /// - displayViewModel: the model that is used to populate the given content view
         public init(
             title: String?,
             detail: String?,
@@ -60,7 +60,7 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 
     // MARK: - Properties
 
-    /// Represents the view of the given `ContentView`
+    /// The view of the given content view
     public let displayView: View = View(frame: .zero)
     
     private let titleLabel: UILabel = {

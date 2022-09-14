@@ -6,7 +6,7 @@
 
 import UIKit
 
-/// Represents datasource for catalog tableview
+/// Datasource for catalog tableview
 public protocol CatalogDataSource: UITableViewDataSource {
     /// The type of cell catalogDataSource supports
     associatedtype Cell: UITableViewCell
@@ -20,10 +20,10 @@ public protocol CatalogDataSource: UITableViewDataSource {
     /// Represents the title of catalog
     var navigationTitle: String? { get }
     
-    /// Represents categories in the catalog
+    /// categories in the catalog
     var categories: [Classification] { get }
     
-    /// Method to get category based on indexpath
+    /// To get category based on indexpath
     /// - Parameter indexPath: indexpath of tableview
     func category(for indexPath: IndexPath) -> Classification
 }
