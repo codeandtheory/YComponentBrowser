@@ -7,12 +7,12 @@
 import UIKit
 /// ClassificationViewController to display catalog
 public final class ClassificationViewController<DataSource: CatalogDataSource>: UITableViewController {
-    /// Datasource for that catalogView
+    /// Data source for that catalogView
     public let datasource: DataSource
     
-    ///  Initializes a classification View controller
+    ///  Initializes a classification view controller
     /// - Parameters:
-    /// - datasource: datasource for the catalog view
+    /// - datasource: data source for the catalog view
     public init(datasource: DataSource) {
         self.datasource = datasource
         super.init(nibName: nil, bundle: nil)

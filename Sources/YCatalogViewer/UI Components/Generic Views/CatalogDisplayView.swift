@@ -12,13 +12,13 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 
     /// Model to initialize the the catalog display view
     public struct Model {
-        /// Title that gives information on the given content view
+        /// Title
         public let title: String?
         
-        /// Detail that given more content or description of the given content view
+        /// Detail description
         public let detail: String?
         
-        /// Axis on how you want the title and detail information to display in relation to the content view
+        /// Primary axis for content view
         public let displayViewAxis: NSLayoutConstraint.Axis
         
         /// Model to populate the content view
@@ -26,10 +26,10 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 
         /// Initializes a catalog display view
         /// - Parameters:
-        /// - title: the title to describe the given content view
-        /// - detail: to give more context about the given content view
-        /// - displayViewAxis: the axis to display the title and detail information in relation to the content view
-        /// - displayViewModel: the model that is used to populate the given content view
+        /// - title: title
+        /// - detail: detail description
+        /// - displayViewAxis: primary axis for content view
+        /// - displayViewModel: model to populate the content view
         public init(
             title: String?,
             detail: String?,
