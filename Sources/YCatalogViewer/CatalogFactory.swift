@@ -6,12 +6,13 @@
 
 import UIKit
 
-/// CatalogFactory to hide creation logic of catalog and controllers
+/// CatalogFactory to encapsulate the creation logic of catalog and controllers
 public enum CatalogFactory {
     ///  Types of generic display ViewController
     public enum DisplayType {
         /// TableViewController
         case table
+        
         /// CollectionViewController
         case collection(UICollectionViewLayout)
     }
@@ -20,7 +21,8 @@ public enum CatalogFactory {
     /// - Parameters:
     ///   - categories: array of categories in catalog
     ///   - navigationTitle:  title of the catalog
-    ///   - embedInNavigationController: bool indicating whether vc should be embedded in navigationController or not
+    ///   - embedInNavigationController:
+    ///   bool indicating whether view controller should be embedded in navigationController or not
     /// - Returns: A catalog viewer view controller
     public static func createCatalogViewer<T: Classification>(
         with categories: [T],

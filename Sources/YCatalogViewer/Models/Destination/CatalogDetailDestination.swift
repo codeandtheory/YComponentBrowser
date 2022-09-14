@@ -26,9 +26,9 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
         )
     }
     
-    /// Initializes a catalog detail destination
+    /// Initialises a catalog detail destination
     /// - Parameters:
-    ///   - presentationStyle: Reprents presentation style whether modal or on stack
+    ///   - presentationStyle: Represents presentation style whether modal or on stack
     ///   - navigationTitle:  Title for the view controller
     ///   - models:  Model for the view to be displayed in CatalogDetailDestination
     public init(presentationStyle: Presentation = .detail, navigationTitle: String?, models: [View.Model]) {

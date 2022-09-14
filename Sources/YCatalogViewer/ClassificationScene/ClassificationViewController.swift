@@ -10,7 +10,7 @@ public final class ClassificationViewController<DataSource: CatalogDataSource>: 
     /// Datasource for that catalogView
     public let datasource: DataSource
     
-    ///  Used to initialize the  `ClassificationViewController`
+    ///  Used to initialise the  `ClassificationViewController`
     /// - Parameters:
     /// - datasource:Datasource for the catalogview
     public init(datasource: DataSource) {

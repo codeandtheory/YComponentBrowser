@@ -18,8 +18,10 @@ public enum Presentation {
 public protocol Destination {
     /// Represents the presentation style of destination VC
     var presentationStyle: Presentation { get }
+    
     /// Represents the navigation title of destination VC
     var navigationTitle: String? { get }
+    
     /// Represents the destination view controller
     func getDestinationController() -> UIViewController
 }
