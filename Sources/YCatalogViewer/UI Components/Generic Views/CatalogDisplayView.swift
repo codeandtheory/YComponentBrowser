@@ -6,22 +6,22 @@
 
 import UIKit
 
-/// A view that shows a title and detail text and displays a given type of `ContentView`
+/// View that shows a title and detail text and displays a given type of `ContentView`
 final public class CatalogDisplayView<View: ContentView>: UIView {
     // MARK: Helper Types
 
     /// Model to initialize the the catalog display view
     public struct Model {
-        /// A title that gives information on the given content view
+        /// Title that gives information on the given content view
         public let title: String?
         
-        /// A detail that given more content or description of the given content view
+        /// Detail that given more content or description of the given content view
         public let detail: String?
         
-        /// A axis on how you want the title and detail information to display in relation to the content view
+        /// Axis on how you want the title and detail information to display in relation to the content view
         public let displayViewAxis: NSLayoutConstraint.Axis
         
-        /// A model that is needed to populate the given content view
+        /// Model to populate the content view
         public let displayViewModel: View.Model
 
         /// Initializes a catalog display view
@@ -60,7 +60,7 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 
     // MARK: - Properties
 
-    /// The view of the given content view
+    /// View to display
     public let displayView: View = View(frame: .zero)
     
     private let titleLabel: UILabel = {

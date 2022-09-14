@@ -11,7 +11,7 @@ public struct CatalogCategory: Classification {
     /// Name of the catalog category
     public let name: String
     
-    /// The subcategories of the given category
+    /// Subcategories of the given category
     public let subcategories: [Classification]
     
     /// Destination of the catalog category
