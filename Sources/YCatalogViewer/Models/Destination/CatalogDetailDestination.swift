@@ -29,8 +29,8 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
     /// Initializes a catalog detail destination
     /// - Parameters:
     ///   - presentationStyle: presentation style (modal or on stack)
-    ///   - navigationTitle:  title for the view controller
-    ///   - models:  model for the view to be displayed in catalog detail destination
+    ///   - navigationTitle: title for the view controller
+    ///   - models: model for the view to be displayed in catalog detail destination
     public init(presentationStyle: Presentation = .detail, navigationTitle: String?, models: [View.Model]) {
         self.presentationStyle = presentationStyle
         self.navigationTitle = navigationTitle

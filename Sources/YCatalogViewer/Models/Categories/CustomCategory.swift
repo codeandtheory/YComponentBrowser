@@ -22,7 +22,7 @@ public struct CustomCategory<View: ContentView>: Classification {
     ///  Initializes a category
     /// - Parameters:
     ///   - name: name of the category
-    ///   - models:  model for the components to be displayed
+    ///   - models: model for the components to be displayed
     public init(name: String, models: [View.Model]) {
         self.name = name
         self.models = models

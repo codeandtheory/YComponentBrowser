@@ -56,8 +56,8 @@ public enum CatalogFactory {
     /// Creates generic view controller
     /// - Parameters:
     ///   - viewType: the type of view displayed inside the generic view controller
-    ///   - models:  data model needed for the View
-    ///   - display:  display type indicating whether table or collectionView
+    ///   - models: data model needed for the View
+    ///   - display: display type indicating whether table or collectionView
     ///   - navigationTitle: title for the view controller
     /// - Returns: a view controller of the specified type
     public static func createGenericDisplayViewController<T: ContentView>(
