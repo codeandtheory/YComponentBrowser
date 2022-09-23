@@ -13,8 +13,7 @@ final class CategoriesTest: XCTestCase {
             CatalogDisplayView<IconographyView>.Model(
                 title: "title1",
                 detail: "detail1",
-                displayViewAxis: .horizontal,
-                displayViewModel: UIImage(systemName: "person.fill") ?? UIImage()
+                model: UIImage(systemName: "person.fill") ?? UIImage()
             )
         ]
         let category = IconographyCategory(name: "Icons", models: model)
@@ -26,8 +25,7 @@ final class CategoriesTest: XCTestCase {
             CatalogDisplayView<ColorView>.Model(
                 title: "title1",
                 detail: "detail1",
-                displayViewAxis: .horizontal,
-                displayViewModel: UIColor.blue
+                model: UIColor.blue
             )
         ]
         let category = ColorCategory(name: "Colors", models: model)
@@ -39,8 +37,7 @@ final class CategoriesTest: XCTestCase {
             CatalogDisplayView<TypographyView>.Model(
                 title: "title1",
                 detail: "detail1",
-                displayViewAxis: .horizontal,
-                displayViewModel: TypographyView.Model(font: .boldSystemFont(ofSize: 25))
+                model: TypographyView.Model(font: .boldSystemFont(ofSize: 25))
             )
         ]
         let category = FontCategory(name: "Texts", models: model)
@@ -52,8 +49,7 @@ final class CategoriesTest: XCTestCase {
             CatalogDisplayView<CatalogDemoView>.Model(
                 title: "title1",
                 detail: "detail1",
-                displayViewAxis: .horizontal,
-                displayViewModel: CatalogDemoModel()
+                model: CatalogDemoModel()
             )
         ]
         let category = ComponentCategory<CatalogDemoView>(name: "Catalog Component", models: model)

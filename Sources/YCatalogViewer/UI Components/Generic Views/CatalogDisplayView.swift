@@ -16,10 +16,10 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
         public let title: String?
         
         /// Detail description
-        public var detail: String?
+        public let detail: String?
         
         /// Primary axis for content view
-        public var axis: NSLayoutConstraint.Axis = .horizontal
+        public let axis: NSLayoutConstraint.Axis
         
         /// Model to populate the content view
         public let model: View.Model
@@ -32,14 +32,14 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
         /// - displayViewModel: model to populate the content view
         public init(
             title: String?,
-            detail: String?,
-            displayViewAxis: NSLayoutConstraint.Axis,
-            displayViewModel: View.Model
+            detail: String? = nil,
+            axis: NSLayoutConstraint.Axis = .horizontal,
+            model: View.Model
         ) {
             self.title = title
             self.detail = detail
-            self.axis = displayViewAxis
-            self.model = displayViewModel
+            self.axis = axis
+            self.model = model
         }
     }
 
