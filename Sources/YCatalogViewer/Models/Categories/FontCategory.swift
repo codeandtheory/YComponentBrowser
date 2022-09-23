@@ -1,5 +1,5 @@
 //
-//  TypographyCategory.swift
+//  FontCategory.swift
 //
 //  Created by Y Media Labs on 12/09/22.
 //
