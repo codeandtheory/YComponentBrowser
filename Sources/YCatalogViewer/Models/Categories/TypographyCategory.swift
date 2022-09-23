@@ -7,7 +7,7 @@
 import Foundation
 
 /// Category for fonts and text
-public struct TypographyCategory: Classification {
+public struct FontCategory: Classification {
     ///  The type of View category supports
     public typealias View = CatalogDisplayView<TypographyView>
     
