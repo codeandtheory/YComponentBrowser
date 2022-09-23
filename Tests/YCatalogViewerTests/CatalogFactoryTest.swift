@@ -47,13 +47,11 @@ final class CatalogFactoryTest: XCTestCase {
             CatalogDisplayView<CatalogDemoView>.Model(
                 title: "title1",
                 detail: "detail1",
-                displayViewAxis: .horizontal,
-                displayViewModel: CatalogDemoModel()
+                model: CatalogDemoModel()
             ), CatalogDisplayView<CatalogDemoView>.Model(
                 title: "title2",
                 detail: "detail2",
-                displayViewAxis: .horizontal,
-                displayViewModel: CatalogDemoModel()
+                model: CatalogDemoModel()
             )
         ]
         
