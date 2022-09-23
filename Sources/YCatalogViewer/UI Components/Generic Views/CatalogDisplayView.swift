@@ -16,13 +16,13 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
         public let title: String?
         
         /// Detail description
-        public let detail: String?
+        public var detail: String?
         
         /// Primary axis for content view
-        public let displayViewAxis: NSLayoutConstraint.Axis
+        public var axis: NSLayoutConstraint.Axis = .horizontal
         
         /// Model to populate the content view
-        public let displayViewModel: View.Model
+        public let model: View.Model
 
         /// Initializes a catalog display view
         /// - Parameters:
@@ -38,8 +38,8 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
         ) {
             self.title = title
             self.detail = detail
-            self.displayViewAxis = displayViewAxis
-            self.displayViewModel = displayViewModel
+            self.axis = displayViewAxis
+            self.model = displayViewModel
         }
     }
 
@@ -155,8 +155,8 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 extension CatalogDisplayView: Populatable {
     /// :nodoc:
     public func populate(with model: Model) {
-        outerStackView.axis = model.displayViewAxis
-        displayView.populate(with: model.displayViewModel)
+        outerStackView.axis = model.axis
+        displayView.populate(with: model.model)
         titleLabel.text = model.title
         detailLabel.text = model.detail
     }

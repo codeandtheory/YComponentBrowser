@@ -43,7 +43,7 @@ final class CategoriesTest: XCTestCase {
                 displayViewModel: TypographyView.Model(font: .boldSystemFont(ofSize: 25))
             )
         ]
-        let category = TypographyCategory(name: "Texts", models: model)
+        let category = FontCategory(name: "Texts", models: model)
         XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
     
