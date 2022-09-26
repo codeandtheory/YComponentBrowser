@@ -17,9 +17,9 @@ Open `Package.swift` in Xcode.
 
 ### Sample code to display built-in components 
 
-A user can use built-in components like Iconoraphy Category, Font Category, and Color Category to display icons, fonts, and colors respectively.
+A user can use built-in components like Iconography Category, Font Category, and Color Category to display icons, fonts, and colors respectively.
 
-For example, a user can create an iconoraphy category as follows:
+For example, a user can create an iconography category as follows:
 
  ```enum IconographySample {
     static var media: IconographyCategory {
@@ -41,7 +41,7 @@ where the user needs to provide the following parameters:
      * The title label for the image.
      * model which is an image to be displayed.
      * The detail label which is an optional parameter, allows a user to include additional details about the image if needed.
-     *The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be         displayed vertically or horizontally.
+     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be         displayed vertically or horizontally.
      
      
  a user can create a font category as follows:
@@ -68,7 +68,7 @@ where the user needs to provide the following parameters:
      * The title label to display the content.
      * model which is the font for the title and detail label.
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
-     *The axis attribute which is an optional parameter with which a user can decide whether they want to display the title and details to be                 displayed vertically or horizontally.
+     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title and details to be                 displayed vertically or horizontally.
      
  a user can create a color category as follows:
  ```
@@ -93,9 +93,9 @@ where the user needs to provide the following parameters:
      * The title label to display the content.
      * model which is the color of the color view.
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
-     *The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to         be displayed vertically or horizontally.
+     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to         be displayed vertically or horizontally.
 
-We can create a category which conatins other categories.
+We can create a category which contains other categories.
 ```
  let foundationalCategory = CatalogCategory(
             name: "Foundational",
