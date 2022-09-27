@@ -1,5 +1,5 @@
 //
-//  TypographyViewTest.swift
+//  FontViewTest.swift
 //
 //  Created by Y Media Labs on 03/08/22.
 //
@@ -7,9 +7,9 @@
 import XCTest
 @testable import YCatalogViewer
 
-final class TypographyViewTest: XCTestCase {
+final class FontViewTest: XCTestCase {
     func testInitWithCoder() throws {
-        let sut = TypographyView(coder: try makeCoder(for: makeSUT()))
+        let sut = FontView(coder: try makeCoder(for: makeSUT()))
         XCTAssertNil(sut)
     }
     
@@ -17,7 +17,7 @@ final class TypographyViewTest: XCTestCase {
         let sut = makeSUT()
 
         XCTAssertNotEqual(sut.font, .boldSystemFont(ofSize: 20))
-        sut.populate(with: TypographyView.Model(font: .boldSystemFont(ofSize: 20)))
+        sut.populate(with: FontView.Model(font: .boldSystemFont(ofSize: 20)))
         XCTAssertEqual(sut.font, .boldSystemFont(ofSize: 20))
     }
     
@@ -29,9 +29,9 @@ final class TypographyViewTest: XCTestCase {
     }
 }
 
-private extension TypographyViewTest {
-    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> TypographyView {
-        let sut = TypographyView(frame: .zero)
+private extension FontViewTest {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> FontView {
+        let sut = FontView(frame: .zero)
         trackForMemoryLeak(sut, file: file, line: line)
         return sut
     }

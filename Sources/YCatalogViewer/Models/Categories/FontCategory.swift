@@ -9,7 +9,7 @@ import Foundation
 /// Category for fonts and text
 public struct FontCategory: Classification {
     ///  The type of View category supports
-    public typealias View = CatalogDisplayView<TypographyView>
+    public typealias View = CatalogDisplayView<FontView>
     
     /// Name of the category
     public let name: String
