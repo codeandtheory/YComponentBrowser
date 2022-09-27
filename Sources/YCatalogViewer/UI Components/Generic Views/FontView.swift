@@ -1,5 +1,5 @@
 //
-//  TypographyView.swift
+//  FontView.swift
 //
 //  Created by Y Media Labs on 03/08/22.
 //
@@ -7,10 +7,10 @@
 import UIKit
 
 /// A view to display a given font and text
-final public class TypographyView: UILabel {
-    ///  Model to initialize the the `TypographyView`
+final public class FontView: UILabel {
+    ///  Model to initialize the the `FontView`
     public struct Model {
-        /// Default display text for Typography View Model
+        /// Default display text for FontView  Model
         public static let defaultText = "The quick brown fox jumped over the lazy dog."
         
         /// Font for the  label
@@ -19,7 +19,7 @@ final public class TypographyView: UILabel {
         /// Text for the label
         public let text: String
 
-        /// Initializes a typography view model
+        /// Initializes a FontView  model
         /// - Parameters:
         /// - font: font to use
         /// - text: text to display
@@ -47,7 +47,7 @@ final public class TypographyView: UILabel {
 
 // MARK: - Populatable
 
-extension TypographyView: Populatable {
+extension FontView: Populatable {
     /// :nodoc:
     public func populate(with model: Model) {
         font = model.font
@@ -57,7 +57,7 @@ extension TypographyView: Populatable {
 
 // MARK: - Reusable
 
-extension TypographyView: Reusable {
+extension FontView: Reusable {
     /// :nodoc:
     public func prepareForReuse() {
         text = nil
