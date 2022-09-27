@@ -1,19 +1,6 @@
 # Y—Catalog-Viewer
 A standalone catalog viewer package that intelligently displays design components.
 
-Requirements
-----------
-
-### Jazzy (documentation)
-```
-sudo gem install jazzy
-```
-
-Setup
-----------
-
-Open `Package.swift` in Xcode.
-
 
 ### Sample code to display built-in components 
 
@@ -43,10 +30,12 @@ where the user needs to provide the following parameters:
      * The detail label which is an optional parameter, allows a user to include additional details about the image if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be         displayed vertically or horizontally.
      
+   ![icons](https://user-images.githubusercontent.com/61827955/192445291-b993eb1a-e9cd-489b-ae59-88cc2473a56d.png)
+  
      
  a user can create a font category as follows:
  ```
- enum TypographySample {
+ enum FontSample {
     static var tiemposHeadlineBold: FontCategory {
         FontCategory(
             name: "TiemposHeadline Bold",
@@ -61,7 +50,7 @@ where the user needs to provide the following parameters:
     }
 }
 ```
-                
+    
 where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the font to be displayed, which again includes:
@@ -69,10 +58,13 @@ where the user needs to provide the following parameters:
      * model which is the font for the title and detail label.
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title and details to be                 displayed vertically or horizontally.
-     
+  
+  ![fonts](https://user-images.githubusercontent.com/61827955/192445288-c9812c17-d870-4dd9-ab07-d4b0c19fce7c.png)
+  
+  
  a user can create a color category as follows:
  ```
- enum colourSample {
+ enum ColorSample {
     static var colorSample: ColorCategory {
         ColorCategory(
             name: "Easter",
@@ -95,6 +87,9 @@ where the user needs to provide the following parameters:
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to         be displayed vertically or horizontally.
 
+![colors](https://user-images.githubusercontent.com/61827955/192445279-a6550de6-a4a2-4e7d-908d-15a3c6bbb329.png)
+
+
 We can create a category which contains other categories.
 ```
  let foundationalCategory = CatalogCategory(
@@ -102,13 +97,15 @@ We can create a category which contains other categories.
             subcategories: [
                 ColorSample.category,
                 IconographySample.category,
-                TypographySample.category
+                FontSample.category
             ]
         )
   ```
  where the user needs to provide the following parameters:
 * The name of the category.
 * Array of subcategories.
+
+![categories](https://user-images.githubusercontent.com/61827955/192445276-81584327-2e18-449b-bc7d-5cce8cd81f62.png)
 
 
 ### Sample code to display Custom Components
@@ -140,6 +137,8 @@ enum DemoButtonSample {
  * name for the category.
  * model needed to initialise the button.
  
+ ![demoButton](https://user-images.githubusercontent.com/61827955/192445283-7477e9ef-83fe-4e44-b391-e2aaca51dc9f.png)
+
  
  We can display a custom view within the catalog.
  Suppose a user wants to display a custom view named DemoView from their project.
@@ -162,6 +161,9 @@ enum DemoButtonSample {
  where the user needs to provide the following parameters:
  * name for the category.
  * model needed to initialise the custom view.
+
+![demoView](https://user-images.githubusercontent.com/61827955/192445287-8bc9cd6b-39ab-4e54-a46c-66c3a6fd7a0c.png)
+
 
 We can display view controllers in the catalog
 1. First create a custom destination that returns the view controller 
@@ -203,7 +205,8 @@ struct CarouselCategory: Classification {
     }
 }
 ```
- 
+![carouselViewController](https://user-images.githubusercontent.com/61827955/192445194-d847c1bb-87c5-4b4c-9277-4eb607a43c00.png)
+
 
 Contributing to Y—Catalog-Viewer
 ----------
@@ -269,6 +272,21 @@ When merging a pull request:
 ### Releasing new versions
 * Tag the corresponding commit with the new version (e.g. `1.0.5`)
 * Push the local tag to remote
+
+
+Requirements
+----------
+
+### Jazzy (documentation)
+```
+sudo gem install jazzy
+```
+
+Setup
+----------
+
+Open `Package.swift` in Xcode.
+
 
 Generating Documentation (via Jazzy)
 ----------
