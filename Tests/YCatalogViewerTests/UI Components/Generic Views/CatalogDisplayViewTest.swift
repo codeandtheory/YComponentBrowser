@@ -13,9 +13,8 @@ final class CatalogDisplayViewTest: XCTestCase {
         let catalogDemoModel = CatalogDemoModel()
         let model = CatalogDisplayView<CatalogDemoView>.Model(
             title: nil,
-            detail: nil,
-            displayViewAxis: .vertical,
-            displayViewModel: catalogDemoModel
+            axis: .vertical,
+            model: catalogDemoModel
         )
 
         XCTAssertFalse(sut.displayView.isPopulated)

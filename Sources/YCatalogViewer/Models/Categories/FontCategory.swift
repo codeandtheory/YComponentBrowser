@@ -1,5 +1,5 @@
 //
-//  TypographyCategory.swift
+//  FontCategory.swift
 //
 //  Created by Y Media Labs on 12/09/22.
 //
@@ -7,9 +7,9 @@
 import Foundation
 
 /// Category for fonts and text
-public struct TypographyCategory: Classification {
+public struct FontCategory: Classification {
     ///  The type of View category supports
-    public typealias View = CatalogDisplayView<TypographyView>
+    public typealias View = CatalogDisplayView<FontView>
     
     /// Name of the category
     public let name: String
