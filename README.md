@@ -121,15 +121,14 @@ enum DemoButtonSample {
         CustomCategory<CatalogDisplayView<DemoButton>>(
             name: "Demo Button",
             models: [
-                .init(
+                CatalogDisplayView<DemoButton>.Model(
                     title: "Login",
-                    model:
-                            .init(
-                                backgroundColor: .systemBlue,
-                                title: "Login",
-                                titleColor: .white
-                            )
-                ),
+                    model: DemoButtonModel(
+                        backgroundColor: .systemBlue,
+                        title: "Login",
+                        titleColor: .white
+                    )
+                )
             ]
         )
     }
@@ -150,7 +149,7 @@ enum DemoButtonSample {
         CustomCategory<DemoView>(
             name: "Demo View",
             models: [
-                .init(
+                DemoViewModel(
                     title: "Grocery List",
                     description: "1) apples\n 2) sugar\n 3) coffee\n 4)snacks",
                     backgroundColor: .systemYellow
@@ -159,6 +158,7 @@ enum DemoButtonSample {
         )
     }
 }
+
  ```
  where the user needs to provide the following parameters:
  * name for the category.
@@ -203,7 +203,7 @@ struct CarouselCategory: Classification {
  ```
  enum CarouselSample {
     static var category: CarouselCategory {
-        .init(name: "Carousel Demo View Controller")
+        CarouselCategory(name: "Carousel Demo View Controller")
     }
 }
 ```
