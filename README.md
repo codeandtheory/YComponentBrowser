@@ -14,7 +14,7 @@ For example, a user can create an iconography category as follows:
         IconographyCategory(
             name: "Media",
             models: [
-                CatalogDisplayView<IconographyView>.Model(
+                .init(
                     title: "Play",
                     model: UIImage(systemName: "play.fill") ?? UIImage()
                 )
@@ -22,6 +22,7 @@ For example, a user can create an iconography category as follows:
         )
     }
 }
+
  ```               
 where the user needs to provide the following parameters:
 * The name of the category.
@@ -41,7 +42,7 @@ enum FontSample {
         FontCategory(
             name: "TiemposHeadline Bold",
             models: [
-                CatalogDisplayView<FontView>.Model(
+                .init(
                     title: "Title 1",
                     model: FontView.Model(
                         font: UIFont(name: "TiemposHeadline-Bold", size: 36) ?? UIFont()
@@ -51,6 +52,7 @@ enum FontSample {
         )
     }
 }
+
 ```
     
 where the user needs to provide the following parameters:
@@ -66,12 +68,12 @@ where the user needs to provide the following parameters:
   
  a user can create a color category as follows:
  ```
-enum ColorSample2 {
-    static var colorSample: ColorCategory {
+enum ColorSample {
+    static var category: ColorCategory {
         ColorCategory(
             name: "Easter",
             models: [
-                CatalogDisplayView<ColorView>.Model(
+                .init(
                     title: "Purple",
                     detail: "HEX: #D9D7F1",
                     model: UIColor(red: 217/255, green: 215/255, blue: 241/255, alpha: 1)
@@ -80,6 +82,7 @@ enum ColorSample2 {
         )
     }
 }
+
  ```  
 where the user needs to provide the following parameters:
 * The name of the category.
