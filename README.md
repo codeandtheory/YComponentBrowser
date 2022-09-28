@@ -8,15 +8,16 @@ A user can use built-in components like Iconography Category, Font Category, and
 
 For example, a user can create an iconography category as follows:
 
- ```enum IconographySample {
+ ```
+ enum IconographySample {
     static var media: IconographyCategory {
         IconographyCategory(
             name: "Media",
             models: [
-                .init(
+                CatalogDisplayView<IconographyView>.Model(
                     title: "Play",
                     model: UIImage(systemName: "play.fill") ?? UIImage()
-                ),
+                )
             ]
         )
     }
@@ -25,8 +26,8 @@ For example, a user can create an iconography category as follows:
 where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the image to be displayed, which again includes:
-     * The title label for the image.
-     * model which is an image to be displayed.
+     * The title for the image.
+     * The image to display.
      * The detail label which is an optional parameter, allows a user to include additional details about the image if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be         displayed vertically or horizontally.
      
@@ -35,16 +36,17 @@ where the user needs to provide the following parameters:
      
  a user can create a font category as follows:
  ```
- enum FontSample {
+enum FontSample {
     static var tiemposHeadlineBold: FontCategory {
         FontCategory(
             name: "TiemposHeadline Bold",
             models: [
-                .init(
+                CatalogDisplayView<FontView>.Model(
                     title: "Title 1",
-                    axis: .vertical,
-                    model: .init(font: UIFont(name: "TiemposHeadline-Bold", size: 36) ?? UIFont())
-                ),
+                    model: FontView.Model(
+                        font: UIFont(name: "TiemposHeadline-Bold", size: 36) ?? UIFont()
+                    )
+                )
             ]
         )
     }
@@ -54,8 +56,8 @@ where the user needs to provide the following parameters:
 where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the font to be displayed, which again includes:
-     * The title label to display the content.
-     * model which is the font for the title and detail label.
+     * The title for the font.
+     * The font to display.
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title and details to be                 displayed vertically or horizontally.
   
@@ -64,16 +66,16 @@ where the user needs to provide the following parameters:
   
  a user can create a color category as follows:
  ```
- enum ColorSample {
+enum ColorSample2 {
     static var colorSample: ColorCategory {
         ColorCategory(
             name: "Easter",
             models: [
-                .init(
+                CatalogDisplayView<ColorView>.Model(
                     title: "Purple",
-                    detail: "HEX: #D9D7F1 / RGB: 217, 215, 241",
+                    detail: "HEX: #D9D7F1",
                     model: UIColor(red: 217/255, green: 215/255, blue: 241/255, alpha: 1)
-            )
+                )
             ]
         )
     }
@@ -82,8 +84,8 @@ where the user needs to provide the following parameters:
 where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the view to be displayed, which again includes:
-     * The title label to display the content.
-     * model which is the color of the color view.
+     * The title for the color.
+     * The color to display.
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to         be displayed vertically or horizontally.
 
