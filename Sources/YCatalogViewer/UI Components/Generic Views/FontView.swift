@@ -10,7 +10,7 @@ import UIKit
 final public class FontView: UILabel {
     ///  Model to initialize the the `FontView`
     public struct Model {
-        /// Default display text for FontView  Model
+        /// Default display text for FontView Model
         public static let defaultText = "The quick brown fox jumped over the lazy dog."
         
         /// Font for the  label
@@ -19,7 +19,7 @@ final public class FontView: UILabel {
         /// Text for the label
         public let text: String
 
-        /// Initializes a FontView  model
+        /// Initializes a FontView Model
         /// - Parameters:
         /// - font: font to use
         /// - text: text to display
