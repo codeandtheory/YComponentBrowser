@@ -8,15 +8,15 @@ import XCTest
 @testable import YCatalogViewer
 
 final class CategoriesTest: XCTestCase {
-    func testIconographyCategory() {
+    func testIconCategory() {
         let model = [
-            CatalogDisplayView<IconographyView>.Model(
+            CatalogDisplayView<IconView>.Model(
                 title: "title1",
                 detail: "detail1",
                 model: UIImage(systemName: "person.fill") ?? UIImage()
             )
         ]
-        let category = IconographyCategory(name: "Icons", models: model)
+        let category = IconCategory(name: "Icons", models: model)
         XCTAssertEqual(category.name, category.destination.navigationTitle)
     }
     

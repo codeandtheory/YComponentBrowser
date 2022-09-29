@@ -1,15 +1,15 @@
 //
-//  IconographyCategory.swift
+//  IconCategory.swift
 //
 //  Created by Y Media Labs on 12/09/22.
 //
 
 import Foundation
 
-/// Category for images
-public struct IconographyCategory: Classification {
+/// Category for icons (intended for small images having a fixed size and ratio)
+public struct IconCategory: Classification {
     ///  The type of View category supports
-    public typealias View = CatalogDisplayView<IconographyView>
+    public typealias View = CatalogDisplayView<IconView>
     
     /// Name of the category
     public let name: String

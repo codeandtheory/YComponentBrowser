@@ -1,5 +1,5 @@
 //
-//  IconographyView.swift
+//  IconView.swift
 //
 //  Created by Y Media Labs on 27/07/22.
 //
@@ -7,8 +7,8 @@
 import UIKit
 
 /// A view to display a given image at a fixed size and ratio
-final public class IconographyView: UIImageView {
-    /// The type of data required to populate the iconography view
+final public class IconView: UIImageView {
+    /// The type of data required to populate the icon view
     public typealias Model = UIImage
     
     private enum Style {
@@ -18,13 +18,13 @@ final public class IconographyView: UIImageView {
     /// :nodoc:
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpIconographyView()
+        setUpIconView()
     }
 
     /// :nodoc:
     public required init?(coder: NSCoder) { nil }
     
-    private func setUpIconographyView() {
+    private func setUpIconView() {
         contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             self.widthAnchor.constraint(equalToConstant: Style.size.width),
@@ -35,7 +35,7 @@ final public class IconographyView: UIImageView {
 
 // MARK: - Populatable
 
-extension IconographyView: Populatable {
+extension IconView: Populatable {
     /// :nodoc:
     public func populate(with model: Model) {
         self.image = model
@@ -44,7 +44,7 @@ extension IconographyView: Populatable {
 
 // MARK: - Reusable
 
-extension IconographyView: Reusable {
+extension IconView: Reusable {
     /// :nodoc:
     public func prepareForReuse() {
         self.image = nil
