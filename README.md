@@ -92,7 +92,7 @@ where the user needs to provide the following parameters:
      * The title for the color.
      * The color to display.
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
-     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to         be displayed vertically or horizontally.
+     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to be displayed vertically or horizontally.
 
 ![colors](https://user-images.githubusercontent.com/61827955/192448745-0634841b-1e55-408e-85eb-3e44f0b2226c.png)
 
