@@ -1,5 +1,5 @@
 //
-//  IconographyViewTest.swift
+//  IconViewTest.swift
 //
 //  Created by Y Media Labs on 01/08/22.
 //
@@ -7,9 +7,9 @@
 import XCTest
 @testable import YCatalogViewer
 
-final class IconographyViewTest: XCTestCase {
+final class IconViewTest: XCTestCase {
     func testInitWithCoder() throws {
-        let sut = IconographyView(coder: try makeCoder(for: makeSUT()))
+        let sut = IconView(coder: try makeCoder(for: makeSUT()))
         XCTAssertNil(sut)
     }
     
@@ -31,9 +31,9 @@ final class IconographyViewTest: XCTestCase {
     }
 }
 
-private extension IconographyViewTest {
-    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> IconographyView {
-        let sut = IconographyView(frame: .zero)
+private extension IconViewTest {
+    func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> IconView {
+        let sut = IconView(frame: .zero)
         trackForMemoryLeak(sut, file: file, line: line)
         return sut
     }
