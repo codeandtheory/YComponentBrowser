@@ -4,14 +4,14 @@ A standalone catalog viewer package that intelligently displays design component
 
 ### Sample code to display built-in components 
 
-A user can use built-in components like Iconography Category, Font Category, and Color Category to display icons, fonts, and colors respectively.
+A user can use built-in components like Icon Category, Font Category, and Color Category to display icons, fonts, and colors respectively.
 
-For example, a user can create an iconography category as follows:
+For example, a user can create an icon category as follows:
 
  ```
- enum IconographySample {
-    static var media: IconographyCategory {
-        IconographyCategory(
+ enum IconSample {
+    static var media: IconCategory {
+        IconCategory(
             name: "Media",
             models: [
                 .init(
@@ -101,7 +101,7 @@ We can create a category which contains other categories.
             name: "Foundational",
             subcategories: [
                 ColorSample.category,
-                IconographySample.category,
+                IconSample.category,
                 FontSample.category
             ]
         )
