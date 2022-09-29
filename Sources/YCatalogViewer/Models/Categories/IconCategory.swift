@@ -6,7 +6,7 @@
 
 import Foundation
 
-/// Category for images
+/// Category for icons (intended for small images having a fixed size and ratio)
 public struct IconCategory: Classification {
     ///  The type of View category supports
     public typealias View = CatalogDisplayView<IconView>
