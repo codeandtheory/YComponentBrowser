@@ -1,11 +1,12 @@
 # Y—Catalog-Viewer
 A standalone catalog viewer package that intelligently displays design components.
 
-
-### Sample code to display built-in components 
-
+Usage
+----------
 A user can use built-in components like Icon Category, Font Category, and Color Category to display icons, fonts, and colors respectively.
 
+
+### Icon Category
 For example, a user can create an icon category as follows:
 
  ```
@@ -30,11 +31,12 @@ where the user needs to provide the following parameters:
      * The title for the image.
      * The image to display.
      * The detail label which is an optional parameter, allows a user to include additional details about the image if needed.
-     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be         displayed vertically or horizontally.
+     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be displayed vertically or horizontally.
      
   ![icons](https://user-images.githubusercontent.com/61827955/192448768-7a36e1a9-5fea-44c8-bd4a-d16989b52f43.png)
+
   
-     
+ ### Font Category    
  a user can create a font category as follows:
  ```
 enum FontSample {
@@ -53,19 +55,19 @@ enum FontSample {
     }
 }
 
-```
-    
+``` 
 where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the font to be displayed, which again includes:
      * The title for the font.
      * The font to display.
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
-     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title and details to be                 displayed vertically or horizontally.
+     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title and details to be displayed vertically or horizontally.
   
  ![fonts](https://user-images.githubusercontent.com/61827955/192448761-f585f88c-6d8b-4c4c-93df-4cc653cd9591.png)
   
   
+ ### Color category
  a user can create a color category as follows:
  ```
 enum ColorSample {
@@ -95,6 +97,7 @@ where the user needs to provide the following parameters:
 ![colors](https://user-images.githubusercontent.com/61827955/192448745-0634841b-1e55-408e-85eb-3e44f0b2226c.png)
 
 
+### Catalog Category
 We can create a category which contains other categories.
 ```
  let foundationalCategory = CatalogCategory(
@@ -113,10 +116,7 @@ We can create a category which contains other categories.
 ![categories](https://user-images.githubusercontent.com/61827955/192448742-3a6229f2-4602-4a10-9dde-00cdcc8d4fa5.png)
 
 
-### Sample code to display Custom Components
-
-We can use Custom Category to display components like buttons, views within design system
-
+### Custom Component Category
 Suppose a user wants to display a button named DemoButton from their project.
 ```
 enum DemoButtonSample {
@@ -144,6 +144,7 @@ enum DemoButtonSample {
 ![demoButton](https://user-images.githubusercontent.com/61827955/192448751-1637acec-d581-4c8d-8a32-e5cb09d5256c.png)
 
  
+ ### Custom View Category
  We can display a custom view within the catalog.
  Suppose a user wants to display a custom view named DemoView from their project.
  ```
@@ -161,7 +162,6 @@ enum DemoButtonSample {
         )
     }
 }
-
  ```
  where the user needs to provide the following parameters:
  * name for the category.
@@ -170,6 +170,7 @@ enum DemoButtonSample {
 ![demoView](https://user-images.githubusercontent.com/61827955/192448757-ebfbfafc-3b4f-42b5-8bb3-069aa99bf318.png)
 
 
+### Custom View Controller category
 We can display view controllers in the catalog
 1. First create a custom destination that returns the view controller 
  ```
