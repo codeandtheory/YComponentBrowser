@@ -1,6 +1,27 @@
 # Y—Catalog-Viewer
 A standalone catalog viewer package that intelligently displays design components.
 
+
+## Table of Contents
+* [Usage](#usage)
+     * [Icon Category](#icon-category)
+     * [Font Category](#font-category)
+     * [Color Category](#color-category)
+     * [Catalog Category](#catalog-category)
+     * [Custom Component Category](#custom-component-category)
+     * [Custom View Controller Category](#custom-view-controller-category)
+* [Contributing to Y-Catalog-Viewer](#contributing-to-ycatalog-viewer)
+     * [Versioning Stratergy](#versioning-strategy)
+     * [Branching Stratergy](#branching-strategy)
+     * [Branching Naming Conventions](#branch-naming-conventions)
+     * [Pull Requests](#pull-requests)
+     * [Releasing New Versions](#releasing-new-versions)
+* [Requirements](#requirements)
+     * [Jazzy(documentation)](#jazzy-documentation)
+* [Setup](#setup)
+* [Generating Documentation (via Jazzy)](#generating-documentation-via-jazzy)
+
+
 Usage
 ----------
 A user can use built-in components like Icon Category, Font Category, and Color Category to display icons, fonts, and colors respectively.
