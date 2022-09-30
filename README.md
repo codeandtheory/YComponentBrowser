@@ -1,4 +1,4 @@
-   ![Logo](https://user-images.githubusercontent.com/61827955/193272675-b7df83ae-da60-403c-aa93-c1bd2cffe300.jpeg)
+![Y—Catalog-Viewer](Logo.jpeg)
 A standalone catalog viewer package that intelligently displays design components.
 
 
@@ -24,7 +24,15 @@ A standalone catalog viewer package that intelligently displays design component
 
 Usage
 ----------
-A user can use built-in components like Icon Category, Font Category, and Color Category to display icons, fonts, and colors respectively.
+The category is a collection of components utilized in a project that share common traits. A category with a number of subcategories can be created. By default, components are laid out in nested table views, with each component being represented by a single row. A CatalogDisplayView is used to display a component in a single row. It displays small components together with a title and optional subtitle text. This is used for icons, fonts, and colors, but also works well for smaller components such as buttons. It uses generics to display any view (together with an associated model). The framework includes some pre-defined categories for displaying common tasks: icons, colors, and fonts.
+
+The catalog display view model has four parameters:
+* The title of the component
+* The model of the component
+* The description, an optional argument, is nil by default but allows the user to provide more information about the component if necessary.
+* A user may choose whether they want the title, description, and components to be shown vertically or horizontally using the axis attribute, which is an optional parameter and is horizontal by default.
+
+Using the custom category defined in the package, a bigger component, such as a card view, can be shown. These custom component may take up a full row by itself. For a components like a view controller, we may skip the table view controller and show the component on the full screen by defining a custom category and destination that comply with the Classification protocol and Destination protocol, respectively.
 
 
 ### Icon Category
@@ -48,11 +56,7 @@ For example, a user can create an icon category as follows:
  ```               
 where the user needs to provide the following parameters:
 * The name of the category.
-* Model for the image to be displayed, which again includes:
-     * The title for the image.
-     * The image to display.
-     * The detail label which is an optional parameter, allows a user to include additional details about the image if needed.
-     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be displayed vertically or horizontally.
+* Model for the image to be displayed
      
  ![mediaIcon](https://user-images.githubusercontent.com/61827955/193268215-be6edd56-692c-4f6b-844b-79ed39aed3c1.png)
 
@@ -79,11 +83,7 @@ enum FontSample {
 ``` 
 where the user needs to provide the following parameters:
 * The name of the category.
-* Model for the font to be displayed, which again includes:
-     * The title for the font.
-     * The font to display.
-     * The detail label which is an optional parameter, allows a user to display additional details if needed.
-     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title and details to be displayed vertically or horizontally.
+* Model for the font to be displayed
   
  ![fonts](https://user-images.githubusercontent.com/61827955/192448761-f585f88c-6d8b-4c4c-93df-4cc653cd9591.png)
   
@@ -109,11 +109,7 @@ enum ColorSample {
  ```  
 where the user needs to provide the following parameters:
 * The name of the category.
-* Model for the view to be displayed, which again includes:
-     * The title for the color.
-     * The color to display.
-     * The detail label which is an optional parameter, allows a user to display additional details if needed.
-     * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to be displayed vertically or horizontally.
+* Model for the view to be displayed
 
 ![EasterColor](https://user-images.githubusercontent.com/61827955/193268214-f80e4021-647f-48a7-836c-e1aea190f60f.png)
 
