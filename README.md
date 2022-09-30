@@ -1,4 +1,4 @@
-   ![Y—Catalog-Viewer](Logo.jpeg)
+   ![Logo](https://user-images.githubusercontent.com/61827955/193272675-b7df83ae-da60-403c-aa93-c1bd2cffe300.jpeg)
 A standalone catalog viewer package that intelligently displays design components.
 
 
