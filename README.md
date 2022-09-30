@@ -1,4 +1,4 @@
-# Y—Catalog-Viewer
+   ![Y—Catalog-Viewer](Logo.jpeg)
 A standalone catalog viewer package that intelligently displays design components.
 
 
@@ -54,7 +54,7 @@ where the user needs to provide the following parameters:
      * The detail label which is an optional parameter, allows a user to include additional details about the image if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details, and image to be displayed vertically or horizontally.
      
-  ![icons](https://user-images.githubusercontent.com/61827955/192448768-7a36e1a9-5fea-44c8-bd4a-d16989b52f43.png)
+ ![mediaIcon](https://user-images.githubusercontent.com/61827955/193268215-be6edd56-692c-4f6b-844b-79ed39aed3c1.png)
 
   
  ### Font Category    
@@ -115,8 +115,7 @@ where the user needs to provide the following parameters:
      * The detail label which is an optional parameter, allows a user to display additional details if needed.
      * The axis attribute which is an optional parameter with which a user can decide whether they want to display the title, details and color view to be displayed vertically or horizontally.
 
-![colors](https://user-images.githubusercontent.com/61827955/192448745-0634841b-1e55-408e-85eb-3e44f0b2226c.png)
-
+![EasterColor](https://user-images.githubusercontent.com/61827955/193268214-f80e4021-647f-48a7-836c-e1aea190f60f.png)
 
 ### Catalog Category
 We can create a category which contains other categories.
@@ -134,8 +133,7 @@ We can create a category which contains other categories.
 * The name of the category.
 * Array of subcategories.
 
-![categories](https://user-images.githubusercontent.com/61827955/192448742-3a6229f2-4602-4a10-9dde-00cdcc8d4fa5.png)
-
+![category](https://user-images.githubusercontent.com/61827955/193268212-1719b14c-d07f-4b07-bfdd-feb1c286e299.png)
 
 ### Custom Component Category
 Suppose a user wants to display a button named DemoButton from their project.
