@@ -58,7 +58,7 @@ where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the image to be displayed
      
- ![mediaIcon](https://user-images.githubusercontent.com/61827955/193268215-be6edd56-692c-4f6b-844b-79ed39aed3c1.png)
+![mediaIcon](https://user-images.githubusercontent.com/61827955/193548051-8da7a620-899b-4f5f-97c0-c998028946bc.png)
 
   
  ### Font Category    
@@ -85,7 +85,7 @@ where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the font to be displayed
   
- ![fonts](https://user-images.githubusercontent.com/61827955/192448761-f585f88c-6d8b-4c4c-93df-4cc653cd9591.png)
+ ![font](https://user-images.githubusercontent.com/61827955/193548426-a1e98f0e-4bb1-434e-9d65-9b4e46f554ea.png)
   
   
  ### Color category
@@ -111,7 +111,8 @@ where the user needs to provide the following parameters:
 * The name of the category.
 * Model for the view to be displayed
 
-![EasterColor](https://user-images.githubusercontent.com/61827955/193268214-f80e4021-647f-48a7-836c-e1aea190f60f.png)
+![EasterColor](https://user-images.githubusercontent.com/61827955/193548046-e5bfb718-1237-4558-bdbe-fbe99c889287.png)
+
 
 ### Catalog Category
 We can create a category which contains other categories.
@@ -129,7 +130,9 @@ We can create a category which contains other categories.
 * The name of the category.
 * Array of subcategories.
 
-![category](https://user-images.githubusercontent.com/61827955/193268212-1719b14c-d07f-4b07-bfdd-feb1c286e299.png)
+
+![category](https://user-images.githubusercontent.com/61827955/193548041-f4641d5f-44e2-40a2-9955-f69c195eec16.png)
+
 
 ### Custom Component Category
 Suppose a user wants to display a button named DemoButton from their project.
@@ -156,8 +159,8 @@ enum DemoButtonSample {
  * name for the category.
  * model needed to initialise the button.
  
-![demoButton](https://user-images.githubusercontent.com/61827955/192448751-1637acec-d581-4c8d-8a32-e5cb09d5256c.png)
 
+![demoButton](https://user-images.githubusercontent.com/61827955/193549940-a8aa876f-4ff7-4bff-9f70-b320e2d798fe.png)
  
  ### Custom View Category
  We can display a custom view within the catalog.
@@ -182,7 +185,7 @@ enum DemoButtonSample {
  * name for the category.
  * model needed to initialise the custom view.
 
-![demoView](https://user-images.githubusercontent.com/61827955/192448757-ebfbfafc-3b4f-42b5-8bb3-069aa99bf318.png)
+![customView](https://user-images.githubusercontent.com/61827955/193548024-46fb42b4-0244-45ee-89db-67526d7c080b.png)
 
 
 ### Custom View Controller category
@@ -226,7 +229,7 @@ struct CarouselCategory: Classification {
     }
 }
 ```
-![carouselViewController](https://user-images.githubusercontent.com/61827955/192448734-d2d891d8-9865-4ca8-9555-a112c12ac3a4.png)
+![carouselViewController](https://user-images.githubusercontent.com/61827955/193548020-4b272329-e0e9-4d96-a3f4-f99f8ef751e8.png)
 
 
 Contributing to Y—Catalog-Viewer
