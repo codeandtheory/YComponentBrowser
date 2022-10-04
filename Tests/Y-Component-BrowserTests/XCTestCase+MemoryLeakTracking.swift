@@ -1,6 +1,6 @@
 //
 //  XCTestCase+MemoryLeakTracking.swift
-//  YCatalogViewerTests
+//  Y-Component-BrowserTests
 //
 //  Created by Karthik K Manoj on 08/04/22.
 //  Copyright © 2022 Y Media Labs. All rights reserved.

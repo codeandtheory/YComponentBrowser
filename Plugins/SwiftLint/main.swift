@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  YCatalogViewer
+//  Y-Component-Browser
 //
 //  Created by Tim Barett on 7/20/22.
 //  Copyright © 2021 Y Media Labs. All rights reserved.

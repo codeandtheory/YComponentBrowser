@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "YCatalogViewer",
+    name: "Y-Component-Browser",
     platforms: [
         // The minimum version for platforms supported by the package.
         .iOS(.v14)
@@ -12,8 +12,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "YCatalogViewer",
-            targets: ["YCatalogViewer"]
+            name: "Y-Component-Browser",
+            targets: ["Y-Component-Browser"]
         )
     ],
     targets: [
@@ -30,13 +30,13 @@ let package = Package(
             dependencies: ["SwiftLintBinary"]
         ),
         .target(
-            name: "YCatalogViewer",
+            name: "Y-Component-Browser",
             dependencies: [],
             plugins: ["SwiftLint"]
         ),
         .testTarget(
-            name: "YCatalogViewerTests",
-            dependencies: ["YCatalogViewer"],
+            name: "Y-Component-BrowserTests",
+            dependencies: ["Y-Component-Browser"],
             plugins: ["SwiftLint"]
         )
     ]

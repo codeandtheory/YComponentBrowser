@@ -4,7 +4,8 @@
 // Created by Y Media Labs on 08/09/22.
 //
 import XCTest
-@testable import YCatalogViewer
+@testable import Y_Component_Browser
+
 final class CatalogCategoryTest: XCTestCase {
     var controller = UIViewController()
     func testCatalogCategory() {
