@@ -5,7 +5,7 @@
 //
 
 import XCTest
-@testable import Y_Component_Browser
+@testable import YComponentBrowser
 
 final class CatalogDisplayViewTest: XCTestCase {
     func testPopulatable() {

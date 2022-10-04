@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Y-Component-Browser",
+    name: "YComponentBrowser",
     platforms: [
         // The minimum version for platforms supported by the package.
         .iOS(.v14)
@@ -12,8 +12,8 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "Y-Component-Browser",
-            targets: ["Y-Component-Browser"]
+            name: "YComponentBrowser",
+            targets: ["YComponentBrowser"]
         )
     ],
     targets: [
@@ -30,13 +30,13 @@ let package = Package(
             dependencies: ["SwiftLintBinary"]
         ),
         .target(
-            name: "Y-Component-Browser",
+            name: "YComponentBrowser",
             dependencies: [],
             plugins: ["SwiftLint"]
         ),
         .testTarget(
-            name: "Y-Component-BrowserTests",
-            dependencies: ["Y-Component-Browser"],
+            name: "YComponentBrowserTests",
+            dependencies: ["YComponentBrowser"],
             plugins: ["SwiftLint"]
         )
     ]
