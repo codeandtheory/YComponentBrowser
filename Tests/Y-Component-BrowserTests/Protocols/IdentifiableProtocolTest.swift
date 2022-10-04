@@ -5,7 +5,7 @@
 //
 
 import XCTest
-@testable import YCatalogViewer
+@testable import Y_Component_Browser
 
 final class IdentifiableProtocolTest: XCTestCase {
     func testForIdentifiableValues() throws {

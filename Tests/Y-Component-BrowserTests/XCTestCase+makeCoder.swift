@@ -1,6 +1,6 @@
 //
 //  XCTestCase+makeCoder.swift
-//  YCatalogViewerTests
+//  Y-Component-BrowserTests
 //
 //  Created by Mark Pospesel on 8/15/22.
 //  Copyright © 2022 Y Media Labs. All rights reserved.
