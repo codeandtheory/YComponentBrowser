@@ -10,7 +10,7 @@ A standalone component browser package that intelligently displays design compon
      * [Catalog Category](#catalog-category)
      * [Custom Component Category](#custom-component-category)
      * [Custom View Controller Category](#custom-view-controller-category)
-* [Contributing to Y—Component-Browser](#contributing-to-Y—Component-Browser)
+* [Contributing to Y—Component-Browser](#contributing-to-ycomponent-browser)
      * [Versioning Stratergy](#versioning-strategy)
      * [Branching Stratergy](#branching-strategy)
      * [Branching Naming Conventions](#branch-naming-conventions)
