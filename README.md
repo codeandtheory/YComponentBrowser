@@ -1,4 +1,5 @@
-![Y—Component-Browser](Logo.jpeg)
+![Y—Component-Browser](https://user-images.githubusercontent.com/1037520/193869618-43383e11-d01f-4604-899d-6fbdb0d7dc3c.jpeg)
+
 A standalone component browser package that intelligently displays design components.
 
 
