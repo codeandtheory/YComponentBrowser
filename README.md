@@ -1,5 +1,5 @@
-![Y—Catalog-Viewer](Logo.jpeg)
-A standalone catalog viewer package that intelligently displays design components.
+![Y—Component-Browser](Logo.jpeg)
+A standalone component browser package that intelligently displays design components.
 
 
 ## Table of Contents
@@ -10,7 +10,7 @@ A standalone catalog viewer package that intelligently displays design component
      * [Catalog Category](#catalog-category)
      * [Custom Component Category](#custom-component-category)
      * [Custom View Controller Category](#custom-view-controller-category)
-* [Contributing to Y-Catalog-Viewer](#contributing-to-ycatalog-viewer)
+* [Contributing to Y—Component-Browser](#contributing-to-Y—Component-Browser)
      * [Versioning Stratergy](#versioning-strategy)
      * [Branching Stratergy](#branching-strategy)
      * [Branching Naming Conventions](#branch-naming-conventions)
@@ -232,7 +232,7 @@ struct CarouselCategory: Classification {
 ![carouselViewController](https://user-images.githubusercontent.com/61827955/193548020-4b272329-e0e9-4d96-a3f4-f99f8ef751e8.png)
 
 
-Contributing to Y—Catalog-Viewer
+Contributing to Y—Component-Browser
 ----------
 
 ### Versioning strategy
