@@ -38,7 +38,7 @@ public final class GenericCollectionViewCell<View: ContentView>: UICollectionVie
         initialDisplayView()
     }
     
-    ///  :nodoc:
+    /// :nodoc:
     public required init?(coder: NSCoder) { return nil }
     
     /// :nodoc:

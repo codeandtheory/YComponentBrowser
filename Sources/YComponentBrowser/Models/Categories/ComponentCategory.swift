@@ -6,9 +6,11 @@
 
 import Foundation
 
-/// Category for any view that satisfies ContentView
+/// Category for small views that will be displayed in a table or collection view cell.
+///
+/// Suitable for buttons, switches, badges, and other small components.
 public struct ComponentCategory<View: ContentView>: Classification {
-    ///  The type of View category supports
+    /// The type of View category supports
     public typealias DisplayView = CatalogDisplayView<View>
     
     /// Name of the category
@@ -22,10 +24,10 @@ public struct ComponentCategory<View: ContentView>: Classification {
         CatalogDetailDestination<DisplayView>(navigationTitle: name, models: models)
     }
     
-    ///  Initializes a category
+    /// Initializes a component category
     /// - Parameters:
-    ///   - name: name of the category
-    ///   - models: model for the components to be displayed
+    ///   - name: component category name
+    ///   - models: information about the components to be displayed
     public init(name: String, models: [DisplayView.Model]) {
         self.name = name
         self.models = models

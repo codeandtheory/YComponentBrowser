@@ -26,10 +26,10 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 
         /// Initializes a catalog display view
         /// - Parameters:
-        /// - title: title
-        /// - detail: detail description
-        /// - displayViewAxis: primary axis for content view
-        /// - displayViewModel: model to populate the content view
+        ///   - title: title
+        ///   - detail: detail description (optional), defaults to `nil`
+        ///   - axis: primary axis for the content view, defaults to .horizontal
+        ///   - model: model to populate the content view
         public init(
             title: String?,
             detail: String? = nil,

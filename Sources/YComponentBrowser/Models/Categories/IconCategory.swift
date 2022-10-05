@@ -8,7 +8,7 @@ import Foundation
 
 /// Category for icons (intended for small images having a fixed size and ratio)
 public struct IconCategory: Classification {
-    ///  The type of View category supports
+    /// The type of View category supports
     public typealias View = CatalogDisplayView<IconView>
     
     /// Name of the category
@@ -22,10 +22,10 @@ public struct IconCategory: Classification {
         CatalogDetailDestination<View>(navigationTitle: name, models: models)
     }
     
-    ///  Initializes a category
+    /// Initializes an icon category
     /// - Parameters:
-    ///   - name: name of the category
-    ///   - models: model for the components to be displayed
+    ///   - name: icon category name
+    ///   - models: information about the icons to be displayed
     public init(name: String, models: [View.Model]) {
         self.name = name
         self.models = models

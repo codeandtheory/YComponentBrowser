@@ -6,7 +6,7 @@
 
 import Foundation
 
-/// Catalog category
+/// Catalog category: a category that contains other subcategories
 public struct CatalogCategory: Classification {
     /// Name of the catalog category
     public let name: String
@@ -24,8 +24,8 @@ public struct CatalogCategory: Classification {
     
     /// Initializes a catalog category
     /// - Parameters:
-    ///   - name: Name of the category
-    ///   - subcategories: Array of sub categories
+    ///   - name: category name
+    ///   - subcategories: array of subcategories
     public init(name: String, subcategories: [Classification]) {
         self.name = name
         self.subcategories = subcategories

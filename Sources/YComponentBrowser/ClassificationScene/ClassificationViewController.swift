@@ -10,9 +10,8 @@ public final class ClassificationViewController<DataSource: CatalogDataSource>: 
     /// Data source for that catalogView
     public let datasource: DataSource
     
-    ///  Initializes a classification view controller
-    /// - Parameters:
-    /// - datasource: data source for the catalog view
+    /// Initializes a classification view controller
+    /// - Parameter datasource: data source for the catalog view
     public init(datasource: DataSource) {
         self.datasource = datasource
         super.init(nibName: nil, bundle: nil)

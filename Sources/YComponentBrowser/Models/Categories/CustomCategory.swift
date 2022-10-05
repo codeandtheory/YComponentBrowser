@@ -6,7 +6,11 @@
 
 import Foundation
 
-/// Custom category for View that satisfies protocols
+/// Custom category for components that will not utilize `CatalogDisplayView`.
+///
+/// Suitable for larger components, such as cards, that might occupy an entire table view (or collection view) cell
+/// by themselves.
+/// Also suitable when you wish to define your own custom `ContentView` to display the component.
 public struct CustomCategory<View: ContentView>: Classification {
     /// Name of the category
     public let name: String
@@ -19,10 +23,10 @@ public struct CustomCategory<View: ContentView>: Classification {
         CatalogDetailDestination<View>(navigationTitle: name, models: models)
     }
     
-    ///  Initializes a category
+    /// Initializes a custom category
     /// - Parameters:
-    ///   - name: name of the category
-    ///   - models: model for the components to be displayed
+    ///   - name: category name
+    ///   - models: information about the components to be displayed
     public init(name: String, models: [View.Model]) {
         self.name = name
         self.models = models

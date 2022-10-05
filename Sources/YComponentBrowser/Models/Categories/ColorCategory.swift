@@ -8,7 +8,7 @@ import Foundation
 
 /// Category for colours
 public struct ColorCategory: Classification {
-    ///  The type of View category supports
+    /// The type of View category supports
     public typealias View = CatalogDisplayView<ColorView>
     
     /// Name of the category
@@ -22,10 +22,10 @@ public struct ColorCategory: Classification {
         CatalogDetailDestination<View>(navigationTitle: name, models: models)
     }
     
-    ///  Initializes a category
+    /// Initializes a color category
     /// - Parameters:
-    ///   - name: name of the category
-    ///   - models: model for the components to be displayed
+    ///   - name: color category name
+    ///   - models: information about the colors to be displayed
     public init(name: String, models: [View.Model]) {
         self.name = name
         self.models = models

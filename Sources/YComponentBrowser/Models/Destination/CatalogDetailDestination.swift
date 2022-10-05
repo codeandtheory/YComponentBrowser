@@ -11,7 +11,7 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
     /// Presentation style of catalog destination view controller
     public var presentationStyle: Presentation = .detail
     
-    ///  Navigation title of the destination screen
+    /// Navigation title of the destination screen
     public let navigationTitle: String?
     
     /// Model of catalog destination view controller

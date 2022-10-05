@@ -8,7 +8,7 @@ import Foundation
 
 /// Category for fonts and text
 public struct FontCategory: Classification {
-    ///  The type of View category supports
+    /// The type of View category supports
     public typealias View = CatalogDisplayView<FontView>
     
     /// Name of the category
@@ -22,10 +22,10 @@ public struct FontCategory: Classification {
         CatalogDetailDestination<View>(navigationTitle: name, models: models)
     }
     
-    ///  Initializes a category
+    /// Initializes a font category
     /// - Parameters:
-    ///   - name: name of the category
-    ///   - models: model for the components to be displayed
+    ///   - name: font category name
+    ///   - models: information about the fonts to be displayed
     public init(name: String, models: [View.Model]) {
         self.name = name
         self.models = models
