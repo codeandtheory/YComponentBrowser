@@ -1,16 +1,23 @@
 ![Y—Component-Browser](https://user-images.githubusercontent.com/1037520/193869618-43383e11-d01f-4604-899d-6fbdb0d7dc3c.jpeg)
+_Easily extend any project to include an intelligent design component browser._
 
-A standalone component browser package that intelligently displays design components.
+Licensing
+----------
+Y—Component Browser is licensed under the [Apache 2.0 license](LICENSE).
 
+Documentation
+----------
+Documentation is automatically generated from source code comments and rendered as a static website hosted via GitHub Pages at:  https://yml-org.github.io/YComponentBrowser/
 
 ## Table of Contents
 * [Usage](#usage)
-     * [Icon Category](#icon-category)
-     * [Font Category](#font-category)
      * [Color Category](#color-category)
+     * [Font Category](#font-category)
+     * [Icon Category](#icon-category)
      * [Catalog Category](#catalog-category)
-     * [Custom Component Category](#custom-component-category)
-     * [Custom View Controller Category](#custom-view-controller-category)
+     * [Small Component Category](#small-component-category)
+     * [Medium Component Category](#medium-component-category)
+     * [Large Component Category](#large-component-category)
 * [Contributing to Y—Component-Browser](#contributing-to-ycomponent-browser)
      * [Versioning Stratergy](#versioning-strategy)
      * [Branching Stratergy](#branching-strategy)
@@ -18,220 +25,215 @@ A standalone component browser package that intelligently displays design compon
      * [Pull Requests](#pull-requests)
      * [Releasing New Versions](#releasing-new-versions)
 * [Requirements](#requirements)
-     * [Jazzy(documentation)](#jazzy-documentation)
+     * [SwiftLint (linter)](#swiftlint-linter)
+     * [Jazzy (documentation)](#jazzy-documentation)
 * [Setup](#setup)
 * [Generating Documentation (via Jazzy)](#generating-documentation-via-jazzy)
 
-
 Usage
 ----------
-The category is a collection of components utilized in a project that share common traits. A category with a number of subcategories can be created. By default, components are laid out in nested table views, with each component being represented by a single row. A CatalogDisplayView is used to display a component in a single row. It displays small components together with a title and optional subtitle text. This is used for icons, fonts, and colors, but also works well for smaller components such as buttons. It uses generics to display any view (together with an associated model). The framework includes some pre-defined categories for displaying common tasks: icons, colors, and fonts.
+A category is a collection of components that share common traits. A category may contain subcategories. By default, components are laid out in nested table views, with each component being represented by a single row. A `CatalogDisplayView` is used to display a component in a single row. It displays small components together with a title and optional detail description. This is used for icons, fonts, and colors, but also works well for smaller components such as buttons. By using generics, `CaralogDisplayView` can display any view (populated with an associated model). The framework includes pre-defined categories for displaying common components: colors, fonts, and icons.
 
 The catalog display view model has four parameters:
-* The title of the component
-* The model of the component
-* The description, an optional argument, is nil by default but allows the user to provide more information about the component if necessary.
-* A user may choose whether they want the title, description, and components to be shown vertically or horizontally using the axis attribute, which is an optional parameter and is horizontal by default.
 
-Using the custom category defined in the package, a bigger component, such as a card view, can be shown. These custom component may take up a full row by itself. For a components like a view controller, we may skip the table view controller and show the component on the full screen by defining a custom category and destination that comply with the Classification protocol and Destination protocol, respectively.
+* `title`: title
+* `detail`: detail description (optional), defaults to `nil`
+* `axis`: primary axis for the content view, defaults to `.horizontal`
+* `model`: model to populate the content view
 
+By using `CustomCategory`, a larger component, such as a card view, can be shown. Each custom component might occupy a full row by itself.
+
+For even larger components such as a view controller, we may skip the table view controller and display the component on a full screen by itself. This is accomplished by defining a custom category and destination that conform to the `Classification` and `Destination` protocols, respectively.
+
+### Color category
+We can display colors by declaring a `ColorCategory` object:
+```
+let category = ColorCategory(
+    name: "Easter",
+    models: [
+        .init(
+            title: "Purple",
+            detail: "HEX: #D9D7F1",
+            model: UIColor(red: 217/255, green: 215/255, blue: 241/255, alpha: 1)
+        ),
+        .init(
+            title: "Light Yellow",
+            detail: "HEX: #FFFDDE",
+            model: UIColor(red: 1, green: 253/255, blue: 222/255, alpha: 1)
+        )
+    ]
+)
+```  
+where you need to specify:
+
+* `name`: color category name
+* `models`: information about the colors to be displayed
+
+![Easter colors](https://user-images.githubusercontent.com/61827955/193548046-e5bfb718-1237-4558-bdbe-fbe99c889287.png)
+
+### Font Category
+We can display fonts by declaring a `FontCategory` object:
+```
+let category = FontCategory(
+    name: "TiemposHeadline Bold",
+    models: [
+        .init(
+            title: "Title 1",
+            model: FontView.Model(
+                font: UIFont(name: "TiemposHeadline-Bold", size: 36)!
+            )
+        ),
+        .init(
+            title: "Title 2",
+            model: FontView.Model(
+                font: UIFont(name: "TiemposHeadline-Bold", size: 26)!
+            )
+        )
+    ]
+)
+```  
+where you need to specify:
+
+* `name`: font category name
+* `models`: information about the fonts to be displayed
+
+![Tiempos Headline Bold fonts](https://user-images.githubusercontent.com/61827955/193548426-a1e98f0e-4bb1-434e-9d65-9b4e46f554ea.png)
 
 ### Icon Category
-For example, a user can create an icon category as follows:
-
- ```
- enum IconSample {
-    static var media: IconCategory {
-        IconCategory(
-            name: "Media",
-            models: [
-                .init(
-                    title: "Play",
-                    model: UIImage(systemName: "play.fill") ?? UIImage()
-                )
-            ]
+We can display icons by declaring an `IconCategory` object:
+```
+let category = IconCategory(
+    name: "Media",
+    models: [
+        .init(
+            title: "Play",
+            model: UIImage(systemName: "play.fill")!
+        ),
+        .init(
+            title: "Pause",
+            model: UIImage(systemName: "pause.fill")!
         )
-    }
-}
+    ]
+)
+```  
+where you need to specify:
 
- ```               
-where the user needs to provide the following parameters:
-* The name of the category.
-* Model for the image to be displayed
-     
-![mediaIcon](https://user-images.githubusercontent.com/61827955/193548051-8da7a620-899b-4f5f-97c0-c998028946bc.png)
+* `name`: icon category name
+* `models`: information about the icons to be displayed
 
-  
- ### Font Category    
- a user can create a font category as follows:
- ```
-enum FontSample {
-    static var tiemposHeadlineBold: FontCategory {
-        FontCategory(
-            name: "TiemposHeadline Bold",
-            models: [
-                .init(
-                    title: "Title 1",
-                    model: FontView.Model(
-                        font: UIFont(name: "TiemposHeadline-Bold", size: 36) ?? UIFont()
-                    )
-                )
-            ]
-        )
-    }
-}
-
-``` 
-where the user needs to provide the following parameters:
-* The name of the category.
-* Model for the font to be displayed
-  
- ![font](https://user-images.githubusercontent.com/61827955/193548426-a1e98f0e-4bb1-434e-9d65-9b4e46f554ea.png)
-  
-  
- ### Color category
- a user can create a color category as follows:
- ```
-enum ColorSample {
-    static var category: ColorCategory {
-        ColorCategory(
-            name: "Easter",
-            models: [
-                .init(
-                    title: "Purple",
-                    detail: "HEX: #D9D7F1",
-                    model: UIColor(red: 217/255, green: 215/255, blue: 241/255, alpha: 1)
-                )
-            ]
-        )
-    }
-}
-
- ```  
-where the user needs to provide the following parameters:
-* The name of the category.
-* Model for the view to be displayed
-
-![EasterColor](https://user-images.githubusercontent.com/61827955/193548046-e5bfb718-1237-4558-bdbe-fbe99c889287.png)
-
+![Media icons](https://user-images.githubusercontent.com/61827955/193548051-8da7a620-899b-4f5f-97c0-c998028946bc.png)
 
 ### Catalog Category
-We can create a category which contains other categories.
+We can display nested subcategories by declaring a `CatalogCategory` object:
 ```
- let foundationalCategory = CatalogCategory(
-            name: "Foundational",
-            subcategories: [
-                ColorSample.category,
-                IconSample.category,
-                FontSample.category
-            ]
-        )
-  ```
- where the user needs to provide the following parameters:
-* The name of the category.
-* Array of subcategories.
+let category = CatalogCategory(
+    name: "Foundational",
+    subcategories: [
+        ColorSample.category,
+        IconSample.category,
+        FontSample.category
+    ]
+)
+```  
+where you need to specify:
 
+* `name`: category name
+* `subcategories`: array of subcategories
 
 ![category](https://user-images.githubusercontent.com/61827955/193548041-f4641d5f-44e2-40a2-9955-f69c195eec16.png)
 
+### Small Component Category
+We can display small custom components (such as buttons) by declaring a `CustomCategory` object that leverages `CatalogDisplayView`:
+```
+let category = CustomCategory<CatalogDisplayView<DemoButton>>(
+    name: "Demo Button",
+    models: [
+        .init(
+            title: "Login",
+            model: .init(
+                backgroundColor: .systemBlue,
+                title: "Login",
+                titleColor: .white
+            )
+        ),
+        .init(
+            title: "Logout",
+            model: .init(
+                backgroundColor: .systemRed,
+                cornerRadius: 25,
+                title: "Logout",
+                titleColor: .white
+            )
+        ),
+    ]
+)
+```  
+where you need to specify:
 
-### Custom Component Category
-Suppose a user wants to display a button named DemoButton from their project.
-```
-enum DemoButtonSample {
-    static var demoButtonCategory: CustomCategory<CatalogDisplayView<DemoButton>> {
-        CustomCategory<CatalogDisplayView<DemoButton>>(
-            name: "Demo Button",
-            models: [
-                CatalogDisplayView<DemoButton>.Model(
-                    title: "Login",
-                    model: DemoButtonModel(
-                        backgroundColor: .systemBlue,
-                        title: "Login",
-                        titleColor: .white
-                    )
-                )
-            ]
-        )
-    }
-}
-```
- where the user needs to provide the following parameters:
- * name for the category.
- * model needed to initialise the button.
- 
+* `name`: category name
+* `models`: information about the components to be displayed (in this case buttons)
 
 ![demoButton](https://user-images.githubusercontent.com/61827955/193549940-a8aa876f-4ff7-4bff-9f70-b320e2d798fe.png)
- 
- ### Custom View Category
- We can display a custom view within the catalog.
- Suppose a user wants to display a custom view named DemoView from their project.
- ```
- enum DemoViewSample {
-    static var demoViewCategory: CustomCategory<DemoView> {
-        CustomCategory<DemoView>(
-            name: "Demo View",
-            models: [
-                DemoViewModel(
-                    title: "Grocery List",
-                    description: "1) apples\n 2) sugar\n 3) coffee\n 4)snacks",
-                    backgroundColor: .systemYellow
-                )
-            ]
+
+### Medium Component Category
+We can display medium-sized custom components (such as a card or a note) by declaring a `CustomCategory` object that directly uses the view to be displayed:
+```
+let category = CustomCategory<NoteView>(
+    name: "Demo View",
+    models: [
+        NoteView.Model(
+            title: "Grocery List",
+            body: "1) apples\n 2) sugar\n 3) coffee\n 4)snacks",
+            backgroundColor: .systemYellow
+        ),
+        NoteView.Model(
+            title: "Todo List",
+            body: ""1)Buy Grocery\n 2)Prepare meal\n 3) Call a friend\n "",
+            backgroundColor: .systemYellow
         )
-    }
-}
- ```
- where the user needs to provide the following parameters:
- * name for the category.
- * model needed to initialise the custom view.
+    ]
+)
+```  
+where you need to specify:
+
+* `name`: category name
+* `models`: information about the components to be displayed (in this case notes)
 
 ![customView](https://user-images.githubusercontent.com/61827955/193548024-46fb42b4-0244-45ee-89db-67526d7c080b.png)
 
+### Large Component Category
+In order to display large custom components (including full-screen views and even view controllers), we need to:
 
-### Custom View Controller category
-We can display view controllers in the catalog
-1. First create a custom destination that returns the view controller 
- ```
- struct CarouselDestination: Destination {
-    var navigationTitle: String?
+1. Create a custom destination that returns a view controller to be presented. If your component is not a view controller, this would be a view controller that contains your component.
+```
+struct CarouselDestination: Destination {
+    let navigationTitle: String?
     
-    var presentationStyle: Presentation = .detail
+    let presentationStyle: Presentation = .detail
     
     func getDestinationController() -> UIViewController {
-        return CarouselDemoViewController(navigationTitle: navigationTitle ?? "")
-    }
-    
-    init(presentationStyle: Presentation = .detail, navigationTitle: String) {
-        self.presentationStyle = presentationStyle
-        self.navigationTitle = navigationTitle
+        CarouselDemoViewController(navigationTitle: navigationTitle)
     }
 }
 ```
+
 2. Create a custom category for that particular view controller
-```
+```  
 struct CarouselCategory: Classification {
     let name: String
     
     var destination: Destination {
         CarouselDestination(navigationTitle: name)
     }
-    
-    init(name: String) {
-        self.name = name
-    }
 }
 ```
- 3. Create instance of the category 
- ```
- enum CarouselSample {
-    static var category: CarouselCategory {
-        CarouselCategory(name: "Carousel Demo View Controller")
-    }
-}
-```
-![carouselViewController](https://user-images.githubusercontent.com/61827955/193548020-4b272329-e0e9-4d96-a3f4-f99f8ef751e8.png)
 
+3. Declare an instance of the category 
+```
+let category = CarouselCategory(name: "Carousel Demo View Controller")
+```
+
+![carouselViewController](https://user-images.githubusercontent.com/61827955/193548020-4b272329-e0e9-4d96-a3f4-f99f8ef751e8.png)
 
 Contributing to Y—Component-Browser
 ----------
@@ -301,6 +303,11 @@ When merging a pull request:
 
 Requirements
 ----------
+
+#### SwiftLint (linter)
+```
+brew install swiftlint
+```
 
 ### Jazzy (documentation)
 ```

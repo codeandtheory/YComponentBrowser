@@ -8,7 +8,7 @@ import Foundation
 
 /// Represents anything that can be selected
 public protocol Selectable {
-    ///  Used to set isSelected for the given UI component
-    /// - Parameter isSelected: Bool indicating if UI component is selected
+    /// Selects the given UI component
+    /// - Parameter isSelected: whether the UI component is selected
     func setSelected(_ isSelected: Bool)
 }

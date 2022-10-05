@@ -8,12 +8,12 @@ import UIKit
 
 /// Catalog factory to encapsulate the creation logic of catalog and controllers
 public enum CatalogFactory {
-    ///  Types of generic display ViewController
+    /// Display type
     public enum DisplayType {
-        /// TableViewController
+        /// Table view
         case table
         
-        /// CollectionViewController
+        /// Collection view
         case collection(UICollectionViewLayout)
     }
     
