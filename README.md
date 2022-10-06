@@ -1,5 +1,5 @@
 ![Y—Component-Browser](https://user-images.githubusercontent.com/1037520/193869618-43383e11-d01f-4604-899d-6fbdb0d7dc3c.jpeg)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2FYComponentBrowser%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/yml-org/YComponentBrowser) [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2FYComponentBrowser%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/yml-org/YComponentBrowser)  
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2FYComponentBrowser%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/yml-org/YComponentBrowser)   [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fyml-org%2FYComponentBrowser%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/yml-org/YComponentBrowser)  
 _Easily extend any project to include an intelligent design component browser._
 
 Licensing
