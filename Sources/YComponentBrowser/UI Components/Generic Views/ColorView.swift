@@ -25,15 +25,30 @@ final public class ColorView: UIView {
 
     /// :nodoc:
     public required init?(coder: NSCoder) { nil }
-    
+
+    /// :nodoc:
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            setBorderColor()
+        }
+    }
+}
+
+private extension ColorView {
     private func setUpColorView() {
         clipsToBounds = true
         layer.cornerRadius = Style.cornerRadius
-
+        layer.borderWidth = Style.borderWidth
+        setBorderColor()
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalToConstant: Style.size.width),
             heightAnchor.constraint(equalToConstant: Style.size.height)
         ])
+    }
+
+    private func setBorderColor() {
+        layer.borderColor = UIColor.quaternaryLabel.cgColor
     }
 }
 

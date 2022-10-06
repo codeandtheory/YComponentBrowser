@@ -34,7 +34,7 @@ Documentation is automatically generated from source code comments and rendered 
 
 Usage
 ----------
-A category is a collection of components that share common traits. A category may contain subcategories. By default, components are laid out in nested table views, with each component being represented by a single row. A `CatalogDisplayView` is used to display a component in a single row. It displays small components together with a title and optional detail description. This is used for icons, fonts, and colors, but also works well for smaller components such as buttons. By using generics, `CaralogDisplayView` can display any view (populated with an associated model). The framework includes pre-defined categories for displaying common components: colors, fonts, and icons.
+A category is a collection of components that share common traits. A category may contain subcategories. By default, components are laid out in nested table views, with each component being represented by a single row. A `CatalogDisplayView` is used to display a component in a single row. It displays small components together with a title and optional detail description. This is used for icons, fonts, and colors, but also works well for smaller components such as buttons. By using generics, `CatalogDisplayView` can display any view (populated with an associated model). The framework includes pre-defined categories for displaying common components: colors, fonts, and icons.
 
 The catalog display view model has four parameters:
 
