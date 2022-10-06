@@ -6,7 +6,7 @@
 
 import Foundation
 
-/// Category for colours
+/// Category for colors
 public struct ColorCategory: Classification {
     /// The type of View category supports
     public typealias View = CatalogDisplayView<ColorView>
