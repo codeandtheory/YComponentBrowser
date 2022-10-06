@@ -1,6 +1,8 @@
 ![Y—Component-Browser](https://user-images.githubusercontent.com/1037520/193869618-43383e11-d01f-4604-899d-6fbdb0d7dc3c.jpeg)
 _Easily extend any project to include an intelligent design component browser._
 
+<img src="https://user-images.githubusercontent.com/1037520/194286091-50f70e8b-940e-47de-ba87-1484121047db.gif" width="414" />
+
 Licensing
 ----------
 Y—Component Browser is licensed under the [Apache 2.0 license](LICENSE).
