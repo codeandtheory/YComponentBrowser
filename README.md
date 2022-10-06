@@ -5,6 +5,8 @@ Licensing
 ----------
 Y—Component Browser is licensed under the [Apache 2.0 license](LICENSE).
 
+<img src="https://user-images.githubusercontent.com/1037520/194286091-50f70e8b-940e-47de-ba87-1484121047db.gif" width="414" />
+
 Documentation
 ----------
 Documentation is automatically generated from source code comments and rendered as a static website hosted via GitHub Pages at:  https://yml-org.github.io/YComponentBrowser/
