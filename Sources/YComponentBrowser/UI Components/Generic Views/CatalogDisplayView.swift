@@ -51,9 +51,9 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
         static func margin(for edge: Edge) -> CGFloat {
             switch edge {
             case .leading, .top:
-                return 10
+                return 16
             case .trailing, .bottom:
-                return -10
+                return -16
             }
         }
     }
@@ -66,7 +66,7 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
 
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = UIColor.label
 
         return label
@@ -126,6 +126,9 @@ final public class CatalogDisplayView<View: ContentView>: UIView {
 
         outerStackView.addArrangedSubview(innerStackView)
         outerStackView.addArrangedSubview(displayView)
+        
+        innerStackView.spacing = 4
+        outerStackView.spacing = 8
 
         self.addSubview(outerStackView)
         
