@@ -32,10 +32,3 @@ jobs:
     - name: Run tests iOS
       run: |
           xcodebuild -scheme YComponentBrowser -sdk iphonesimulator16.0 -destination 'platform=iOS Simulator,name=iPhone 14' test-without-building
-    - name: Build tvOS
-      run:  |
-          xcodebuild -scheme YComponentBrowser -sdk appletvsimulator16.0 -destination 'platform=tvOS Simulator,name=Apple TV 4K (2nd generation)' build-for-testing
-          
-    - name: Run tests tvOS
-      run: |
-          xcodebuild -scheme YComponentBrowser -sdk appletvsimulator16.0 -destination 'platform=tvOS Simulator,name=Apple TV 4K (2nd generation)' test-without-building
