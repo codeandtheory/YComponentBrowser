@@ -39,7 +39,7 @@ public final class GenericCollectionViewCell<View: ContentView>: UICollectionVie
     }
     
     /// :nodoc:
-    public required init?(coder: NSCoder) { return nil }
+    public required init?(coder: NSCoder) { nil }
     
     /// :nodoc:
     public override func prepareForReuse() {

@@ -19,7 +19,7 @@ public struct CatalogDetailDestination<View: ContentView>: Destination {
     
     /// Creates a tableview controller that displays the model data within the specified view
     public func getDestinationController() -> UIViewController {
-        return CatalogFactory.createGenericDisplayViewController(
+        CatalogFactory.createGenericDisplayViewController(
             viewType: View.self,
             models: models,
             navigationTitle: navigationTitle

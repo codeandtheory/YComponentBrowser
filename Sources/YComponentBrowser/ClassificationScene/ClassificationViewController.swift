@@ -21,7 +21,7 @@ public final class ClassificationViewController<DataSource: CatalogDataSource>: 
     }
     
     /// :nodoc:
-    public required init?(coder: NSCoder) { return nil }
+    public required init?(coder: NSCoder) { nil }
     
     /// :nodoc:
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

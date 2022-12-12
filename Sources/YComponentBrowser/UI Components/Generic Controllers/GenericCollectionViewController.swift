@@ -37,7 +37,7 @@ final public class GenericCollectionViewController<View: ContentView>: UICollect
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return models.count
+        models.count
     }
     
     /// :nodoc:

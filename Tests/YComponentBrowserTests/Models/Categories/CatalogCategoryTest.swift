@@ -36,9 +36,7 @@ class Demo: Classification {
 }
 
 class Demodestination: Destination {
-    func getDestinationController() -> UIViewController {
-        return controller
-    }
+    func getDestinationController() -> UIViewController { controller }
     
     var presentationStyle: Presentation
     var navigationTitle: String?
