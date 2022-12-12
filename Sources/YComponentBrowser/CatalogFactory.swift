@@ -45,7 +45,7 @@ public enum CatalogFactory {
         with categories: [Classification],
         navigationTitle: String? = nil
     ) -> UIViewController {
-        return ClassificationViewController(
+        ClassificationViewController(
             datasource: ClassificationDataSource(
                 navigationTitle: navigationTitle,
                 classification: categories

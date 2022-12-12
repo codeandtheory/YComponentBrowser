@@ -21,9 +21,7 @@ public final class GenericTableViewCell<View: ContentView>: UITableViewCell, Ide
     }
     
     /// :nodoc:
-    public required init?(coder: NSCoder) {
-        return nil
-    }
+    public required init?(coder: NSCoder) { nil }
     
     /// :nodoc:
     public override func setHighlighted(_ highlighted: Bool, animated: Bool) {

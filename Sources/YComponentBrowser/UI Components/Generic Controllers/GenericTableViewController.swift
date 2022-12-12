@@ -28,7 +28,7 @@ final public class GenericTableViewController<View: ContentView>: UITableViewCon
     
     /// :nodoc:
     public override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        models.count
     }
     
     /// :nodoc:

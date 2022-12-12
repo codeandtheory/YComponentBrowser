@@ -34,12 +34,12 @@ public final class ClassificationDataSource: NSObject, CatalogDataSource {
     
     /// :nodoc:
     public func category(for indexPath: IndexPath) -> Classification {
-        return categories[indexPath.row]
+        categories[indexPath.row]
     }
     
     /// :nodoc:
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        categories.count
     }
     
     /// :nodoc:

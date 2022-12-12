@@ -19,6 +19,6 @@ public struct SubcategoryDetailDestination: Destination {
     
     /// Creates a subcategory view controller
     public func getDestinationController() -> UIViewController {
-        return CatalogFactory.createClassificationViewController(with: subcategories, navigationTitle: navigationTitle)
+        CatalogFactory.createClassificationViewController(with: subcategories, navigationTitle: navigationTitle)
     }
 }

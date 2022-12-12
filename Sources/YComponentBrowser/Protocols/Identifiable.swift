@@ -15,5 +15,5 @@ public protocol Identifiable {
 /// Default implementation that returns the object type as the identifier
 public extension Identifiable {
     /// Unique identifier for the type of object
-    static var identifier: String { return "\(self)" }
+    static var identifier: String { "\(self)" }
 }
